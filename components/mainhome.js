@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
-import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
 
 
@@ -20,7 +20,3 @@ export default class MainHome extends Component {
     }
 
 }
-MainHome.propTypes = {
-  description: PropTypes.string.isRequired,
-  onForward: PropTypes.func.isRequired,
-};

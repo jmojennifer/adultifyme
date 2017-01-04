@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Image
       style={styles.logoStyle}
-      source={require('../Images/PlaceholderLogo.jpg')}
+      source={require('../images/PlaceholderLogo.jpg')}
     />
   );
 };

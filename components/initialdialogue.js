@@ -8,9 +8,9 @@ const InitialDialogue = () => {
   return (
     <View>
     <View>
-      <Text>{"Hi!"}</Text>
-      <Text>{"Adulting is hard. I get it."}</Text>
-      <Text>{"Let's try to make it a bit easier"}</Text>
+      <Text>Hi!</Text>
+      <Text>Adulting is hard. I get it.</Text>
+      <Text>{'Let\'s try to make it a bit easier'}</Text>
     </View>
     <Button
       onPress={() => {

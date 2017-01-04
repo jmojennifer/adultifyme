@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 
 
 
-export default class MainHome extends Component {
+export default class Main extends Component {
   static get defaultProps() {
     return {
       description: 'Adultify Me'

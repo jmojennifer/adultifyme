@@ -16,7 +16,7 @@ export default class InitialDialogue extends Component {
       </View>
       <Button
         onPress={() => {
-          Actions.mainHome();
+          Actions.main();
         }}
       >
       Next

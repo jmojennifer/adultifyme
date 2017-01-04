@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Main = () => {
+const MainScreen = () => {
   return (
     <View>
       <Text>Main Home Page</Text>
@@ -10,4 +10,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainScreen;

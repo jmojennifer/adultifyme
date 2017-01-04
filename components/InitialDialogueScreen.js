@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 
-const InitialDialogue = () => {
+const InitialDialogueScreen = () => {
   return (
     <View>
     <View>
@@ -14,7 +14,7 @@ const InitialDialogue = () => {
     </View>
     <Button
       onPress={() => {
-        Actions.main();
+        Actions.mainScreen();
       }}
     >
     Next
@@ -23,4 +23,4 @@ const InitialDialogue = () => {
   );
 };
 
-export default InitialDialogue;
+export default InitialDialogueScreen;

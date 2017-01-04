@@ -1,16 +1,16 @@
 /*jshint esversion: 6 */
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import Launcher from '../components/Launcher.js';
-import InitialDialogue from '../components/InitialDialogue.js';
-import Main from '../components/Main.js';
+import LauncherScreen from '../components/LauncherScreen.js';
+import InitialDialogueScreen from '../components/InitialDialogueScreen.js';
+import MainScreen from '../components/MainScreen.js';
 
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="launcher" component={Launcher} title="Welcome!" initial />
-      <Scene key="initialDialogue" component={InitialDialogue} title="Welcome!"/>
-      <Scene key="main" component={Main} title="Adultify Me"/>
+      <Scene key="launcherScreen" component={LauncherScreen} title="Welcome!" initial />
+      <Scene key="initialDialogueScreen" component={InitialDialogueScreen} title="Welcome!" />
+      <Scene key="mainScreen" component={MainScreen} title="Adultify Me" />
     </Router>
   );
 };

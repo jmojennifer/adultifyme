@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 
-const Launcher = () => {
+const LauncherScreen = () => {
   return (
     <View>
     <View>
@@ -12,7 +12,7 @@ const Launcher = () => {
     </View>
       <Button
         onPress={() => {
-          Actions.initialDialogue();
+          Actions.initialDialogueScreen();
         }}
       >
       Next
@@ -21,4 +21,4 @@ const Launcher = () => {
   );
 };
 
-export default Launcher;
+export default LauncherScreen;

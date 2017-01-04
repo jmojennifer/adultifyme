@@ -2,12 +2,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const MainScreen = () => {
+const AppHeader = () => {
   return (
     <View>
-      <Text>Main Home Page</Text>
+      
+      <Text>Header Goes Here</Text>
     </View>
   );
 };
 
-export default MainScreen;
+export default AppHeader;

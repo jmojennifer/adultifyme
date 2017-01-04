@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import LauncherScreen from '../components/LauncherScreen.js';
-import InitialDialogueScreen from '../components/InitialDialogueScreen.js';
-import MainScreen from '../components/MainScreen.js';
+import LauncherScreen from './components/LauncherScreen.js';
+import InitialDialogueScreen from './components/InitialDialogueScreen.js';
+import MainScreen from './components/MainScreen.js';
 
 const RouterComponent = () => {
   return (

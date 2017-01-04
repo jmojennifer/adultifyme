@@ -1,22 +1,13 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 
+const Main = () => {
+  return (
+    <View>
+      <Text>Main Home Page</Text>
+    </View>
+  );
+};
 
-
-export default class Main extends Component {
-  static get defaultProps() {
-    return {
-      description: 'Adultify Me'
-    };
-  }
-
-    render() {
-      return (
-        <View>
-          <Text>Main Home Page</Text>
-        </View>
-      )
-    }
-
-}
+export default Main;

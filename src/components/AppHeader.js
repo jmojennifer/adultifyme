@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import Logo from './Logo';
 import Star from './Star';
+import DrawerMenu from './DrawerMenu';
 
 const AppHeader = () => {
   return (
@@ -10,13 +11,11 @@ const AppHeader = () => {
       <View>
         <Logo />
       </View>
-      <View style={styles.starMenuStyle}>
-        <View>
-          <Star />
-        </View>
-        <View>
-          <Star />
-        </View>
+      <View>
+        <Star />
+      </View>
+      <View>
+        <DrawerMenu />
       </View>
     </View>
   );
@@ -30,7 +29,7 @@ const styles = {
   },
   starMenuStyle: {
     alignItems: 'flex-start',
-    justifyContent: 'flex-end'
+    justifyContent: 'space-around'
   }
 };
 

@@ -14,7 +14,7 @@ const InitialDialogueScreen = () => {
     </View>
     <Button
       onPress={() => {
-        Actions.mainScreen();
+        Actions.main();
       }}
     >
     Next

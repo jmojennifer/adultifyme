@@ -37,9 +37,9 @@ class TaskCreateScreen extends Component {
         </CardSection>
 
         <CardSection>
-          <Text style={{ fontSize: 18, marginLeft: 20, marginTop: 10 }}>Category</Text>
+          <Text style={styles.pickerTextStyle}>Category</Text>
           <Picker
-            style={{ flex: 1, marginHorizontal: 25 }}
+            style={styles.pickerStyle}
             selectedValue={this.props.category}
             onValueChange={selection => this.props.taskCreate({ prop: 'category', value: selection })}
           >
@@ -79,6 +79,18 @@ class TaskCreateScreen extends Component {
         </CardSection>
       </Card>
     );
+  }
+}
+
+const styles = {
+  pickerTextStyle: {
+    fontSize: 18,
+    marginLeft: 20,
+    marginTop: 10
+  },
+  pickerStyle: {
+    flex: 1,
+    marginHorizontal: 25
   }
 }
 

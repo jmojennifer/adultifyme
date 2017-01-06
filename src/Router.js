@@ -12,15 +12,15 @@ import AppSettingsScreen from './components/AppSettingsScreen.js';
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="welcomeFlow">
-        <Scene key="launcherScreen" component={LauncherScreen} title="Welcome!" />
-
+      <Scene key="launch">
+        <Scene key="launcherScreen" component={LauncherScreen} title="Welcome!" initial />
+      </Scene>
+      <Scene key="initialDialogue">
         <Scene key="initialDialogueScreen" component={InitialDialogueScreen} title="Welcome!" />
       </Scene>
       <Scene key="main">
         <Scene
         key="mainScreen" component={MainScreen} title="Adultify Me"
-        initial
         />
       </Scene>
 

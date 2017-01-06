@@ -12,7 +12,7 @@ const LauncherScreen = () => {
     </View>
       <Button
         onPress={() => {
-          Actions.initialDialogueScreen();
+          Actions.initialDialogue();
         }}
       >
       Next

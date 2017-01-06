@@ -23,7 +23,7 @@ const AppHeader = () => {
     </View>
     <View style={styles.row2AppHeaderStyle}>
       <View>
-        <Text>Tasks</Text>
+        <Text style={{ fontSize: 20 }}>Tasks</Text>
       </View>
       <View>
         <Button

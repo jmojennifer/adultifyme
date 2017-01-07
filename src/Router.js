@@ -12,7 +12,7 @@ import AppSettingsScreen from './components/AppSettingsScreen.js';
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="launch">
+      <Scene key="auth">
         <Scene key="launcherScreen" component={LauncherScreen} title="Welcome!" initial />
       </Scene>
       <Scene key="initialDialogue">

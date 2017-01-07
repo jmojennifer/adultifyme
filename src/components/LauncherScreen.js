@@ -1,24 +1,24 @@
 /*jshint esversion: 6 */
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import Button from 'react-native-button';
+import LoginForm from './LoginForm';
 
 const LauncherScreen = () => {
   return (
     <View>
     <View>
-      <Text>Adultify Me</Text>
+      <Text style={styles.textStyle}>Adultify Me</Text>
     </View>
-      <Button
-        onPress={() => {
-          Actions.initialDialogue();
-        }}
-      >
-      Next
-     </Button>
+      <LoginForm />
     </View>
   );
+};
+
+const styles = {
+  textStyle: {
+    fontSize: 18,
+    alignSelf: 'center'
+  }
 };
 
 export default LauncherScreen;

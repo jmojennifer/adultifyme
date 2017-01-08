@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import { Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { taskCreate } from '../actions';
+import { taskUpdate, taskCreate } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class TaskCreateScreen extends Component {
+  onButtonPress() {
+    const { title, description, personal_motivation, category, due_date, time_due } = this.props;
+
+    // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
+    // if the picker stays on Monday it will be falsy || 'Finance';
+    // 'Finance' will be set as the new category state
+    this.props.taskCreate({
+      title,
+      description,
+      personal_motivation,
+      category: category || 'Finance',
+      due_date,
+      time_due
+    });
+  }
+
   render() {
     return (
       <Card>
@@ -13,7 +29,7 @@ class TaskCreateScreen extends Component {
             label="Title"
             placeholder="i.e. Take Vitamin C"
             value={this.props.title}
-            onChangeText={text => this.props.taskCreate({ prop: 'title', value: text })
+            onChangeText={text => this.props.taskUpdate({ prop: 'title', value: text })
             }
           />
         </CardSection>
@@ -23,7 +39,7 @@ class TaskCreateScreen extends Component {
             label="Description"
             placeholder="Take 2 pills each evening with a full glass of water"
             value={this.props.description}
-            onChangeText={text => this.props.taskCreate({ prop: 'description', value: text })}
+            onChangeText={text => this.props.taskUpdate({ prop: 'description', value: text })}
           />
         </CardSection>
 
@@ -32,7 +48,7 @@ class TaskCreateScreen extends Component {
             label="Personal Motivation"
             placeholder="i.e. Let's not get sick!"
             value={this.props.personal_motivation}
-            onChangeText={text => this.props.taskCreate({ prop: 'personal_motivation', value: text })}
+            onChangeText={text => this.props.taskUpdate({ prop: 'personal_motivation', value: text })}
           />
         </CardSection>
 
@@ -41,7 +57,7 @@ class TaskCreateScreen extends Component {
           <Picker
             style={styles.pickerStyle}
             selectedValue={this.props.category}
-            onValueChange={selection => this.props.taskCreate({ prop: 'category', value: selection })}
+            onValueChange={selection => this.props.taskUpdate({ prop: 'category', value: selection })}
           >
             <Picker.Item label="Finance" value="Finance" />
             <Picker.Item label="Health/Medical" value="Health/Medical" />
@@ -59,7 +75,7 @@ class TaskCreateScreen extends Component {
             label="Due Date"
             placeholder="i.e. 1/27/2017"
             value={this.props.due_date}
-            onChangeText={text => this.props.taskCreate({ prop: 'due_date', value: text })}
+            onChangeText={text => this.props.taskUpdate({ prop: 'due_date', value: text })}
           />
         </CardSection>
 
@@ -68,12 +84,12 @@ class TaskCreateScreen extends Component {
             label="Time Due"
             placeholder="5:00PM"
             value={this.props.time_due}
-            onChangeText={text => this.props.taskCreate({ prop: 'time_due', value: text })}
+            onChangeText={text => this.props.taskUpdate({ prop: 'time_due', value: text })}
           />
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
         </CardSection>
@@ -92,7 +108,7 @@ const styles = {
     flex: 1,
     marginHorizontal: 25
   }
-}
+};
 
 const mapStateToProps = (state) => {
   const { title, description, personal_motivation, category, due_date, time_due } = state.taskForm;
@@ -100,4 +116,4 @@ const mapStateToProps = (state) => {
   return { title, description, personal_motivation, category, due_date, time_due };
 };
 
-export default connect(mapStateToProps, { taskCreate })(TaskCreateScreen);
+export default connect(mapStateToProps, { taskUpdate, taskCreate })(TaskCreateScreen);

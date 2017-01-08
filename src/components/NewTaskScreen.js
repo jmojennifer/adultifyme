@@ -110,6 +110,7 @@ const styles = {
   }
 };
 
+
 const mapStateToProps = (state) => {
   const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
 

@@ -3,10 +3,10 @@ import { TASK_UPDATE, TASK_CREATE } from '../actions/types';
 const INITIAL_STATE = {
   title: '',
   description: '',
-  personal_motivation: '',
+  personalMotivation: '',
   category: '',
-  due_date: '',
-  time_due: ''
+  dueDate: '',
+  timeDue: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

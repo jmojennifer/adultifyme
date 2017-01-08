@@ -12,16 +12,16 @@ export const taskUpdate = ({ prop, value }) => {
 export const taskCreate = ({
   title,
   description,
-  personal_motivation,
+  personalMotivation,
   category,
-  due_date,
-  time_due
+  dueDate,
+  timeDue
 }) => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
-      .push({ title, description, personal_motivation, category, due_date, time_due })
+      .push({ title, description, personalMotivation, category, dueDate, timeDue })
       .then(() => {
         dispatch({ type: TASK_CREATE });
         Actions.main({ type: 'reset' });

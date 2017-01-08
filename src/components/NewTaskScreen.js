@@ -6,7 +6,7 @@ import { Card, CardSection, Input, Button } from './common';
 
 class TaskCreateScreen extends Component {
   onButtonPress() {
-    const { title, description, personal_motivation, category, due_date, time_due } = this.props;
+    const { title, description, personalMotivation, category, dueDate, timeDue } = this.props;
 
     // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
     // if the picker stays on Monday it will be falsy || 'Finance';
@@ -14,10 +14,10 @@ class TaskCreateScreen extends Component {
     this.props.taskCreate({
       title,
       description,
-      personal_motivation,
+      personalMotivation,
       category: category || 'Finance',
-      due_date,
-      time_due
+      dueDate,
+      timeDue
     });
   }
 
@@ -47,8 +47,8 @@ class TaskCreateScreen extends Component {
           <Input
             label="Personal Motivation"
             placeholder="i.e. Let's not get sick!"
-            value={this.props.personal_motivation}
-            onChangeText={text => this.props.taskUpdate({ prop: 'personal_motivation', value: text })}
+            value={this.props.personalMotivation}
+            onChangeText={text => this.props.taskUpdate({ prop: 'personalMotivation', value: text })}
           />
         </CardSection>
 
@@ -74,8 +74,8 @@ class TaskCreateScreen extends Component {
           <Input
             label="Due Date"
             placeholder="i.e. 1/27/2017"
-            value={this.props.due_date}
-            onChangeText={text => this.props.taskUpdate({ prop: 'due_date', value: text })}
+            value={this.props.dueDate}
+            onChangeText={text => this.props.taskUpdate({ prop: 'dueDate', value: text })}
           />
         </CardSection>
 
@@ -83,8 +83,8 @@ class TaskCreateScreen extends Component {
           <Input
             label="Time Due"
             placeholder="5:00PM"
-            value={this.props.time_due}
-            onChangeText={text => this.props.taskUpdate({ prop: 'time_due', value: text })}
+            value={this.props.timeDue}
+            onChangeText={text => this.props.taskUpdate({ prop: 'timeDue', value: text })}
           />
         </CardSection>
 
@@ -111,9 +111,9 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { title, description, personal_motivation, category, due_date, time_due } = state.taskForm;
+  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
 
-  return { title, description, personal_motivation, category, due_date, time_due };
+  return { title, description, personalMotivation, category, dueDate, timeDue };
 };
 
 export default connect(mapStateToProps, { taskUpdate, taskCreate })(TaskCreateScreen);

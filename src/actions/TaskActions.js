@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
-import { TASK_UPDATE, TASK_CREATE } from './types';
+import { TASK_UPDATE, TASK_CREATE, TASKS_FETCH_SUCCESS } from './types';
 
 export const taskUpdate = ({ prop, value }) => {
   return {
@@ -25,6 +25,17 @@ export const taskCreate = ({
       .then(() => {
         dispatch({ type: TASK_CREATE });
         Actions.main({ type: 'reset' });
+      });
+  };
+};
+
+export const tasksFetch = () => {
+  const { currentUser } = firebase.auth();
+
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/tasks`)
+      .on('value', snapshot => {
+        dispatch({ type: TASKS_FETCH_SUCCESS, payload: snapshot.val() });
       });
   };
 };

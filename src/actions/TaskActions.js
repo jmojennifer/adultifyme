@@ -1,3 +1,5 @@
+import Notification from 'react-native-system-notification';
+import { Platform } from 'react-native';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import {
@@ -28,6 +30,9 @@ export const taskCreate = ({
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
       .push({ title, description, personalMotivation, category, dueDate, timeDue })
       .then(() => {
+        if (Platform.OS === 'android') {
+          Notification.create({ subject: 'Hey', message: 'Yo! Hello world.' });
+        }
         dispatch({ type: TASK_CREATE });
         Actions.main({ type: 'reset' });
       });

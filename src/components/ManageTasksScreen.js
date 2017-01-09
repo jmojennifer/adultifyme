@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
+import EditTaskList from './EditTaskList';
 
 const MainScreen = () => {
   return (
@@ -10,11 +11,14 @@ const MainScreen = () => {
       <View>
         <Button
           onPress={() => {
-            Actions.newTaskScreen();
+            Actions.taskCreateScreen();
           }}
         >
         New Task
         </Button>
+      </View>
+      <View>
+        <EditTaskList />
       </View>
     </View>
   );

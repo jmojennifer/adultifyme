@@ -81,7 +81,8 @@ const styles = {
     color: 'red'
   },
   textStyle: {
-    fontSize: 15
+    fontSize: 15,
+    paddingLeft: 18
   }
 };
 

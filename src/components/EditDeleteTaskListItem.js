@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Confirm } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
+import { taskDelete } from '../actions';
 
 class EditDeleteTaskListItem extends Component {
   state = { showModal: false };
@@ -14,6 +16,16 @@ class EditDeleteTaskListItem extends Component {
 
   onDeleteIconPress() {
     this.setState({ showModal: !this.state.showModal });
+  }
+
+  onAccept() {
+    const { uid } = this.props.task;
+
+    this.props.taskDelete({ uid });
+  }
+
+  onDecline() {
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -31,6 +43,8 @@ class EditDeleteTaskListItem extends Component {
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
             <Confirm
               visible={this.state.showModal}
+              onAccept={this.onAccept.bind(this)}
+              onDecline={this.onDecline.bind(this)}
             >
               Are you sure you want to delete this?
             </Confirm>
@@ -62,4 +76,4 @@ const styles = {
   }
 };
 
-export default EditDeleteTaskListItem;
+export default connect(null, { taskDelete })(EditDeleteTaskListItem);

@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
-        Login
+        Sign In
       </Button>
     );
   }
@@ -60,6 +60,15 @@ class LoginForm extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
+
+        <CardSection>
+          <Text style={styles.textStyle}>
+            You will be logged in if your account has been created,
+            and an account will be created if not.
+            (Provided valid credentials are entered.)
+          </Text>
+        </CardSection>
+
       </Card>
     );
   }
@@ -70,6 +79,9 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  textStyle: {
+    fontSize: 15
   }
 };
 

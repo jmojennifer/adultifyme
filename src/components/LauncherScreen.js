@@ -6,9 +6,9 @@ import LoginForm from './LoginForm';
 const LauncherScreen = () => {
   return (
     <View>
-    <View>
-      <Text style={styles.textStyle}>Adultify Me</Text>
-    </View>
+      <View>
+        <Text style={styles.textStyle}>Adultify Me</Text>
+      </View>
       <LoginForm />
     </View>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
-import EditTaskList from './EditTaskList';
+import EditDeleteTaskList from './EditDeleteTaskList';
 
 const MainScreen = () => {
   return (
@@ -18,7 +18,7 @@ const MainScreen = () => {
         </Button>
       </View>
       <View>
-        <EditTaskList />
+        <EditDeleteTaskList />
       </View>
     </View>
   );

@@ -5,12 +5,13 @@ import { CardSection } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 
-class EditTaskListItem extends Component {
-  onEditPress() {
-    Actions.taskCreateScreen({ task: this.props.task });
+class EditDeleteTaskListItem extends Component {
+  onEditIconPress() {
+    console.log(this.props.task);
+    Actions.taskEditDeleteScreen({ task: this.props.task });
   }
 
-  onDeletePress() {
+  onDeleteIconPress() {
 
   }
 
@@ -24,8 +25,8 @@ class EditTaskListItem extends Component {
       <CardSection>
         <View>
           <View style={styles.taskStyle}>
-            <EditIcon onPress={this.onEditPress.bind(this)} />
-            <DeleteIcon onPress={this.onDeletePress.bind(this)} />
+            <EditIcon onPress={this.onEditIconPress.bind(this)} />
+            <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
             <Text style={styles.textStyle}>
               {title} ({category})
             </Text>
@@ -53,4 +54,4 @@ const styles = {
   }
 };
 
-export default EditTaskListItem;
+export default EditDeleteTaskListItem;

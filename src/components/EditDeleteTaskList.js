@@ -8,9 +8,9 @@ import { connect } from 'react-redux';
 import { ListView, ScrollView } from 'react-native';
 import _ from 'lodash';
 import { tasksFetch } from '../actions';
-import EditTaskListItem from './EditTaskListItem';
+import EditDeleteTaskListItem from './EditDeleteTaskListItem';
 
-class TaskList extends Component {
+class EditDeleteTaskList extends Component {
   componentWillMount() {
     this.props.tasksFetch();
 
@@ -33,7 +33,7 @@ class TaskList extends Component {
   }
 
   renderRow(task) {
-    return <EditTaskListItem task={task} />;
+    return <EditDeleteTaskListItem task={task} />;
   }
 
   render() {
@@ -62,4 +62,4 @@ const mapStateToProps = state => {
   return { tasks };
 };
 
-export default connect(mapStateToProps, { tasksFetch })(TaskList);
+export default connect(mapStateToProps, { tasksFetch })(EditDeleteTaskList);

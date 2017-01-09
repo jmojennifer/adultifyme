@@ -1,13 +1,15 @@
 /*jshint esversion: 6 */
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
-const DeleteIcon = () => {
+const DeleteIcon = ({ onPress }) => {
   return (
+    <TouchableOpacity onPress={onPress}>
     <Image
       style={styles.deleteStyle}
       source={require('../images/Delete.png')}
     />
+    </TouchableOpacity>
   );
 };
 

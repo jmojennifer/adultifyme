@@ -5,7 +5,7 @@ import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
 import MainScreen from './components/MainScreen.js';
 import ManageTasksScreen from './components/ManageTasksScreen';
-import TaskCreateScreen from './components/TaskCreateScreen';
+import NewTaskScreen from './components/NewTaskScreen';
 import AccountInfoScreen from './components/AccountInfoScreen.js';
 import AppSettingsScreen from './components/AppSettingsScreen.js';
 
@@ -26,7 +26,7 @@ const RouterComponent = () => {
 
       <Scene key="manageTasksScreen" component={ManageTasksScreen} title="Manage Tasks" />
 
-      <Scene key="taskCreateScreen" component={TaskCreateScreen} title="New Task" />
+      <Scene key="newTaskScreen" component={NewTaskScreen} title="New Task" />
 
       <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
 

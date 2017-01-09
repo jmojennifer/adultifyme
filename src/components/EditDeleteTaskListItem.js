@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { CardSection } from './common';
+import { CardSection, Confirm } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 
 class EditDeleteTaskListItem extends Component {
+  state = { showModal: false };
+
   onEditIconPress() {
-    console.log(this.props.task);
     Actions.taskEditDeleteScreen({ task: this.props.task });
   }
 
   onDeleteIconPress() {
-
+    this.setState({ showModal: !this.state.showModal });
   }
 
   render() {
@@ -26,7 +27,14 @@ class EditDeleteTaskListItem extends Component {
         <View>
           <View style={styles.taskStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
+
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
+            <Confirm
+              visible={this.state.showModal}
+            >
+              Are you sure you want to delete this?
+            </Confirm>
+
             <Text style={styles.textStyle}>
               {title} ({category})
             </Text>

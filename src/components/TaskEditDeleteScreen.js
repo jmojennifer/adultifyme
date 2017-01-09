@@ -16,7 +16,7 @@ class TaskEditDeleteScreen extends Component {
     const { title, description, personalMotivation, category, dueDate, timeDue } = this.props;
     this.props.taskSave({
       title,
-      description, 
+      description,
       personalMotivation,
       category,
       dueDate,

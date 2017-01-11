@@ -11,5 +11,6 @@ export const TASK_CREATE = 'task_create';
 export const TASKS_FETCH_SUCCESS = 'task_fetch_success';
 export const TASK_SAVE_SUCCESS = 'task_save_success';
 
-// const for reminder create
+// const for reminder create/save
 export const REMINDER_CREATE = 'reminder_create';
+export const REMINDER_SAVE = 'reminder_save';

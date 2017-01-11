@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { taskUpdate, taskSave } from '../actions';
+import { taskUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
@@ -13,7 +13,7 @@ class TaskEditDeleteScreen extends Component {
   }
 
   onButtonPress() {
-    const { title, description, personalMotivation, category, dueDate, timeDue } = this.props;
+    const { title, description, personalMotivation, category, dueDate, timeDue, reminderID } = this.props;
     this.props.taskSave({
       title,
       description,
@@ -22,6 +22,16 @@ class TaskEditDeleteScreen extends Component {
       dueDate,
       timeDue,
       uid: this.props.task.uid
+    });
+
+    this.props.reminderSave({
+      title,
+      description,
+      personalMotivation,
+      category,
+      dueDate,
+      timeDue,
+      reminderID
     });
   }
 
@@ -40,9 +50,9 @@ class TaskEditDeleteScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
+  const { title, description, personalMotivation, category, dueDate, timeDue, reminderID } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue };
+  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
 };
 
-export default connect(mapStateToProps, { taskUpdate, taskSave })(TaskEditDeleteScreen);
+export default connect(mapStateToProps, { taskUpdate, taskSave, reminderSave })(TaskEditDeleteScreen);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { taskUpdate, taskCreate } from '../actions';
+import { taskUpdate, taskCreate, reminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
@@ -19,6 +20,17 @@ class TaskCreateScreen extends Component {
       dueDate,
       timeDue
     });
+
+    if (Platform.OS === 'android') {
+      this.props.reminderCreate({
+        title,
+        description,
+        personalMotivation,
+        category: category || 'Finance',
+        dueDate,
+        timeDue
+      });
+    }
   }
 
   render() {
@@ -41,4 +53,5 @@ const mapStateToProps = (state) => {
   return { title, description, personalMotivation, category, dueDate, timeDue };
 };
 
-export default connect(mapStateToProps, { taskUpdate, taskCreate })(TaskCreateScreen);
+export default connect(mapStateToProps,
+  { taskUpdate, taskCreate, reminderCreate })(TaskCreateScreen);

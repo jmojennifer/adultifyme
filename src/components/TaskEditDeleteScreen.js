@@ -13,7 +13,9 @@ class TaskEditDeleteScreen extends Component {
   }
 
   onButtonPress() {
-    const { title, description, personalMotivation, category, dueDate, timeDue, reminderID } = this.props;
+    const {
+      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+    } = this.props;
     this.props.taskSave({
       title,
       description,
@@ -50,9 +52,13 @@ class TaskEditDeleteScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue, reminderID } = state.taskForm;
+  const {
+    title, description, personalMotivation, category, dueDate, timeDue, reminderID
+  } = state.taskForm;
 
   return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
 };
 
-export default connect(mapStateToProps, { taskUpdate, taskSave, reminderSave })(TaskEditDeleteScreen);
+export default connect(mapStateToProps, {
+   taskUpdate, taskSave, reminderSave
+ })(TaskEditDeleteScreen);

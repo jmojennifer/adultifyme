@@ -1,6 +1,6 @@
 import Notification from 'react-native-system-notification';
 import { Actions } from 'react-native-router-flux';
-import { REMINDER_CREATE, REMINDER_SAVE } from './types';
+import { REMINDER_CREATE, REMINDER_SAVE, REMINDER_DELETE } from './types';
 
 export const reminderCreate = ({
   title,
@@ -8,16 +8,17 @@ export const reminderCreate = ({
   personalMotivation,
   category,
   dueDate,
-  timeDue,
+  // timeDue,
   onReminderCreation
 
 }) => {
   return (dispatch) => {
-    const messageContent = `${description} ${personalMotivation}`;
+    const messageContent = `Your motivation: ${personalMotivation}
+    Description: ${description} Category: ${category}`;
     Notification.create({
       subject: title,
       message: messageContent,
-      sendAt: new Date(2017, 1, 10, 19, 0)
+      sendAt: new Date(`${dueDate}`)
     })
     .then((notification) => {
       onReminderCreation(notification.id);
@@ -39,17 +40,28 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    Notification.clear(reminderID);
-    const messageContent = `${description} ${personalMotivation}`;
+    Notification.delete(reminderID);
+    const messageContent = `Your motivation: ${personalMotivation}
+    Description: ${description} Category: ${category}`;
     Notification.create({
       id: reminderID,
       subject: title,
       message: messageContent,
-      sendAt: Date.now()
+      sendAt: new Date(`${dueDate}`)
     })
     .then(() => {
       dispatch({ type: REMINDER_SAVE });
       Actions.main();
+    });
+  };
+};
+
+export const reminderDelete = ({ reminderID }) => {
+  return (dispatch) => {
+    Notification.delete(reminderID)
+    .then(() => {
+      dispatch({ type: REMINDER_DELETE });
+      Actions.manageTasksScreen({ type: 'reset' });
     });
   };
 };

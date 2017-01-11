@@ -57,18 +57,9 @@ class TaskForm extends Component {
       <CardSection>
         <Input
           label="Due Date"
-          placeholder="i.e. 1/27/2017"
+          placeholder="i.e. Tue, 10 Jan 2017 21:50:00 -0800"
           value={this.props.dueDate}
           onChangeText={text => this.props.taskUpdate({ prop: 'dueDate', value: text })}
-        />
-      </CardSection>
-
-      <CardSection>
-        <Input
-          label="Time Due"
-          placeholder="5:00PM"
-          value={this.props.timeDue}
-          onChangeText={text => this.props.taskUpdate({ prop: 'timeDue', value: text })}
         />
       </CardSection>
       </View>

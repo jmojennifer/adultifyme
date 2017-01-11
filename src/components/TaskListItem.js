@@ -19,7 +19,7 @@ class TaskListItem extends Component {
           </View>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
-              Due: {dueDate} at {timeDue}
+              Due: {dueDate}
             </Text>
           </View>
         </View>

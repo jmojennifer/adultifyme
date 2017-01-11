@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import { CardSection, Confirm } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
-import { taskDelete } from '../actions';
+import { taskDelete, reminderDelete } from '../actions';
 
 class EditDeleteTaskListItem extends Component {
   state = { showModal: false };
@@ -20,8 +20,10 @@ class EditDeleteTaskListItem extends Component {
 
   onAccept() {
     const { uid } = this.props.task;
+    const { reminderID } = this.props.task;
 
     this.props.taskDelete({ uid });
+    this.props.reminderDelete({ reminderID });
   }
 
   onDecline() {
@@ -32,7 +34,7 @@ class EditDeleteTaskListItem extends Component {
     const { title } = this.props.task;
     const { category } = this.props.task;
     const { dueDate } = this.props.task;
-    const { timeDue } = this.props.task;
+    // const { timeDue } = this.props.task;
 
     return (
       <CardSection>
@@ -55,7 +57,7 @@ class EditDeleteTaskListItem extends Component {
           </View>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
-              Due: {dueDate} at {timeDue}
+              Due: {dueDate}
             </Text>
           </View>
         </View>
@@ -76,4 +78,4 @@ const styles = {
   }
 };
 
-export default connect(null, { taskDelete })(EditDeleteTaskListItem);
+export default connect(null, { taskDelete, reminderDelete })(EditDeleteTaskListItem);

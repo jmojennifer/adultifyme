@@ -53,6 +53,12 @@ class TaskEditScreen extends Component {
     Notification.deleteAll();
   }
 
+  onButton4Press() {
+    Notification.find(this.props.reminderID).then((notification) => {
+      console.log(notification);
+    });
+  }
+
 
   render() {
     return (
@@ -71,6 +77,11 @@ class TaskEditScreen extends Component {
       <CardSection>
         <Button onPress={this.onButton3Press.bind(this)}>
           Delete Reminders
+        </Button>
+      </CardSection>
+      <CardSection>
+        <Button onPress={this.onButton4Press.bind(this)}>
+          Check Reminder
         </Button>
       </CardSection>
       </Card>

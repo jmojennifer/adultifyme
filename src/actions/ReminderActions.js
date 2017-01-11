@@ -8,16 +8,20 @@ export const reminderCreate = ({
   personalMotivation,
   category,
   dueDate,
-  timeDue
+  timeDue,
+  onReminderCreation
+
 }) => {
   return (dispatch) => {
     const messageContent = `${description} ${personalMotivation}`;
     Notification.create({
       subject: title,
       message: messageContent,
-      delay: 10000
+      sendAt: new Date(2017, 0, 10, 18, 35)
     })
-    .then(() => {
+    .then((notification) => {
+      onReminderCreation(notification.id);
+
       dispatch({ type: REMINDER_CREATE });
       Actions.main();
     });

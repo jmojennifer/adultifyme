@@ -7,22 +7,39 @@ import TaskForm from './TaskForm';
 
 class TaskCreateScreen extends Component {
   onButtonPress() {
-    const { title, description, personalMotivation, category, dueDate, timeDue } = this.props;
-
-    // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
-    // if the picker stays on Monday it will be falsy || 'Finance';
-    // 'Finance' will be set as the new category state
-    this.props.taskCreate({
-      title,
-      description,
-      personalMotivation,
-      category: category || 'Finance',
-      dueDate,
-      timeDue
-    });
+    const {
+      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+    } = this.props;
 
     if (Platform.OS === 'android') {
       this.props.reminderCreate({
+        title,
+        description,
+        personalMotivation,
+        category: category || 'Finance',
+        dueDate,
+        timeDue,
+        onReminderCreation: ((id) => {
+          this.props.taskCreate({
+            // Because an empty string in JS is falsy,
+            // and the Iniitial State for category will be '',
+            // if the picker stays on Monday it will be falsy || 'Finance';
+            // 'Finance' will be set as the new category state
+            title,
+            description,
+            personalMotivation,
+            category: category || 'Finance',
+            dueDate,
+            timeDue,
+            reminderID: id
+          });
+        })
+      });
+    } else {
+      this.props.taskCreate({
+        // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
+        // if the picker stays on Monday it will be falsy || 'Finance';
+        // 'Finance' will be set as the new category state
         title,
         description,
         personalMotivation,
@@ -48,9 +65,11 @@ class TaskCreateScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
+  const {
+    title, description, personalMotivation, category, dueDate, timeDue, reminderID
+  } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue };
+  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
 };
 
 export default connect(mapStateToProps,

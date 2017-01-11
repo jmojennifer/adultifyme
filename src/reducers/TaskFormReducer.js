@@ -6,7 +6,8 @@ const INITIAL_STATE = {
   personalMotivation: '',
   category: '',
   dueDate: '',
-  timeDue: ''
+  timeDue: '',
+  reminderID: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

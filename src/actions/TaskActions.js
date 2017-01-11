@@ -20,14 +20,15 @@ export const taskCreate = ({
   personalMotivation,
   category,
   dueDate,
-  timeDue
+  timeDue,
+  reminderID
 }) => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
       .push({
-        title, description, personalMotivation, category, dueDate, timeDue
+        title, description, personalMotivation, category, dueDate, timeDue, reminderID
       })
       .then(() => {
         dispatch({ type: TASK_CREATE });

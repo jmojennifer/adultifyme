@@ -32,7 +32,6 @@ class TaskList extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <ScrollView>
         <ListView

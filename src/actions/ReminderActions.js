@@ -22,9 +22,8 @@ export const reminderCreate = ({
     })
     .then((notification) => {
       taskCreateOnReminderCreation(notification.id);
-
       dispatch({ type: REMINDER_CREATE });
-      Actions.main();
+      Actions.main({ type: 'reset' });
     });
   };
 };
@@ -40,7 +39,7 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    Notification.delete(reminderID);
+    console.log(`reminderID is: ${reminderID}`);
     const messageContent = `Your motivation: ${personalMotivation}
     Description: ${description} Category: ${category}`;
     Notification.create({
@@ -51,7 +50,7 @@ export const reminderSave = ({
     })
     .then(() => {
       dispatch({ type: REMINDER_SAVE });
-      Actions.main();
+      Actions.manageTasksScreen({ type: 'reset' });
     });
   };
 };

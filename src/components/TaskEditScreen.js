@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import Notification from 'react-native-system-notification';
 import { connect } from 'react-redux';
 import { taskUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
@@ -23,6 +24,7 @@ class TaskEditScreen extends Component {
       category,
       dueDate,
       timeDue,
+      reminderID,
       uid: this.props.task.uid
     });
 
@@ -37,6 +39,21 @@ class TaskEditScreen extends Component {
     });
   }
 
+  onButton2Press() {
+    Notification.getIDs().then((ids) => {
+      for (let i = 0; i < ids.length; i++) {
+        Notification.find(ids[i]).then((notification) => {
+          console.log(notification);
+        });
+      }
+    });
+  }
+
+  onButton3Press() {
+    Notification.deleteAll();
+  }
+
+
   render() {
     return (
       <Card>
@@ -46,6 +63,16 @@ class TaskEditScreen extends Component {
             Save Changes
           </Button>
         </CardSection>
+        <CardSection>
+          <Button onPress={this.onButton2Press.bind(this)}>
+            Check Reminders
+          </Button>
+      </CardSection>
+      <CardSection>
+        <Button onPress={this.onButton3Press.bind(this)}>
+          Delete Reminders
+        </Button>
+      </CardSection>
       </Card>
     );
   }

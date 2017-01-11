@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Notification from 'react-native-system-notification';
 import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { taskUpdate, taskCreate, reminderCreate } from '../actions';
@@ -50,6 +51,20 @@ class TaskCreateScreen extends Component {
     }
   }
 
+  onButton2Press() {
+    Notification.getIDs().then((ids) => {
+      for (let i = 0; i < ids.length; i++) {
+        Notification.find(ids[i]).then((notification) => {
+          console.log(notification);
+        });
+      }
+    });
+  }
+
+  onButton3Press() {
+    Notification.deleteAll();
+  }
+
   render() {
     return (
       <Card>
@@ -57,6 +72,16 @@ class TaskCreateScreen extends Component {
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
             Create
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onButton2Press.bind(this)}>
+            Check Reminders
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onButton3Press.bind(this)}>
+            Delete Reminders
           </Button>
         </CardSection>
       </Card>

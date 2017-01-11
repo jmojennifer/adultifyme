@@ -19,7 +19,7 @@ class TaskCreateScreen extends Component {
         category: category || 'Finance',
         dueDate,
         timeDue,
-        onReminderCreation: ((id) => {
+        taskCreateOnReminderCreation: ((id) => {
           this.props.taskCreate({
             // Because an empty string in JS is falsy,
             // and the Iniitial State for category will be '',

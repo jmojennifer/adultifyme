@@ -5,7 +5,7 @@ import { taskUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
-class TaskEditDeleteScreen extends Component {
+class TaskEditScreen extends Component {
   componentWillMount() {
     _.each(this.props.task, (value, prop) => {
       this.props.taskUpdate({ prop, value });
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
    taskUpdate, taskSave, reminderSave
- })(TaskEditDeleteScreen);
+ })(TaskEditScreen);

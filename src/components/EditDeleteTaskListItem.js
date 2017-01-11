@@ -11,7 +11,7 @@ class EditDeleteTaskListItem extends Component {
   state = { showModal: false };
 
   onEditIconPress() {
-    Actions.taskEditDeleteScreen({ task: this.props.task });
+    Actions.taskEditScreen({ task: this.props.task });
   }
 
   onDeleteIconPress() {

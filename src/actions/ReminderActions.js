@@ -9,7 +9,7 @@ export const reminderCreate = ({
   category,
   dueDate,
   // timeDue,
-  onReminderCreation
+  taskCreateOnReminderCreation
 
 }) => {
   return (dispatch) => {
@@ -21,7 +21,7 @@ export const reminderCreate = ({
       sendAt: new Date(`${dueDate}`)
     })
     .then((notification) => {
-      onReminderCreation(notification.id);
+      taskCreateOnReminderCreation(notification.id);
 
       dispatch({ type: REMINDER_CREATE });
       Actions.main();

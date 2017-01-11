@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import EditDeleteTaskList from './EditDeleteTaskList';
 
-const MainScreen = () => {
+const ManageTasksScreen = () => {
   return (
     <View>
       <View>
@@ -24,4 +24,4 @@ const MainScreen = () => {
   );
 };
 
-export default MainScreen;
+export default ManageTasksScreen;

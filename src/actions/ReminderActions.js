@@ -16,7 +16,6 @@ export const reminderCreate = ({
     const messageContent = `Your motivation: ${personalMotivation}
     Description: ${description} Category: ${category}`;
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
-    console.log(deadline);
     Notification.create({
       subject: title,
       message: messageContent,
@@ -42,11 +41,11 @@ export const reminderSave = ({
   return (dispatch) => {
     const messageContent = `Your motivation: ${personalMotivation}
     Description: ${description} Category: ${category}`;
+    const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
-      id: reminderID,
       subject: title,
       message: messageContent,
-      sendAt: new Date(`${dueDateTime}`)
+      sendAt: deadline
     })
     .then(() => {
       dispatch({ type: REMINDER_SAVE });

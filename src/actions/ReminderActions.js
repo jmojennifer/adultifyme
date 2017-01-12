@@ -24,8 +24,7 @@ export const reminderCreate = ({
       taskCreateOnReminderCreation(notification.id);
       dispatch({ type: REMINDER_CREATE });
       Actions.main({ type: 'reset' });
-    })
-    .done();
+    });
   };
 };
 
@@ -40,7 +39,6 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    console.log(`reminderID is: ${reminderID}`);
     const messageContent = `Your motivation: ${personalMotivation}
     Description: ${description} Category: ${category}`;
     Notification.create({
@@ -52,15 +50,12 @@ export const reminderSave = ({
     .then(() => {
       dispatch({ type: REMINDER_SAVE });
       Actions.manageTasksScreen({ type: 'reset' });
-    })
-    .done();
+    });
   };
 };
 
 export const reminderDelete = ({ reminderID }) => {
   return (dispatch) => {
-    console.dir(Notification);
-
     //swallow any errors - we don't care if the reminder can't be
     //deleted... as long as it no longer exists
     Notification.delete(reminderID).then(

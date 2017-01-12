@@ -15,15 +15,14 @@ class TaskEditScreen extends Component {
 
   onButtonPress() {
     const {
-      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+      title, description, personalMotivation, category, dueDateTime, reminderID
     } = this.props;
     this.props.taskSave({
       title,
       description,
       personalMotivation,
       category,
-      dueDate,
-      timeDue,
+      dueDateTime,
       reminderID,
       uid: this.props.task.uid
     });
@@ -33,8 +32,7 @@ class TaskEditScreen extends Component {
       description,
       personalMotivation,
       category,
-      dueDate,
-      timeDue,
+      dueDateTime,
       reminderID
     });
   }
@@ -91,10 +89,10 @@ class TaskEditScreen extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    title, description, personalMotivation, category, dueDate, timeDue, reminderID
+    title, description, personalMotivation, category, dueDateTime, reminderID
   } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
+  return { title, description, personalMotivation, category, dueDateTime, reminderID };
 };
 
 export default connect(mapStateToProps, {

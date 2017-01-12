@@ -56,10 +56,10 @@ class TaskForm extends Component {
 
       <CardSection>
         <Input
-          label="Due Date"
-          placeholder="i.e. Tue, 10 Jan 2017 21:50:00 -0800"
-          value={this.props.dueDate}
-          onChangeText={text => this.props.taskUpdate({ prop: 'dueDate', value: text })}
+          label="Due Date & Time"
+          placeholder="i.e. 1/27/2017 1:14PM"
+          value={this.props.dueDateTime}
+          onChangeText={text => this.props.taskUpdate({ prop: 'dueDateTime', value: text })}
         />
       </CardSection>
       </View>
@@ -80,9 +80,9 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
+  const { title, description, personalMotivation, category, dueDateTime } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue };
+  return { title, description, personalMotivation, category, dueDateTime };
 };
 
 export default connect(mapStateToProps, { taskUpdate })(TaskForm);

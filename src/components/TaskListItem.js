@@ -6,8 +6,7 @@ class TaskListItem extends Component {
   render() {
     const { title } = this.props.task;
     const { category } = this.props.task;
-    const { dueDate } = this.props.task;
-    const { timeDue } = this.props.task;
+    const { dueDateTime, } = this.props.task;
 
     return (
       <CardSection>
@@ -19,7 +18,7 @@ class TaskListItem extends Component {
           </View>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
-              Due: {dueDate}
+              Due: {dueDateTime}
             </Text>
           </View>
         </View>

@@ -1,4 +1,5 @@
 import Notification from 'react-native-system-notification';
+import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import { REMINDER_CREATE, REMINDER_SAVE, REMINDER_DELETE } from './types';
 
@@ -7,18 +8,19 @@ export const reminderCreate = ({
   description,
   personalMotivation,
   category,
-  dueDate,
-  // timeDue,
+  dueDateTime,
   taskCreateOnReminderCreation
 
 }) => {
   return (dispatch) => {
     const messageContent = `Your motivation: ${personalMotivation}
     Description: ${description} Category: ${category}`;
+    const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
+    console.log(deadline);
     Notification.create({
       subject: title,
       message: messageContent,
-      sendAt: new Date(`${dueDate}`)
+      sendAt: deadline
     })
     .then((notification) => {
       taskCreateOnReminderCreation(notification.id);
@@ -33,8 +35,7 @@ export const reminderSave = ({
   description,
   personalMotivation,
   category,
-  dueDate,
-  timeDue,
+  dueDateTime,
   reminderID
 
 }) => {
@@ -45,7 +46,7 @@ export const reminderSave = ({
       id: reminderID,
       subject: title,
       message: messageContent,
-      sendAt: new Date(`${dueDate}`)
+      sendAt: new Date(`${dueDateTime}`)
     })
     .then(() => {
       dispatch({ type: REMINDER_SAVE });

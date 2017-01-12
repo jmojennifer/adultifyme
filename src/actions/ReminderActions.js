@@ -13,12 +13,13 @@ export const reminderCreate = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Your motivation: ${personalMotivation}
-    Description: ${description} Category: ${category}`;
+    const messageContent = `Personal Motication: ${personalMotivation}
+    Description: ${description}
+    Category: ${category}`;
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
       subject: title,
-      message: messageContent,
+      bigText: messageContent,
       sendAt: deadline
     })
     .then((notification) => {
@@ -39,12 +40,13 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Your motivation: ${personalMotivation}
-    Description: ${description} Category: ${category}`;
+    const messageContent = `Personal Motication: ${personalMotivation}
+    Description: ${description}
+    Category: ${category}`;
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
       subject: title,
-      message: messageContent,
+      bigText: messageContent,
       sendAt: deadline
     })
     .then(() => {

@@ -33,7 +33,8 @@ export const taskCreate = ({
       .then(() => {
         dispatch({ type: TASK_CREATE });
         Actions.main({ type: 'reset' });
-      });
+      })
+      .done();
   };
 };
 
@@ -66,7 +67,8 @@ export const taskSave = ({
       .then(() => {
         dispatch({ type: TASK_SAVE_SUCCESS });
         Actions.manageTasksScreen({ type: 'reset' });
-      });
+      })
+      .done();
   };
 };
 
@@ -78,6 +80,7 @@ export const taskDelete = ({ uid }) => {
       .remove()
       .then(() => {
         Actions.manageTasksScreen({ type: 'reset' });
-      });
+      })
+      .done();
   };
 };

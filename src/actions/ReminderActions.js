@@ -24,7 +24,8 @@ export const reminderCreate = ({
       taskCreateOnReminderCreation(notification.id);
       dispatch({ type: REMINDER_CREATE });
       Actions.main({ type: 'reset' });
-    });
+    })
+    .done();
   };
 };
 
@@ -51,16 +52,26 @@ export const reminderSave = ({
     .then(() => {
       dispatch({ type: REMINDER_SAVE });
       Actions.manageTasksScreen({ type: 'reset' });
-    });
+    })
+    .done();
   };
 };
 
 export const reminderDelete = ({ reminderID }) => {
   return (dispatch) => {
-    Notification.delete(reminderID)
-    .then(() => {
-      dispatch({ type: REMINDER_DELETE });
-      Actions.manageTasksScreen({ type: 'reset' });
-    });
+    console.dir(Notification);
+
+    //swallow any errors - we don't care if the reminder can't be
+    //deleted... as long as it no longer exists
+    Notification.delete(reminderID).then(
+      (val) => {
+        dispatch({ type: REMINDER_DELETE });
+        Actions.manageTasksScreen({ type: 'reset' });
+      },
+      (reason) => {
+        dispatch({ type: REMINDER_DELETE });
+        Actions.manageTasksScreen({ type: 'reset' });
+      }
+    );
   };
 };

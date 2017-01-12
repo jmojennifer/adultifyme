@@ -22,8 +22,11 @@ class EditDeleteTaskListItem extends Component {
     const { uid } = this.props.task;
     const { reminderID } = this.props.task;
 
+    console.log(reminderID);
+
     this.props.taskDelete({ uid });
     this.props.reminderDelete({ reminderID });
+    this.setState({ showModal: false });
   }
 
   onDecline() {

@@ -34,7 +34,8 @@ class EditDeleteTaskListItem extends Component {
   render() {
     const { title } = this.props.task;
     const { category } = this.props.task;
-    const { dueDateTime } = this.props.task;
+    const { dueDate } = this.props.task;
+    const { timeDue } = this.props.task;
 
     return (
       <CardSection>
@@ -57,7 +58,7 @@ class EditDeleteTaskListItem extends Component {
           </View>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
-              Due: {dueDateTime}
+              Due: {dueDate} {timeDue}
             </Text>
           </View>
         </View>

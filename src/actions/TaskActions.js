@@ -22,7 +22,8 @@ export const taskCreate = ({
   description,
   personalMotivation,
   category,
-  dueDateTime,
+  dueDate,
+  timeDue,
   reminderID
 }) => {
   const { currentUser } = firebase.auth();
@@ -30,7 +31,7 @@ export const taskCreate = ({
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
       .push({
-        title, description, personalMotivation, category, dueDateTime, reminderID
+        title, description, personalMotivation, category, dueDate, timeDue, reminderID
       })
       .then(() => {
         dispatch({ type: TASK_CREATE });
@@ -55,7 +56,8 @@ export const taskSave = ({
   description,
   personalMotivation,
   category,
-  dueDateTime,
+  dueDate,
+  timeDue,
   reminderID,
   uid
 }) => {
@@ -63,7 +65,7 @@ export const taskSave = ({
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks/${uid}`)
-      .set({ title, description, personalMotivation, category, dueDateTime, reminderID })
+      .set({ title, description, personalMotivation, category, dueDate, timeDue, reminderID })
       .then(() => {
         dispatch({ type: TASK_SAVE_SUCCESS });
         Actions.manageTasksScreen({ type: 'reset' });

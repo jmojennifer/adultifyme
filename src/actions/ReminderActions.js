@@ -11,7 +11,8 @@ export const reminderCreate = ({
   description,
   personalMotivation,
   category,
-  dueDateTime,
+  dueDate,
+  timeDue,
   taskCreateOnReminderCreation
 
 }) => {
@@ -19,6 +20,7 @@ export const reminderCreate = ({
     const messageContent = `Personal Motication: ${personalMotivation}
     Description: ${description}
     Category: ${category}`;
+    const dueDateTime = `${dueDate} ${timeDue}`;
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
       subject: title,
@@ -38,7 +40,8 @@ export const reminderSave = ({
   description,
   personalMotivation,
   category,
-  dueDateTime,
+  dueDate,
+  timeDue,
   reminderID
 
 }) => {
@@ -46,6 +49,8 @@ export const reminderSave = ({
     const messageContent = `Personal Motication: ${personalMotivation}
     Description: ${description}
     Category: ${category}`;
+    const dueDateTime = `${dueDate} ${timeDue}`;
+    console.log(dueDateTime);
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
       subject: title,

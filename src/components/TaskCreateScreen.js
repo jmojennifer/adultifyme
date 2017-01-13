@@ -9,7 +9,7 @@ import TaskForm from './TaskForm';
 class TaskCreateScreen extends Component {
   onButtonPress() {
     const {
-      title, description, personalMotivation, category, dueDateTime, reminderID
+      title, description, personalMotivation, category, dueDate, timeDue, reminderID
     } = this.props;
 
     if (Platform.OS === 'android') {
@@ -18,7 +18,8 @@ class TaskCreateScreen extends Component {
         description,
         personalMotivation,
         category: category || 'Finance',
-        dueDateTime,
+        dueDate,
+        timeDue,
         taskCreateOnReminderCreation: ((id) => {
           this.props.taskCreate({
             // Because an empty string in JS is falsy,
@@ -29,7 +30,8 @@ class TaskCreateScreen extends Component {
             description,
             personalMotivation,
             category: category || 'Finance',
-            dueDateTime,
+            dueDate,
+            timeDue,
             reminderID: id
           });
         })
@@ -43,7 +45,8 @@ class TaskCreateScreen extends Component {
         description,
         personalMotivation,
         category: category || 'Finance',
-        dueDateTime
+        dueDate,
+        timeDue
       });
     }
   }
@@ -88,10 +91,10 @@ class TaskCreateScreen extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    title, description, personalMotivation, category, dueDateTime, reminderID
+    title, description, personalMotivation, category, dueDate, timeDue, reminderID
   } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDateTime, reminderID };
+  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
 };
 
 export default connect(mapStateToProps,

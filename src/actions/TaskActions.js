@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
   TASK_UPDATE,
@@ -6,6 +7,8 @@ import {
   TASKS_FETCH_SUCCESS,
   TASK_SAVE_SUCCESS
 } from './types';
+
+require('moment-recur');
 
 export const taskUpdate = ({ prop, value }) => {
   return {

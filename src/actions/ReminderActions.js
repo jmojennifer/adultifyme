@@ -3,6 +3,9 @@ import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import { REMINDER_CREATE, REMINDER_SAVE, REMINDER_DELETE } from './types';
 
+require('moment-recur');
+
+
 export const reminderCreate = ({
   title,
   description,

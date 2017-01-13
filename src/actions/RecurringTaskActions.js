@@ -3,9 +3,9 @@ import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
   RECURRING_FORM_UPDATE,
-  RECURRING_TASKS_CREATE,
+  RECURRING_TASK_CREATE,
   RECURRING_TASKS_FETCH_SUCCESS,
-  RECURRING_TASKS_SAVE_SUCCESS
+  RECURRING_TASK_SAVE_SUCCESS
 } from './types';
 
 require('moment-recur');
@@ -17,7 +17,7 @@ export const recurringFormUpdate = ({ prop, value }) => {
   };
 };
 
-export const recurringTasksCreate = ({
+export const recurringTaskCreate = ({
   title,
   description,
   personalMotivation,
@@ -44,7 +44,7 @@ export const recurringTasksCreate = ({
         reminderID
       })
       .then(() => {
-        dispatch({ type: RECURRING_TASKS_CREATE });
+        dispatch({ type: RECURRING_TASK_CREATE });
         Actions.main({ type: 'reset' });
       });
   };
@@ -61,7 +61,7 @@ export const recurringTasksFetch = () => {
   };
 };
 
-export const recurringTasksSave = ({
+export const recurringTaskSave = ({
   title,
   description,
   personalMotivation,
@@ -89,13 +89,13 @@ export const recurringTasksSave = ({
         reminderID
       })
       .then(() => {
-        dispatch({ type: RECURRING_TASKS_SAVE_SUCCESS });
+        dispatch({ type: RECURRING_TASK_SAVE_SUCCESS });
         Actions.manageTasksScreen({ type: 'reset' });
       });
   };
 };
 
-export const recurringTasksDelete = ({ uid }) => {
+export const recurringTaskDelete = ({ uid }) => {
   const { currentUser } = firebase.auth();
 
   return () => {

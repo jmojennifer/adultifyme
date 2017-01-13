@@ -2,12 +2,12 @@ import Notification from 'react-native-system-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
-  RECURRING_REMINDERS_CREATE,
-  RECURRING_REMINDERS_SAVE,
-  RECURRING_REMINDERS_DELETE
+  RECURRING_REMINDER_CREATE,
+  RECURRING_REMINDER_SAVE,
+  RECURRING_REMINDER_DELETE
 } from './types';
 
-export const recurringRemindersCreate = ({
+export const recurringReminderCreate = ({
   title,
   description,
   personalMotivation,
@@ -32,13 +32,13 @@ export const recurringRemindersCreate = ({
     })
     .then((notification) => {
       taskCreateOnReminderCreation(notification.id);
-      dispatch({ type: RECURRING_REMINDERS_CREATE });
+      dispatch({ type: RECURRING_REMINDER_CREATE });
       Actions.main({ type: 'reset' });
     });
   };
 };
 
-export const recurringRemindersSave = ({
+export const recurringReminderSave = ({
   title,
   description,
   personalMotivation,
@@ -63,23 +63,23 @@ export const recurringRemindersSave = ({
       sendAt: deadline
     })
     .then(() => {
-      dispatch({ type: RECURRING_REMINDERS_SAVE });
+      dispatch({ type: RECURRING_REMINDER_SAVE });
       Actions.manageTasksScreen({ type: 'reset' });
     });
   };
 };
 
-export const recurringRemindersDelete = ({ reminderID }) => {
+export const recurringReminderDelete = ({ reminderID }) => {
   return (dispatch) => {
     //swallow any errors - we don't care if the reminder can't be
     //deleted... as long as it no longer exists
     Notification.delete(reminderID).then(
       (val) => {
-        dispatch({ type: RECURRING_REMINDERS_DELETE });
+        dispatch({ type: RECURRING_REMINDER_DELETE });
         Actions.manageTasksScreen({ type: 'reset' });
       },
       (reason) => {
-        dispatch({ type: RECURRING_REMINDERS_DELETE });
+        dispatch({ type: RECURRING_REMINDER_DELETE });
         Actions.manageTasksScreen({ type: 'reset' });
       }
     );

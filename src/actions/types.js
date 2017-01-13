@@ -11,7 +11,7 @@ export const RECURRING_FORM_UPDATE = 'recurring_form_update';
 
 //const for task create/fetching/editng tasks
 export const TASK_CREATE = 'task_create';
-export const TASKS_FETCH_SUCCESS = 'task_fetch_success';
+export const TASKS_FETCH_SUCCESS = 'tasks_fetch_success';
 export const TASK_SAVE_SUCCESS = 'task_save_success';
 
 // const for reminder create/save/delete reminders
@@ -21,7 +21,7 @@ export const REMINDER_DELETE = 'reminder_delete';
 
 // const for reccurring create/save/delete tasks
 export const RECURRING_TASK_CREATE = 'recurring_task_create';
-export const RECURRING_TASKS_FETCH_SUCCESS = 'recurring_task_fetch_success';
+export const RECURRING_TASKS_FETCH_SUCCESS = 'recurring_tasks_fetch_success';
 export const RECURRING_TASK_SAVE_SUCCESS = 'recurring_task_save_success';
 
 // const for reccurring create/save/delete reminders

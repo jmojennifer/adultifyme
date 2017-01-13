@@ -61,12 +61,19 @@ class RecurringTaskForm extends Component {
       </CardSection>
 
       <CardSection>
-        <Input
-          label="Recurring Once Every: "
-          placeholder="i.e. day, week, month, year"
-          value={this.props.frequency}
-          onChangeText={text => this.props.recurringFormUpdate({ prop: 'frequency', value: text })}
-        />
+        <Text style={styles.pickerTextStyle}>Recurring Once Every: </Text>
+        <Picker
+          style={styles.pickerStyle}
+          selectedValue={this.props.frequency}
+          onValueChange={
+            selection => this.props.recurringFormUpdate({ prop: 'frequency', value: selection })
+          }
+        >
+          <Picker.Item label="Day" value="Day" />
+          <Picker.Item label="Week" value="Week" />
+          <Picker.Item label="Month" value="Month" />
+          <Picker.Item label="Year" value="Year" />
+        </Picker>
       </CardSection>
 
       <CardSection>
@@ -117,7 +124,7 @@ const styles = {
 const mapStateToProps = (state) => {
 const {
     title, description, personalMotivation, category, frequency, startDate, endDate, recurringTime
-} = state.taskForm;
+} = state.recurringTaskForm;
 
   return {
     title, description, personalMotivation, category, frequency, startDate, endDate, recurringTime

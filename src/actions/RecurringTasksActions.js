@@ -1,26 +1,31 @@
 import firebase from 'firebase';
+import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
-  FORM_UPDATE,
-  TASK_CREATE,
-  TASKS_FETCH_SUCCESS,
-  TASK_SAVE_SUCCESS
+  RECURRING_FORM_UPDATE,
+  RECURRING_TASKS_CREATE,
+  RECURRING_TASKS_FETCH_SUCCESS,
+  RECURRING_TASKS_SAVE_SUCCESS
 } from './types';
 
-export const formUpdate = ({ prop, value }) => {
+require('moment-recur');
+
+export const recurringFormUpdate = ({ prop, value }) => {
   return {
-    type: FORM_UPDATE,
+    type: RECURRING_FORM_UPDATE,
     payload: { prop, value }
   };
 };
 
-export const taskCreate = ({
+export const recurringTasksCreate = ({
   title,
   description,
   personalMotivation,
   category,
-  dueDate,
-  timeDue,
+  frequency,
+  startDate,
+  endDate,
+  recurringTime,
   reminderID
 }) => {
   const { currentUser } = firebase.auth();
@@ -28,33 +33,43 @@ export const taskCreate = ({
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
       .push({
-        title, description, personalMotivation, category, dueDate, timeDue, reminderID
+        title,
+        description,
+        personalMotivation,
+        category,
+        frequency,
+        startDate,
+        endDate,
+        recurringTime,
+        reminderID
       })
       .then(() => {
-        dispatch({ type: TASK_CREATE });
+        dispatch({ type: RECURRING_TASKS_CREATE });
         Actions.main({ type: 'reset' });
       });
   };
 };
 
-export const tasksFetch = () => {
+export const recurringTasksFetch = () => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks`)
       .on('value', snapshot => {
-        dispatch({ type: TASKS_FETCH_SUCCESS, payload: snapshot.val() });
+        dispatch({ type: RECURRING_TASKS_FETCH_SUCCESS, payload: snapshot.val() });
       });
   };
 };
 
-export const taskSave = ({
+export const recurringTasksSave = ({
   title,
   description,
   personalMotivation,
   category,
-  dueDate,
-  timeDue,
+  frequency,
+  startDate,
+  endDate,
+  recurringTime,
   reminderID,
   uid
 }) => {
@@ -62,15 +77,25 @@ export const taskSave = ({
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks/${uid}`)
-      .set({ title, description, personalMotivation, category, dueDate, timeDue, reminderID })
+      .set({
+        title,
+        description,
+        personalMotivation,
+        category,
+        frequency,
+        startDate,
+        endDate,
+        recurringTime,
+        reminderID
+      })
       .then(() => {
-        dispatch({ type: TASK_SAVE_SUCCESS });
+        dispatch({ type: RECURRING_TASKS_SAVE_SUCCESS });
         Actions.manageTasksScreen({ type: 'reset' });
       });
   };
 };
 
-export const taskDelete = ({ uid }) => {
+export const recurringTasksDelete = ({ uid }) => {
   const { currentUser } = firebase.auth();
 
   return () => {

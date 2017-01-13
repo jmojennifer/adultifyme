@@ -1,18 +1,18 @@
 import {
-  REMINDER_CREATE,
-  REMINDER_SAVE,
-  REMINDER_DELETE
+  RECURRING_REMINDERS_CREATE,
+  RECURRING_REMINDERS_SAVE,
+  RECURRING_REMINDERS_DELETE
 } from '../actions/types';
 
 const INITIAL_STATE = '';
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case REMINDER_CREATE:
+    case RECURRING_REMINDERS_CREATE:
       return state;
-    case REMINDER_SAVE:
+    case RECURRING_REMINDERS_SAVE:
       return state;
-    case REMINDER_DELETE:
+    case RECURRING_REMINDERS_DELETE:
       return state;
     default:
       return state;

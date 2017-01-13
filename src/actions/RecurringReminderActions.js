@@ -2,18 +2,20 @@ import Notification from 'react-native-system-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
-  REMINDER_CREATE,
-  REMINDER_SAVE,
-  REMINDER_DELETE
+  RECURRING_REMINDERS_CREATE,
+  RECURRING_REMINDERS_SAVE,
+  RECURRING_REMINDERS_DELETE
 } from './types';
 
-export const reminderCreate = ({
+export const recurringRemindersCreate = ({
   title,
   description,
   personalMotivation,
   category,
-  dueDate,
-  timeDue,
+  frequency,
+  startDate,
+  endDate,
+  recurringTime,
   taskCreateOnReminderCreation
 
 }) => {
@@ -30,19 +32,21 @@ export const reminderCreate = ({
     })
     .then((notification) => {
       taskCreateOnReminderCreation(notification.id);
-      dispatch({ type: REMINDER_CREATE });
+      dispatch({ type: RECURRING_REMINDERS_CREATE });
       Actions.main({ type: 'reset' });
     });
   };
 };
 
-export const reminderSave = ({
+export const recurringRemindersSave = ({
   title,
   description,
   personalMotivation,
   category,
-  dueDate,
-  timeDue,
+  frequency,
+  startDate,
+  endDate,
+  recurringTime,
   reminderID
 
 }) => {
@@ -51,6 +55,7 @@ export const reminderSave = ({
     Description: ${description}
     Category: ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
+    console.log(dueDateTime);
     const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
     Notification.create({
       subject: title,
@@ -58,23 +63,23 @@ export const reminderSave = ({
       sendAt: deadline
     })
     .then(() => {
-      dispatch({ type: REMINDER_SAVE });
+      dispatch({ type: RECURRING_REMINDERS_SAVE });
       Actions.manageTasksScreen({ type: 'reset' });
     });
   };
 };
 
-export const reminderDelete = ({ reminderID }) => {
+export const recurringRemindersDelete = ({ reminderID }) => {
   return (dispatch) => {
     //swallow any errors - we don't care if the reminder can't be
     //deleted... as long as it no longer exists
     Notification.delete(reminderID).then(
       (val) => {
-        dispatch({ type: REMINDER_DELETE });
+        dispatch({ type: RECURRING_REMINDERS_DELETE });
         Actions.manageTasksScreen({ type: 'reset' });
       },
       (reason) => {
-        dispatch({ type: REMINDER_DELETE });
+        dispatch({ type: RECURRING_REMINDERS_DELETE });
         Actions.manageTasksScreen({ type: 'reset' });
       }
     );

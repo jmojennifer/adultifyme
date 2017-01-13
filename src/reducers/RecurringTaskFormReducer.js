@@ -1,5 +1,5 @@
 import {
-  FORM_UPDATE, TASK_CREATE, TASK_SAVE_SUCCESS
+  FORM_UPDATE, RECURRING_TASK_CREATE, RECURRING_TASK_SAVE_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -7,8 +7,10 @@ const INITIAL_STATE = {
   description: '',
   personalMotivation: '',
   category: '',
-  dueDate: '',
-  timeDue: '',
+  frequency: '',
+  startDate: '',
+  endDate: '',
+  recurringTime: '',
   reminderID: ''
 };
 
@@ -19,10 +21,10 @@ export default (state = INITIAL_STATE, action) => {
       // [] below is not an array;
       // it's key interpolation allowing each applicable field prop to be used
       return { ...state, [action.payload.prop]: action.payload.value };
-    case TASK_CREATE:
+    case RECURRING_TASK_CREATE:
       return INITIAL_STATE;
-    case TASK_SAVE_SUCCESS:
-      return INITIAL_STATE;
+    case RECURRING_TASK_SAVE_SUCCESS :
+    return INITIAL_STATE;
     default:
       return state;
   }

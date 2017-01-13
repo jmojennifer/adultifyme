@@ -16,6 +16,13 @@ const ManageTasksScreen = () => {
         >
         New Task
         </Button>
+        <Button
+          onPress={() => {
+            Actions.recurringeTaskCreateScreen();
+          }}
+        >
+        New Recurring Task Series
+        </Button>
       </View>
       <View>
         <EditDeleteTaskList />

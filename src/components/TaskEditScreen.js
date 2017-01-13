@@ -2,14 +2,14 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import Notification from 'react-native-system-notification';
 import { connect } from 'react-redux';
-import { taskUpdate, taskSave, reminderSave } from '../actions';
+import { formUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
 class TaskEditScreen extends Component {
   componentWillMount() {
     _.each(this.props.task, (value, prop) => {
-      this.props.taskUpdate({ prop, value });
+      this.props.formUpdate({ prop, value });
     });
   }
 
@@ -98,5 +98,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-   taskUpdate, taskSave, reminderSave
+   formUpdate, taskSave, reminderSave
  })(TaskEditScreen);

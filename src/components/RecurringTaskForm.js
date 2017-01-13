@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { formUpdate } from '../actions';
+import { recurringFormUpdate } from '../actions';
 import { CardSection, Input } from './common';
 
-class TaskForm extends Component {
+class RecurringTaskForm extends Component {
   render() {
     return (
       <View>
@@ -13,7 +13,7 @@ class TaskForm extends Component {
           label="Title"
           placeholder="i.e. Take Vitamin C"
           value={this.props.title}
-          onChangeText={text => this.props.formUpdate({ prop: 'title', value: text })
+          onChangeText={text => this.props.recurringFormUpdate({ prop: 'title', value: text })
           }
         />
       </CardSection>
@@ -23,7 +23,9 @@ class TaskForm extends Component {
           label="Description"
           placeholder="Take 2 pills each evening with a full glass of water"
           value={this.props.description}
-          onChangeText={text => this.props.formUpdate({ prop: 'description', value: text })}
+          onChangeText={
+            text => this.props.recurringFormUpdate({ prop: 'description', value: text })
+          }
         />
       </CardSection>
 
@@ -32,7 +34,9 @@ class TaskForm extends Component {
           label="Personal Motivation"
           placeholder="i.e. Let's not get sick!"
           value={this.props.personalMotivation}
-          onChangeText={text => this.props.formUpdate({ prop: 'personalMotivation', value: text })}
+          onChangeText={
+            text => this.props.recurringFormUpdate({ prop: 'personalMotivation', value: text })
+          }
         />
       </CardSection>
 
@@ -41,7 +45,9 @@ class TaskForm extends Component {
         <Picker
           style={styles.pickerStyle}
           selectedValue={this.props.category}
-          onValueChange={selection => this.props.formUpdate({ prop: 'category', value: selection })}
+          onValueChange={
+            selection => this.props.recurringFormUpdate({ prop: 'category', value: selection })
+          }
         >
           <Picker.Item label="Finance" value="Finance" />
           <Picker.Item label="Health/Medical" value="Health/Medical" />
@@ -56,19 +62,39 @@ class TaskForm extends Component {
 
       <CardSection>
         <Input
-          label="Due Date"
-          placeholder="i.e. 1/27/2017"
-          value={this.props.dueDate}
-          onChangeText={text => this.props.formUpdate({ prop: 'dueDate', value: text })}
+          label="Recurring Once Every: "
+          placeholder="i.e. day, week, month, year"
+          value={this.props.frequency}
+          onChangeText={text => this.props.recurringFormUpdate({ prop: 'frequency', value: text })}
         />
       </CardSection>
 
       <CardSection>
         <Input
-          label="Time Due"
+          label="Recurrence Start Date"
+          placeholder="i.e. 1/27/2017"
+          value={this.props.startDate}
+          onChangeText={text => this.props.recurringFormUpdate({ prop: 'startDate', value: text })}
+        />
+      </CardSection>
+
+      <CardSection>
+        <Input
+          label="Recurrence End Date"
+          placeholder="i.e. 4/27/2017 (or empty if N/A)"
+          value={this.props.endDate}
+          onChangeText={text => this.props.recurringFormUpdate({ prop: 'endDate', value: text })}
+        />
+      </CardSection>
+
+      <CardSection>
+        <Input
+          label="Recurring Time"
           placeholder="i.e. 1:14PM"
-          value={this.props.timeDue}
-          onChangeText={text => this.props.formUpdate({ prop: 'timeDue', value: text })}
+          value={this.props.recurringTime}
+          onChangeText={
+            text => this.props.recurringFormUpdate({ prop: 'recurringTime', value: text })
+          }
         />
       </CardSection>
       </View>
@@ -89,9 +115,13 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
+const {
+    title, description, personalMotivation, category, frequency, startDate, endDate, recurringTime
+} = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue };
+  return {
+    title, description, personalMotivation, category, frequency, startDate, endDate, recurringTime
+  };
 };
 
-export default connect(mapStateToProps, { formUpdate })(TaskForm);
+export default connect(mapStateToProps, { recurringFormUpdate })(RecurringTaskForm);

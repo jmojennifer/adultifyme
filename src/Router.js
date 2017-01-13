@@ -33,7 +33,7 @@ const RouterComponent = () => {
       <Scene key="taskEditScreen" component={TaskEditScreen} title="Edit Task" />
 
       <Scene
-        key="recurringeTaskCreateScreen" component={RecurringTaskCreateScreen}
+        key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
         title="New Recurring Task Series"
       />
 

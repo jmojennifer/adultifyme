@@ -18,7 +18,7 @@ const ManageTasksScreen = () => {
         </Button>
         <Button
           onPress={() => {
-            Actions.recurringeTaskCreateScreen();
+            Actions.recurringTaskCreateScreen();
           }}
         >
         New Recurring Task Series

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Notification from 'react-native-system-notification';
 import { Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { recurringTasksCreate, recurringRemindersCreate } from '../actions';
+import { recurringTaskCreate, recurringReminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
 import RecurringTaskForm from './RecurringTaskForm';
 
@@ -21,17 +21,17 @@ class RecurringTaskCreateScreen extends Component {
     } = this.props;
 
     if (Platform.OS === 'android') {
-      this.props.recurringRemindersCreate({
+      this.props.recurringReminderCreate({
         title,
         description,
         personalMotivation,
         category: category || 'Finance',
-        frequency,
+        frequency: frequency || 'day',
         startDate,
         endDate,
         recurringTime,
-        taskCreateOnReminderCreation: ((id) => {
-          this.props.recurringTasksCreate({
+        recurringTaskCreateOnReminderCreation: ((id) => {
+          this.props.recurringTaskCreate({
             // Because an empty string in JS is falsy,
             // and the Iniitial State for category will be '',
             // if the picker stays on Monday it will be falsy || 'Finance';
@@ -40,7 +40,7 @@ class RecurringTaskCreateScreen extends Component {
             description,
             personalMotivation,
             category: category || 'Finance',
-            frequency,
+            frequency: frequency || 'day',
             startDate,
             endDate,
             recurringTime,
@@ -49,7 +49,7 @@ class RecurringTaskCreateScreen extends Component {
         })
       });
     } else {
-      this.props.recurringTasksCreate({
+      this.props.recurringTaskCreate({
         // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
         // if the picker stays on Monday it will be falsy || 'Finance';
         // 'Finance' will be set as the new category state
@@ -114,7 +114,7 @@ const mapStateToProps = (state) => {
     endDate,
     recurringTime,
     reminderID
-  } = state.taskForm;
+  } = state.recurringTaskForm;
 
   return {
     title,
@@ -130,4 +130,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-  { recurringTasksCreate, recurringRemindersCreate })(RecurringTaskCreateScreen);
+  { recurringTaskCreate, recurringReminderCreate })(RecurringTaskCreateScreen);

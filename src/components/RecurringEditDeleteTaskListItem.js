@@ -12,7 +12,7 @@ class RecurringEditDeleteTaskListItem extends Component {
   state = { showModal: false };
 
   onEditIconPress() {
-    Actions.taskEditScreen({ task: this.props.recurringTask });
+    Actions.recurringTaskEditScreen({ recurringTask: this.props.recurringTask });
   }
 
   onDeleteIconPress() {

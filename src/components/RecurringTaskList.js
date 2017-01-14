@@ -19,12 +19,12 @@ class RecurringTaskList extends Component {
     this.createDataSource(nextProps);
   }
 
-  createDataSource({ tasks }) {
+  createDataSource({ recurringTasks }) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
-    this.dataSource = ds.cloneWithRows(tasks);
+    this.dataSource = ds.cloneWithRows(recurringTasks);
   }
 
   renderRow(recurringTask) {
@@ -45,7 +45,7 @@ class RecurringTaskList extends Component {
 }
 
 const mapStateToProps = state => {
-  const recurringTasks = _.map(state.tasks, (val, uid) => {
+  const recurringTasks = _.map(state.recurringTasks, (val, uid) => {
     return { ...val, uid }; // sample result:
     // { title: 'Eat more veggies', description: 'carrots, peas, etc.',
     // personal_motivation: 'It's good for me!',  category: 'health/medical',

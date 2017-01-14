@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { CardSection } from './common';
+import { CardSection, renderIf } from './common';
 
 class RecurringTaskListItem extends Component {
   render() {
-    const { title } = this.props.recurringTasks;
-    const { category } = this.props.recurringTasks;
-    const { dueDate } = this.props.recurringTasks;
-    const { timeDue } = this.props.recurringTasks;
+    const { title } = this.props.recurringTask;
+    const { category } = this.props.recurringTask;
+    const { startDate } = this.props.recurringTask;
+    const { recurringTime } = this.props.recurringTask;
+    const { endDate } = this.props.recurringTask;
 
     return (
       <CardSection>
@@ -19,8 +20,16 @@ class RecurringTaskListItem extends Component {
           </View>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
-              Due: {dueDate} {timeDue}
+              Due: {startDate} {recurringTime}
             </Text>
+            {renderIf(endDate !== '',
+              <Text style={styles.textStyle}>
+                Ending: {endDate}
+              </Text>)}
+            {renderIf(endDate === '',
+              <Text style={styles.textStyle}>
+                Ending: Not set
+              </Text>)}
           </View>
         </View>
       </CardSection>

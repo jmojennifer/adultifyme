@@ -31,7 +31,7 @@ export const recurringTaskCreate = ({
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/tasks`)
+    firebase.database().ref(`/users/${currentUser.uid}/recurringTasks`)
       .push({
         title,
         description,
@@ -54,7 +54,7 @@ export const recurringTasksFetch = () => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/tasks`)
+    firebase.database().ref(`/users/${currentUser.uid}/recurringTasks`)
       .on('value', snapshot => {
         dispatch({ type: RECURRING_TASKS_FETCH_SUCCESS, payload: snapshot.val() });
       });
@@ -76,7 +76,7 @@ export const recurringTaskSave = ({
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/tasks/${uid}`)
+    firebase.database().ref(`/users/${currentUser.uid}/recurringTasks/${uid}`)
       .set({
         title,
         description,
@@ -99,7 +99,7 @@ export const recurringTaskDelete = ({ uid }) => {
   const { currentUser } = firebase.auth();
 
   return () => {
-    firebase.database().ref(`/users/${currentUser.uid}/tasks/${uid}`)
+    firebase.database().ref(`/users/${currentUser.uid}/recurringTasks/${uid}`)
       .remove()
       .then(() => {
         Actions.manageTasksScreen({ type: 'reset' });

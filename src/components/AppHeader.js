@@ -9,7 +9,7 @@ import DrawerMenu from './DrawerMenu';
 
 const AppHeader = () => {
   return (
-    <View>
+    <View style={{ borderBottomWidth: 2 }}>
     <View style={styles.row1AppHeaderStyle}>
       <View>
         <Logo />
@@ -24,6 +24,8 @@ const AppHeader = () => {
     <View style={styles.row2AppHeaderStyle}>
       <View>
         <Text style={{ fontSize: 20 }}>Tasks</Text>
+        <Text style={{ fontSize: 15 }}>- denotes one-off task</Text>
+        <Text style={{ fontSize: 15 }}>* denotes recurring task</Text>
       </View>
       <View>
         <Button
@@ -44,14 +46,15 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    marginRight: 10
+    marginRight: 10,
   },
   row2AppHeaderStyle: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     marginTop: 50,
-    marginLeft: 10
+    marginLeft: 10,
+    marginBottom: 10
   },
   starMenuStyle: {
     alignItems: 'flex-start',

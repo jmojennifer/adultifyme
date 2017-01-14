@@ -8,6 +8,7 @@ import ManageTasksScreen from './components/ManageTasksScreen';
 import TaskCreateScreen from './components/TaskCreateScreen';
 import TaskEditScreen from './components/TaskEditScreen';
 import RecurringTaskCreateScreen from './components/RecurringTaskCreateScreen';
+import RecurringTaskEditScreen from './components/RecurringTaskEditScreen';
 import AccountInfoScreen from './components/AccountInfoScreen.js';
 import AppSettingsScreen from './components/AppSettingsScreen.js';
 
@@ -36,6 +37,8 @@ const RouterComponent = () => {
         key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
         title="New Recurring Task Series"
       />
+
+      <Scene key="recurringTaskEditScreen" component={RecurringTaskEditScreen} title="Edit Task" />
 
       <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
 

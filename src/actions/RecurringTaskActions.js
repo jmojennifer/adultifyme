@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
   RECURRING_FORM_UPDATE,
@@ -7,8 +6,6 @@ import {
   RECURRING_TASKS_FETCH_SUCCESS,
   RECURRING_TASK_SAVE_SUCCESS
 } from './types';
-
-require('moment-recur');
 
 export const recurringFormUpdate = ({ prop, value }) => {
   return {

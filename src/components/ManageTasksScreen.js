@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import EditDeleteTaskList from './EditDeleteTaskList';

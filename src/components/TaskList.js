@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, ScrollView } from 'react-native';
+import { ListView } from 'react-native';
 import _ from 'lodash';
 import { tasksFetch } from '../actions';
 import TaskListItem from './TaskListItem';
@@ -33,13 +33,11 @@ class TaskList extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <ListView
-          enableEmptySections
-          dataSource={this.dataSource}
-          renderRow={this.renderRow}
-        />
-      </ScrollView>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }

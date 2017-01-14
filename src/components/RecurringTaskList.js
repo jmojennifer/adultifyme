@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, ScrollView } from 'react-native';
+import { ListView } from 'react-native';
 import _ from 'lodash';
 import { recurringTasksFetch } from '../actions';
 import RecurringTaskListItem from './RecurringTaskListItem';
@@ -33,13 +33,11 @@ class RecurringTaskList extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <ListView
-          enableEmptySections
-          dataSource={this.dataSource}
-          renderRow={this.renderRow}
-        />
-      </ScrollView>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }

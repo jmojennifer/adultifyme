@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, ScrollView } from 'react-native';
+import { ListView } from 'react-native';
 import _ from 'lodash';
 import { recurringTasksFetch } from '../actions';
 import RecurringEditDeleteTaskListItem from './RecurringEditDeleteTaskListItem';
@@ -38,13 +38,11 @@ class RecurringEditDeleteTaskList extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <ListView
-          enableEmptySections
-          dataSource={this.dataSource}
-          renderRow={this.renderRow}
-        />
-      </ScrollView>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }

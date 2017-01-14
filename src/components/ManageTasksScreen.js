@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from 'react-native-button';
 import EditDeleteTaskList from './EditDeleteTaskList';
+import RecurringEditDeleteTaskList from './RecurringEditDeleteTaskList';
 
 const ManageTasksScreen = () => {
   return (
@@ -16,6 +17,9 @@ const ManageTasksScreen = () => {
         >
         New Task
         </Button>
+        <View>
+          <EditDeleteTaskList />
+        </View>
         <Button
           onPress={() => {
             Actions.recurringTaskCreateScreen();
@@ -25,7 +29,7 @@ const ManageTasksScreen = () => {
         </Button>
       </View>
       <View>
-        <EditDeleteTaskList />
+        <RecurringEditDeleteTaskList />
       </View>
     </View>
   );

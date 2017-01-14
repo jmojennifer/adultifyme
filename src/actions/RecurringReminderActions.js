@@ -20,7 +20,7 @@ export const recurringReminderCreate = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motication: ${personalMotivation}
+    const messageContent = `Personal Motivation: ${personalMotivation}
     Description: ${description}
     Category: ${category}`;
     const startDateRecurringTime = `${startDate} ${recurringTime}`;
@@ -32,7 +32,6 @@ export const recurringReminderCreate = ({
         bigText: messageContent,
         sendAt: momentDate,
         repeatEvery: frequency
-
       })
       .then((notification) => {
         recurringTaskCreateOnReminderCreation(notification.id);
@@ -69,21 +68,38 @@ export const recurringReminderSave = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motication: ${personalMotivation}
+    const messageContent = `Personal Motivation: ${personalMotivation}
     Description: ${description}
     Category: ${category}`;
-    const dueDateTime = `${dueDate} ${timeDue}`;
-    console.log(dueDateTime);
-    const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
-    Notification.create({
-      subject: title,
-      bigText: messageContent,
-      sendAt: deadline
-    })
-    .then(() => {
-      dispatch({ type: RECURRING_REMINDER_SAVE });
-      Actions.manageTasksScreen({ type: 'reset' });
-    });
+    const startDateRecurringTime = `${startDate} ${recurringTime}`;
+    const momentDate = moment(startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa').format();
+
+    if (endDate == '') {
+      Notification.create({
+        id: reminderID,
+        subject: title,
+        bigText: messageContent,
+        sendAt: momentDate,
+        repeatEvery: frequency
+      })
+      .then(() => {
+        dispatch({ type: RECURRING_REMINDER_SAVE });
+        Actions.main({ type: 'reset' });
+      });
+    } else if (endDate != '') {
+      Notification.create({
+        id: reminderID,
+        subject: title,
+        bigText: messageContent,
+        sendAt: momentDate,
+        repeatEvery: frequency,
+        endAt: endDate
+      })
+      .then(() => {
+        dispatch({ type: RECURRING_REMINDER_SAVE });
+        Actions.main({ type: 'reset' });
+      });
+    }
   };
 };
 

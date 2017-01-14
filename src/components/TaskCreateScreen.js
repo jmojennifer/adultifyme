@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Notification from 'react-native-system-notification';
-import { Platform } from 'react-native';
+import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { taskUpdate, taskCreate, reminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
@@ -67,24 +67,26 @@ class TaskCreateScreen extends Component {
 
   render() {
     return (
-      <Card>
-        <TaskForm {...this.props} />
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Create
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button onPress={this.onButton2Press.bind(this)}>
-            Check Reminders
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button onPress={this.onButton3Press.bind(this)}>
-            Delete Reminders
-          </Button>
-        </CardSection>
-      </Card>
+      <ScrollView>
+        <Card>
+          <TaskForm {...this.props} />
+          <CardSection>
+            <Button onPress={this.onButtonPress.bind(this)}>
+              Create
+            </Button>
+          </CardSection>
+          <CardSection>
+            <Button onPress={this.onButton2Press.bind(this)}>
+              Check Reminders
+            </Button>
+          </CardSection>
+          <CardSection>
+            <Button onPress={this.onButton3Press.bind(this)}>
+              Delete Reminders
+            </Button>
+          </CardSection>
+        </Card>
+      </ScrollView>
     );
   }
 }

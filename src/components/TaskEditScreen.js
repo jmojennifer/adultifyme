@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import Notification from 'react-native-system-notification';
 import { connect } from 'react-redux';
 import { formUpdate, taskSave, reminderSave } from '../actions';
@@ -15,8 +16,15 @@ class TaskEditScreen extends Component {
 
   onButtonPress() {
     const {
-      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+      title,
+      description,
+      personalMotivation,
+      category,
+      dueDate,
+      timeDue,
+      reminderID
     } = this.props;
+
     this.props.taskSave({
       title,
       description,
@@ -62,29 +70,31 @@ class TaskEditScreen extends Component {
 
   render() {
     return (
-      <Card>
-        <TaskForm {...this.props} />
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Save Changes
+      <ScrollView>
+        <Card>
+          <TaskForm {...this.props} />
+            <CardSection>
+              <Button onPress={this.onButtonPress.bind(this)}>
+                Save Changes
+              </Button>
+            </CardSection>
+            <CardSection>
+              <Button onPress={this.onButton2Press.bind(this)}>
+                Check Reminders
+              </Button>
+            </CardSection>
+            <CardSection>
+              <Button onPress={this.onButton3Press.bind(this)}>
+                Delete Reminders
+              </Button>
+            </CardSection>
+            <CardSection>
+            <Button onPress={this.onButton4Press.bind(this)}>
+              Check Reminder
           </Button>
         </CardSection>
-        <CardSection>
-          <Button onPress={this.onButton2Press.bind(this)}>
-            Check Reminders
-          </Button>
-      </CardSection>
-      <CardSection>
-        <Button onPress={this.onButton3Press.bind(this)}>
-          Delete Reminders
-        </Button>
-      </CardSection>
-      <CardSection>
-        <Button onPress={this.onButton4Press.bind(this)}>
-          Check Reminder
-        </Button>
-      </CardSection>
       </Card>
+    </ScrollView>
     );
   }
 }

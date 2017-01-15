@@ -2,16 +2,19 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import AppHeader from './AppHeader';
-import TaskList from './TaskList';
-import RecurringTaskList from './RecurringTaskList';
+import EditDeleteTaskList from './EditDeleteTaskList';
+import RecurringEditDeleteTaskList from './RecurringEditDeleteTaskList';
+import { Card } from './common';
 
 const MainScreen = () => {
   return (
     <View>
       <AppHeader />
         <ScrollView>
-          <TaskList />
-          <RecurringTaskList />
+          <Card>
+            <EditDeleteTaskList />
+            <RecurringEditDeleteTaskList />
+          </Card>
         </ScrollView>
     </View>
   );

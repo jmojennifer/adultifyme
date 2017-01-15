@@ -39,29 +39,23 @@ class EditDeleteTaskListItem extends Component {
 
     return (
       <CardSection>
-        <View>
-          <View style={styles.taskStyle}>
-            <EditIcon onPress={this.onEditIconPress.bind(this)} />
-
-            <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
-            <Confirm
-              visible={this.state.showModal}
-              onAccept={this.onAccept.bind(this)}
-              onDecline={this.onDecline.bind(this)}
-            >
-              Are you sure you want to delete this?
-            </Confirm>
-
-            <Text style={styles.textStyle}>
-              {title} ({category})
-            </Text>
-          </View>
-          <View style={styles.taskStyle}>
-            <Text style={styles.textStyle}>
-              Due: {dueDate} {timeDue}
-            </Text>
-          </View>
+        <View style={styles.taskStyle}>
+          <Text style={styles.textStyle}>
+            {title} ({category}){'\n'}
+            Due: {dueDate} {timeDue}
+          </Text>
         </View>
+        <View style={styles.iconStyle}>
+          <EditIcon onPress={this.onEditIconPress.bind(this)} />
+          <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
+        </View>
+          <Confirm
+            visible={this.state.showModal}
+            onAccept={this.onAccept.bind(this)}
+            onDecline={this.onDecline.bind(this)}
+          >
+            Are you sure you want to delete this?
+          </Confirm>
       </CardSection>
     );
   }
@@ -71,11 +65,15 @@ const styles = {
   taskStyle: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between'
   },
   textStyle: {
     fontSize: 15,
-    marginRight: 5
+    marginRight: 5,
+    flexWrap: 'wrap'
+  },
+  iconStyle: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   }
 };
 

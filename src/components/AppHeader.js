@@ -1,45 +1,57 @@
 /*jshint esversion: 6 */
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Button from 'react-native-button';
+import { CardSection, Button } from './common';
 import Logo from './Logo';
 import Star from './Star';
 import DrawerMenu from './DrawerMenu';
 
-const AppHeader = () => {
-  return (
-    <View style={{ borderBottomWidth: 2 }}>
-    <View style={styles.row1AppHeaderStyle}>
+class AppHeader extends Component {
+
+  taskCreate() {
+    Actions.taskCreateScreen();
+  }
+
+  recurringTaskCreate() {
+    Actions.recurringTaskCreateScreen();
+  }
+
+  render() {
+    return (
       <View>
-        <Logo />
+        <View style={styles.row1AppHeaderStyle}>
+          <View>
+            <Logo />
+          </View>
+          <View>
+            <Star />
+          </View>
+          <View>
+            <DrawerMenu />
+          </View>
+        </View>
+        <View>
+          <CardSection>
+            <Button onPress={this.taskCreate.bind(this)}>
+              Add Single Task
+            </Button>
+            <Button onPress={this.recurringTaskCreate.bind(this)}>
+              Add Recurring Task
+            </Button>
+          </CardSection>
+        </View>
+        <View style={styles.row2AppHeaderStyle}>
+          <Text
+          style={{ fontSize: 18 }}
+          >
+            Tasks
+          </Text>
+        </View>
       </View>
-      <View>
-        <Star />
-      </View>
-      <View>
-        <DrawerMenu />
-      </View>
-    </View>
-    <View style={styles.row2AppHeaderStyle}>
-      <View>
-        <Text style={{ fontSize: 20 }}>Tasks</Text>
-        <Text style={{ fontSize: 15 }}>- denotes one-off task</Text>
-        <Text style={{ fontSize: 15 }}>* denotes recurring task</Text>
-      </View>
-      <View>
-        <Button
-        onPress={() => {
-          Actions.manageTasksScreen();
-        }}
-        >
-        Manage Tasks
-        </Button>
-      </View>
-    </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = {
   row1AppHeaderStyle: {
@@ -52,7 +64,7 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    marginTop: 50,
+    marginTop: 10,
     marginLeft: 10,
     marginBottom: 10
   },
@@ -61,6 +73,9 @@ const styles = {
     justifyContent: 'space-around',
     marginLeft: 10,
     marginRight: 10
+  },
+  buttonStyle: {
+    flex: -1,
   }
 };
 

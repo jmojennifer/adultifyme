@@ -13,8 +13,8 @@ const Star = () => {
 
 const styles = {
   starStyle: {
-    width: 50,
-    height: 50
+    width: 25,
+    height: 25
   }
 };
 

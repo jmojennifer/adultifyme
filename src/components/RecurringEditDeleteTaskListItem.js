@@ -37,39 +37,36 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { category } = this.props.recurringTask;
     const { startDate } = this.props.recurringTask;
     const { recurringTime } = this.props.recurringTask;
+    const { frequency } = this.props.recurringTask;
     const { endDate } = this.props.recurringTask;
 
     return (
       <CardSection>
         <View>
           <View style={styles.taskStyle}>
+            <Text style={styles.textStyle}>
+              {title} ({category}){'\n'}
+              Due: {startDate} {recurringTime}{'\n'}
+              Frequency: {frequency}{'\n'}
+              {renderIf(endDate !== '',
+              <Text>Ending: endDate</Text>
+              )}
+              {renderIf(endDate === '',
+              <Text>Ending: Not set</Text>
+              )}
+            </Text>
+          </View>
+          <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
-
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
-            <Confirm
-              visible={this.state.showModal}
-              onAccept={this.onAccept.bind(this)}
-              onDecline={this.onDecline.bind(this)}
-            >
-              Are you sure you want to delete this?
-            </Confirm>
-            <Text style={styles.textStyle}>
-              {title} ({category})
-            </Text>
           </View>
-          <View style={styles.taskStyle}>
-            <Text style={styles.textStyle}>
-              Due: {startDate} {recurringTime}
-            </Text>
-            {renderIf(endDate !== '',
-              <Text style={styles.textStyle}>
-                Ending: {endDate}
-              </Text>)}
-            {renderIf(endDate === '',
-              <Text style={styles.textStyle}>
-                Ending: Not set
-              </Text>)}
-          </View>
+          <Confirm
+            visible={this.state.showModal}
+            onAccept={this.onAccept.bind(this)}
+            onDecline={this.onDecline.bind(this)}
+          >
+            Are you sure you want to delete this?
+          </Confirm>
         </View>
       </CardSection>
     );
@@ -84,7 +81,13 @@ const styles = {
   },
   textStyle: {
     fontSize: 15,
-    marginRight: 5
+    marginRight: 5,
+    flexWrap: 'wrap'
+  },
+  iconStyle: {
+    flex: -1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   }
 };
 

@@ -68,7 +68,6 @@ class LoginForm extends Component {
             (Provided valid credentials are entered.)
           </Text>
         </CardSection>
-
       </Card>
     );
   }

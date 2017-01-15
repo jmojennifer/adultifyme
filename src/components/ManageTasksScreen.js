@@ -2,13 +2,14 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Button from 'react-native-button';
+import { CardSection, Button } from './common';
 import EditDeleteTaskList from './EditDeleteTaskList';
 import RecurringEditDeleteTaskList from './RecurringEditDeleteTaskList';
 
 const ManageTasksScreen = () => {
   return (
     <ScrollView>
+    <CardSection>
       <Button
         onPress={() => {
           Actions.taskCreateScreen();
@@ -16,7 +17,9 @@ const ManageTasksScreen = () => {
       >
         New Task
       </Button>
+    </CardSection>
       <EditDeleteTaskList />
+    <CardSection>
       <Button
         onPress={() => {
           Actions.recurringTaskCreateScreen();
@@ -24,6 +27,7 @@ const ManageTasksScreen = () => {
       >
         New Recurring Task Series
       </Button>
+    </CardSection>
       <RecurringEditDeleteTaskList />
     </ScrollView>
   );

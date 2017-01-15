@@ -4,7 +4,6 @@ import { Scene, Router } from 'react-native-router-flux';
 import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
 import MainScreen from './components/MainScreen.js';
-import ManageTasksScreen from './components/ManageTasksScreen';
 import TaskCreateScreen from './components/TaskCreateScreen';
 import TaskEditScreen from './components/TaskEditScreen';
 import RecurringTaskCreateScreen from './components/RecurringTaskCreateScreen';
@@ -23,22 +22,30 @@ const RouterComponent = () => {
       </Scene>
       <Scene key="main">
         <Scene
-        key="mainScreen" component={MainScreen} title="Adultify Me"
+          key="mainScreen"
+          component={MainScreen}
+          title="Adultify Me"
+        />
+        <Scene
+          key="taskCreateScreen"
+          component={TaskCreateScreen}
+          title="New Task"
+        />
+        <Scene
+          key="taskEditScreen"
+          component={TaskEditScreen}
+          title="Edit Task"
+        />
+        <Scene
+          key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
+          title="New Recurring Task Series"
+        />
+        <Scene
+          key="recurringTaskEditScreen"
+          component={RecurringTaskEditScreen}
+          title="Edit Recurring Task Series"
         />
       </Scene>
-
-      <Scene key="manageTasksScreen" component={ManageTasksScreen} title="Manage Tasks" />
-
-      <Scene key="taskCreateScreen" component={TaskCreateScreen} title="New Task" />
-
-      <Scene key="taskEditScreen" component={TaskEditScreen} title="Edit Task" />
-
-      <Scene
-        key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
-        title="New Recurring Task Series"
-      />
-
-      <Scene key="recurringTaskEditScreen" component={RecurringTaskEditScreen} title="Edit Task" />
 
       <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
 

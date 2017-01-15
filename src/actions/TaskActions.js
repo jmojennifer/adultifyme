@@ -32,7 +32,7 @@ export const taskCreate = ({
       })
       .then(() => {
         dispatch({ type: TASK_CREATE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };
@@ -65,7 +65,7 @@ export const taskSave = ({
       .set({ title, description, personalMotivation, category, dueDate, timeDue, reminderID })
       .then(() => {
         dispatch({ type: TASK_SAVE_SUCCESS });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };
@@ -77,7 +77,7 @@ export const taskDelete = ({ uid }) => {
     firebase.database().ref(`/users/${currentUser.uid}/tasks/${uid}`)
       .remove()
       .then(() => {
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };

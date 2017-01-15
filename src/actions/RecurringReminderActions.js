@@ -36,7 +36,7 @@ export const recurringReminderCreate = ({
       .then((notification) => {
         recurringTaskCreateOnReminderCreation(notification.id);
         dispatch({ type: RECURRING_REMINDER_CREATE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
     } else if (endDate != '') {
       Notification.create({
@@ -49,7 +49,7 @@ export const recurringReminderCreate = ({
       .then((notification) => {
         recurringTaskCreateOnReminderCreation(notification.id);
         dispatch({ type: RECURRING_REMINDER_CREATE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
     }
   };
@@ -84,7 +84,7 @@ export const recurringReminderSave = ({
       })
       .then(() => {
         dispatch({ type: RECURRING_REMINDER_SAVE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
     } else if (endDate != '') {
       Notification.create({
@@ -97,7 +97,7 @@ export const recurringReminderSave = ({
       })
       .then(() => {
         dispatch({ type: RECURRING_REMINDER_SAVE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
     }
   };
@@ -110,11 +110,11 @@ export const recurringReminderDelete = ({ reminderID }) => {
     Notification.delete(reminderID).then(
       (val) => {
         dispatch({ type: RECURRING_REMINDER_DELETE });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       },
       (reason) => {
         dispatch({ type: RECURRING_REMINDER_DELETE });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       }
     );
   };

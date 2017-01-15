@@ -42,7 +42,7 @@ export const recurringTaskCreate = ({
       })
       .then(() => {
         dispatch({ type: RECURRING_TASK_CREATE });
-        Actions.main({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };
@@ -87,7 +87,7 @@ export const recurringTaskSave = ({
       })
       .then(() => {
         dispatch({ type: RECURRING_TASK_SAVE_SUCCESS });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };
@@ -99,7 +99,7 @@ export const recurringTaskDelete = ({ uid }) => {
     firebase.database().ref(`/users/${currentUser.uid}/recurringTasks/${uid}`)
       .remove()
       .then(() => {
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       });
   };
 };

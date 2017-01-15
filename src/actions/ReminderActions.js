@@ -31,7 +31,7 @@ export const reminderCreate = ({
     .then((notification) => {
       taskCreateOnReminderCreation(notification.id);
       dispatch({ type: REMINDER_CREATE });
-      Actions.main({ type: 'reset' });
+      Actions.mainScreen({ type: 'reset' });
     });
   };
 };
@@ -60,7 +60,7 @@ export const reminderSave = ({
     })
     .then(() => {
       dispatch({ type: REMINDER_SAVE });
-      Actions.manageTasksScreen({ type: 'reset' });
+      Actions.mainScreen({ type: 'reset' });
     });
   };
 };
@@ -72,11 +72,11 @@ export const reminderDelete = ({ reminderID }) => {
     Notification.delete(reminderID).then(
       (val) => {
         dispatch({ type: REMINDER_DELETE });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       },
       (reason) => {
         dispatch({ type: REMINDER_DELETE });
-        Actions.manageTasksScreen({ type: 'reset' });
+        Actions.mainScreen({ type: 'reset' });
       }
     );
   };

@@ -1,44 +1,57 @@
 import React, { Component } from 'react';
-import Notification from 'react-native-system-notification';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { taskUpdate, taskCreate, reminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
 class TaskCreateScreen extends Component {
   onButtonPress() {
+  let newId = new Date().getTime();
+  newId &= 0xffffffff;
+
+  const nowMS = moment().millisecond();
+  const dueDateTime = `${dueDate} ${timeDue}`;
+  const deadline = nowMS - moment(
+    dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
+  ).format().millisecond();
+
     const {
-      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+      title, description, personalMotivation, category, dueDate, timeDue, reminderID, deadline
     } = this.props;
 
     if (Platform.OS === 'android') {
-      this.props.reminderCreate({
+      this.props.taskCreate({
+        // Because an empty string in JS is falsy,
+        // and the Iniitial State for category will be '',
+        // if the picker stays on Monday it will be falsy || 'Finance';
+        // 'Finance' will be set as the new category state
         title,
         description,
         personalMotivation,
         category: category || 'Finance',
         dueDate,
         timeDue,
-        taskCreateOnReminderCreation: ((id) => {
-          this.props.taskCreate({
-            // Because an empty string in JS is falsy,
-            // and the Iniitial State for category will be '',
-            // if the picker stays on Monday it will be falsy || 'Finance';
-            // 'Finance' will be set as the new category state
-            title,
-            description,
-            personalMotivation,
-            category: category || 'Finance',
-            dueDate,
-            timeDue,
-            reminderID: id
-          });
-        })
+        deadline,
+        reminderID: reminderID || newId
+      });
+      this.props.reminderCreate({
+        // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
+        // if the picker stays on Monday it will be falsy || 'Finance';
+        // 'Finance' will be set as the new category state
+        title,
+        description,
+        personalMotivation,
+        category: category || 'Finance',
+        dueDate,
+        timeDue,
+        reminderID: reminderID || newId
       });
     } else {
       this.props.taskCreate({
-        // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
+        // Because an empty string in JS is falsy,
+        // and the Iniitial State for category will be '',
         // if the picker stays on Monday it will be falsy || 'Finance';
         // 'Finance' will be set as the new category state
         title,
@@ -50,18 +63,7 @@ class TaskCreateScreen extends Component {
       });
     }
   }
-
   onButton2Press() {
-    Notification.getIDs().then((ids) => {
-      for (let i = 0; i < ids.length; i++) {
-        Notification.find(ids[i]).then((notification) => {
-          console.log(notification);
-        });
-      }
-    });
-  }
-
-  onButton3Press() {
     Notification.deleteAll();
   }
 
@@ -77,12 +79,7 @@ class TaskCreateScreen extends Component {
           </CardSection>
           <CardSection>
             <Button onPress={this.onButton2Press.bind(this)}>
-              Check Reminders
-            </Button>
-          </CardSection>
-          <CardSection>
-            <Button onPress={this.onButton3Press.bind(this)}>
-              Delete Reminders
+              Delete All Reminders
             </Button>
           </CardSection>
         </Card>
@@ -93,10 +90,10 @@ class TaskCreateScreen extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    title, description, personalMotivation, category, dueDate, timeDue, reminderID
+    title, description, personalMotivation, category, dueDate, timeDue, reminderID, deadline
   } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
+  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID, deadline };
 };
 
 export default connect(mapStateToProps,

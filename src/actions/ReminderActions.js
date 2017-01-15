@@ -1,6 +1,7 @@
 import Notification from 'react-native-system-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
+import PushNotification from './PushNotification';
 import {
   REMINDER_CREATE,
   REMINDER_SAVE,
@@ -14,6 +15,7 @@ export const reminderCreate = ({
   category,
   dueDate,
   timeDue,
+  reminderID,
   taskCreateOnReminderCreation
 
 }) => {
@@ -22,17 +24,19 @@ export const reminderCreate = ({
     Description: ${description}
     Category: ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
-    const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
-    Notification.create({
-      subject: title,
-      bigText: messageContent,
-      sendAt: deadline
-    })
-    .then((notification) => {
-      taskCreateOnReminderCreation(notification.id);
-      dispatch({ type: REMINDER_CREATE });
-      Actions.mainScreen({ type: 'reset' });
+    const nowMS = moment().millisecond();
+    const deadline = nowMS - moment(
+      dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
+    ).format().millisecond();
+    console.log(deadline);
+    PushNotification.localNotificationSchedule({
+      id: reminderID,
+      title: title,
+      message: messageContent,
+      date: new Date(Date.now() + deadline)
     });
+    dispatch({ type: REMINDER_CREATE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };
 

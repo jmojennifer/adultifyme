@@ -16,10 +16,13 @@ class App extends Component {
       databaseURL: 'https://adultifyme.firebaseio.com',
       storageBucket: 'adultifyme.appspot.com',
       messagingSenderId: '355708001571'
-  };
+    };
 
-  firebase.initializeApp(config);
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp(config);
+    }
   }
+
 
   render() {
         const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));

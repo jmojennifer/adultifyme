@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Platform, ScrollView } from 'react-native';
-import Notification from 'react-native-system-notification';
+import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
 import { formUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
@@ -60,25 +60,8 @@ class TaskEditScreen extends Component {
   }
 
   onButton2Press() {
-    Notification.getIDs().then((ids) => {
-      for (let i = 0; i < ids.length; i++) {
-        Notification.find(ids[i]).then((notification) => {
-          console.log(notification);
-        });
-      }
-    });
+    PushNotification.cancelAllLocalNotifications();
   }
-
-  onButton3Press() {
-    Notification.deleteAll();
-  }
-
-  onButton4Press() {
-    Notification.find(this.props.reminderID).then((notification) => {
-      console.log(notification);
-    });
-  }
-
 
   render() {
     return (
@@ -92,19 +75,9 @@ class TaskEditScreen extends Component {
             </CardSection>
             <CardSection>
               <Button onPress={this.onButton2Press.bind(this)}>
-                Check Reminders
+                Delete All Reminders
               </Button>
             </CardSection>
-            <CardSection>
-              <Button onPress={this.onButton3Press.bind(this)}>
-                Delete Reminders
-              </Button>
-            </CardSection>
-            <CardSection>
-            <Button onPress={this.onButton4Press.bind(this)}>
-              Check Reminder
-          </Button>
-        </CardSection>
       </Card>
     </ScrollView>
     );

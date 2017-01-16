@@ -9,7 +9,6 @@ const INITIAL_STATE = {
   category: '',
   frequency: '',
   startDate: '',
-  endDate: '',
   recurringTime: '',
   reminderID: ''
 };

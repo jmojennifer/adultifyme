@@ -69,10 +69,10 @@ class RecurringTaskForm extends Component {
             selection => this.props.recurringFormUpdate({ prop: 'frequency', value: selection })
           }
         >
+          <Picker.Item label="Minute" value='minute' />
+          <Picker.Item label="Hour" value='hour' />
           <Picker.Item label="Day" value='day' />
           <Picker.Item label="Week" value='week' />
-          <Picker.Item label="Month" value='month' />
-          <Picker.Item label="Year" value='year' />
         </Picker>
       </CardSection>
 
@@ -93,15 +93,6 @@ class RecurringTaskForm extends Component {
           onChangeText={
             text => this.props.recurringFormUpdate({ prop: 'recurringTime', value: text })
           }
-        />
-      </CardSection>
-
-      <CardSection>
-        <Input
-          label="Recurrence End Date (optional)"
-          placeholder="i.e. 4/27/2017 or blank"
-          value={this.props.endDate}
-          onChangeText={text => this.props.recurringFormUpdate({ prop: 'endDate', value: text })}
         />
       </CardSection>
       </View>

@@ -22,7 +22,6 @@ class RecurringTaskEditScreen extends Component {
       category,
       frequency,
       startDate,
-      endDate,
       recurringTime,
       reminderID
     } = this.props;
@@ -34,7 +33,6 @@ class RecurringTaskEditScreen extends Component {
       category,
       frequency,
       startDate,
-      endDate,
       recurringTime,
       reminderID,
       uid: this.props.recurringTask.uid
@@ -47,32 +45,14 @@ class RecurringTaskEditScreen extends Component {
       category,
       frequency,
       startDate,
-      endDate,
       recurringTime,
       reminderID
     });
   }
 
   onButton2Press() {
-    Notification.getIDs().then((ids) => {
-      for (let i = 0; i < ids.length; i++) {
-        Notification.find(ids[i]).then((notification) => {
-          console.log(notification);
-        });
-      }
-    });
+        PushNotification.cancelAllLocalNotifications();
   }
-
-  onButton3Press() {
-    Notification.deleteAll();
-  }
-
-  onButton4Press() {
-    Notification.find(this.props.reminderID).then((notification) => {
-      console.log(notification);
-    });
-  }
-
 
   render() {
     return (
@@ -85,18 +65,8 @@ class RecurringTaskEditScreen extends Component {
               </Button>
             </CardSection>
             <CardSection>
-              <Button onPress={this.onButton2Press.bind(this)}>
-                Check Reminders
-              </Button>
-            </CardSection>
-            <CardSection>
-            <Button onPress={this.onButton3Press.bind(this)}>
-              Delete Reminders
-            </Button>
-          </CardSection>
-          <CardSection>
-            <Button onPress={this.onButton4Press.bind(this)}>
-              Check Reminder
+            <Button onPress={this.onButton2Press.bind(this)}>
+              Delete All Reminders
             </Button>
           </CardSection>
         </Card>
@@ -113,7 +83,6 @@ const mapStateToProps = (state) => {
     category,
     frequency,
     startDate,
-    endDate,
     recurringTime,
     reminderID
   } = state.recurringTaskForm;
@@ -125,7 +94,6 @@ const mapStateToProps = (state) => {
     category,
     frequency,
     startDate,
-    endDate,
     recurringTime,
     reminderID
   };

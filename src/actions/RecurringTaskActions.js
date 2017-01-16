@@ -21,7 +21,6 @@ export const recurringTaskCreate = ({
   category,
   frequency,
   startDate,
-  endDate,
   recurringTime,
   reminderID
 }) => {
@@ -36,7 +35,6 @@ export const recurringTaskCreate = ({
         category,
         frequency,
         startDate,
-        endDate,
         recurringTime,
         reminderID
       })
@@ -65,7 +63,6 @@ export const recurringTaskSave = ({
   category,
   frequency,
   startDate,
-  endDate,
   recurringTime,
   reminderID,
   uid
@@ -81,7 +78,6 @@ export const recurringTaskSave = ({
         category,
         frequency,
         startDate,
-        endDate,
         recurringTime,
         reminderID
       })

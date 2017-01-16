@@ -13,37 +13,31 @@ class TaskCreateScreen extends Component {
     newId = newId.toString();
 
     const {
-      title, description, personalMotivation, category, dueDate, timeDue, reminderID
+      title,
+      description,
+      personalMotivation,
+      category,
+      dueDate,
+      timeDue,
+      reminderID
     } = this.props;
 
+    this.props.taskCreate({
+      // Because an empty string in JS is falsy,
+      // and the Iniitial State for category will be '',
+      // if the picker stays on Monday it will be falsy || 'Finance';
+      // 'Finance' will be set as the new category state
+      title,
+      description,
+      personalMotivation,
+      category: category || 'Finance',
+      dueDate,
+      timeDue,
+      reminderID: newId
+    });
+
     if (Platform.OS === 'android') {
-      this.props.taskCreate({
-        // Because an empty string in JS is falsy,
-        // and the Iniitial State for category will be '',
-        // if the picker stays on Monday it will be falsy || 'Finance';
-        // 'Finance' will be set as the new category state
-        title,
-        description,
-        personalMotivation,
-        category: category || 'Finance',
-        dueDate,
-        timeDue,
-        reminderID: newId
-      });
       this.props.reminderCreate({
-        // Because an empty string in JS is falsy, and the Iniitial State for category will be '',
-        // if the picker stays on Monday it will be falsy || 'Finance';
-        // 'Finance' will be set as the new category state
-        title,
-        description,
-        personalMotivation,
-        category: category || 'Finance',
-        dueDate,
-        timeDue,
-        reminderID: newId
-      });
-    } else {
-      this.props.taskCreate({
         // Because an empty string in JS is falsy,
         // and the Iniitial State for category will be '',
         // if the picker stays on Monday it will be falsy || 'Finance';
@@ -53,10 +47,12 @@ class TaskCreateScreen extends Component {
         personalMotivation,
         category: category || 'Finance',
         dueDate,
-        timeDue
+        timeDue,
+        reminderID: newId
       });
     }
   }
+  
   onButton2Press() {
     PushNotification.cancelAllLocalNotifications();
   }
@@ -84,10 +80,22 @@ class TaskCreateScreen extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    title, description, personalMotivation, category, dueDate, timeDue, reminderID
+    title,
+    description,
+    personalMotivation,
+    category,
+    dueDate,
+    timeDue,
+    reminderID
   } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue, reminderID };
+  return { title,
+    description,
+    personalMotivation,
+    category,
+    dueDate,
+    timeDue,
+    reminderID };
 };
 
 export default connect(mapStateToProps,

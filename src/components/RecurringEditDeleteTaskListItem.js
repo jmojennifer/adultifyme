@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { CardSection, Confirm, renderIf } from './common';
+import { CardSection, Confirm } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 import { recurringTaskDelete, recurringReminderDelete } from '../actions';
@@ -38,7 +38,6 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { startDate } = this.props.recurringTask;
     const { recurringTime } = this.props.recurringTask;
     const { frequency } = this.props.recurringTask;
-    const { endDate } = this.props.recurringTask;
 
     return (
       <CardSection>
@@ -48,12 +47,6 @@ class RecurringEditDeleteTaskListItem extends Component {
               {title} ({category}){'\n'}
               Due: {startDate} {recurringTime}{'\n'}
               Frequency: {frequency}{'\n'}
-              {renderIf(endDate !== '',
-              <Text>Ending: endDate</Text>
-              )}
-              {renderIf(endDate === '',
-              <Text>Ending: Not set</Text>
-              )}
             </Text>
           </View>
           <View style={styles.iconStyle}>

@@ -14,9 +14,8 @@ export const recurringReminderCreate = ({
   category,
   frequency,
   startDate,
-  endDate,
   recurringTime,
-  recurringTaskCreateOnReminderCreation
+  reminderID
 
 }) => {
   return (dispatch) => {
@@ -24,34 +23,23 @@ export const recurringReminderCreate = ({
     Description: ${description}
     Category: ${category}`;
     const startDateRecurringTime = `${startDate} ${recurringTime}`;
-    const momentDate = moment(startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa').format();
-
-    if (endDate == '') {
-      Notification.create({
-        subject: title,
-        bigText: messageContent,
-        sendAt: momentDate,
-        repeatEvery: frequency
-      })
-      .then((notification) => {
-        recurringTaskCreateOnReminderCreation(notification.id);
-        dispatch({ type: RECURRING_REMINDER_CREATE });
-        Actions.mainScreen({ type: 'reset' });
-      });
-    } else if (endDate != '') {
-      Notification.create({
-        subject: title,
-        bigText: messageContent,
-        sendAt: momentDate,
-        repeatEvery: frequency,
-        endAt: endDate
-      })
-      .then((notification) => {
-        recurringTaskCreateOnReminderCreation(notification.id);
-        dispatch({ type: RECURRING_REMINDER_CREATE });
-        Actions.mainScreen({ type: 'reset' });
-      });
-    }
+    const nowMS = moment().valueOf();
+    const startDateMS = moment(
+      startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa'
+    ).valueOf();
+    const adjustedStartDate = startDateMS - nowMS;
+    console.log(`nowMS: ${nowMS}`);
+    console.log(`startDateMS: ${startDateMS}`);
+    console.log(`adjustedStartDate: ${adjustedStartDate}`);
+    PushNotification.localNotificationSchedule({
+      id: reminderID,
+      title: title,
+      message: messageContent,
+      date: new Date(Date.now() + adjustedStartDate),
+      repeatType: frequency
+    });
+    dispatch({ type: RECURRING_REMINDER_CREATE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };
 
@@ -62,7 +50,6 @@ export const recurringReminderSave = ({
   category,
   frequency,
   startDate,
-  endDate,
   recurringTime,
   reminderID
 
@@ -72,50 +59,31 @@ export const recurringReminderSave = ({
     Description: ${description}
     Category: ${category}`;
     const startDateRecurringTime = `${startDate} ${recurringTime}`;
-    const momentDate = moment(startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa').format();
+    const nowMS = moment().valueOf();
+    const startDateMS = moment(
+      startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa'
+    ).valueOf();
+    const adjustedStartDate = startDateMS - nowMS;
+    console.log(`nowMS: ${nowMS}`);
+    console.log(`startDateMS: ${startDateMS}`);
+    console.log(`adjustedStartDate: ${adjustedStartDate}`);
 
-    if (endDate == '') {
-      Notification.create({
-        id: reminderID,
-        subject: title,
-        bigText: messageContent,
-        sendAt: momentDate,
-        repeatEvery: frequency
-      })
-      .then(() => {
-        dispatch({ type: RECURRING_REMINDER_SAVE });
-        Actions.mainScreen({ type: 'reset' });
-      });
-    } else if (endDate != '') {
-      Notification.create({
-        id: reminderID,
-        subject: title,
-        bigText: messageContent,
-        sendAt: momentDate,
-        repeatEvery: frequency,
-        endAt: endDate
-      })
-      .then(() => {
-        dispatch({ type: RECURRING_REMINDER_SAVE });
-        Actions.mainScreen({ type: 'reset' });
-      });
-    }
+    PushNotification.localNotificationSchedule({
+      id: reminderID,
+      title: title,
+      message: messageContent,
+      date: new Date(Date.now() + adjustedStartDate),
+      repeatType: frequency
+    });
+    dispatch({ type: RECURRING_REMINDER_SAVE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };
 
 export const recurringReminderDelete = ({ reminderID }) => {
   return (dispatch) => {
-    //swallow any errors - we don't care if the reminder can't be
-    //deleted... as long as it no longer exists
-    Notification.delete(reminderID).then(
-      (val) => {
-        dispatch({ type: RECURRING_REMINDER_DELETE });
-        Actions.mainScreen({ type: 'reset' });
-      },
-      (reason) => {
-        dispatch({ type: RECURRING_REMINDER_DELETE });
-        Actions.mainScreen({ type: 'reset' });
-      }
-    );
+    PushNotification.cancelLocalNotifications({ id: reminderID });
+    dispatch({ type: RECURRING_REMINDER_DELETE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };

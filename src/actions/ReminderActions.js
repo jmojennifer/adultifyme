@@ -83,8 +83,6 @@ export const reminderSave = ({
 
 export const reminderDelete = ({ reminderID }) => {
   return (dispatch) => {
-    //swallow any errors - we don't care if the reminder can't be
-    //deleted... as long as it no longer exists
     PushNotification.cancelLocalNotifications({ id: reminderID });
     dispatch({ type: REMINDER_DELETE });
     Actions.mainScreen({ type: 'reset' });

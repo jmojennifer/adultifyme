@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import Notification from 'react-native-system-notification';
+import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
 import { recurringFormUpdate, recurringTaskSave, recurringReminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';

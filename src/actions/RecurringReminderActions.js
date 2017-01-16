@@ -1,4 +1,4 @@
-import Notification from 'react-native-system-notification';
+import PushNotification from 'react-native-push-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {

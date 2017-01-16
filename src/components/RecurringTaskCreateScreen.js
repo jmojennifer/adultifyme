@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notification from 'react-native-system-notification';
+import PushNotification from 'react-native-push-notification';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { recurringTaskCreate, recurringReminderCreate } from '../actions';

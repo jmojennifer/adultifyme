@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import PushNotification from '../PushNotification';
+import PushNotification from 'react-native-push-notification';
 import { taskUpdate, taskCreate, reminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
@@ -58,7 +58,7 @@ class TaskCreateScreen extends Component {
     }
   }
   onButton2Press() {
-    PushNotification.cancelAllLocalNotifications()
+    PushNotification.cancelAllLocalNotifications();
   }
 
   render() {

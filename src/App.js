@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
-import Router from './Router';
+import PushNotification from 'react-native-push-notification';
+import RouterComponent from './Router';
 import reducers from './reducers';
 
-
-class App extends Component {
+export default class App extends Component {
   componentWillMount() {
     const config = {
       apiKey: 'AIzaSyBrPSS9NBfLiIOQllwE3QV7rJh411_G8s4',
@@ -21,18 +21,22 @@ class App extends Component {
     if (firebase.apps.length === 0) {
         firebase.initializeApp(config);
     }
+
+    PushNotification.configure({
+        // (required) Called when a remote or local notification is opened or received
+        onNotification: (notification) => {
+          console.log('NOTIFICATION:', notification);
+        }
+    });
   }
 
-
   render() {
-        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
     return (
       <Provider store={store}>
-        <Router />
+        <RouterComponent />
       </Provider>
     );
   }
 }
-
-export default App;

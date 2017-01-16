@@ -1,7 +1,7 @@
 import Notification from 'react-native-system-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
-import PushNotification from '../PushNotification';
+import PushNotification from 'react-native-push-notification';
 import {
   REMINDER_CREATE,
   REMINDER_SAVE,
@@ -23,10 +23,13 @@ export const reminderCreate = ({
     Description: ${description}
     Category: ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
-    const nowMS = moment().millisecond();
-    const deadline = nowMS - moment(
+    const nowMS = moment().valueOf();
+    const deadlineMS = moment(
       dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
-    ).millisecond();
+    ).valueOf();
+    const deadline = deadlineMS - nowMS;
+    console.log(`nowMS: ${nowMS}`);
+    console.log(`deadlineMS: ${deadlineMS}`);
     console.log(`Deadline: ${deadline}`);
 
     PushNotification.localNotificationSchedule({
@@ -53,21 +56,29 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motication: ${personalMotivation}
+    const messageContent = `Personal Motivation: ${personalMotivation}
     Description: ${description}
     Category: ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
-    const deadline = moment(dueDateTime, 'MM-DD-YYYY hh:mm:ssa').format();
-    Notification.create({
+    const nowMS = moment().valueOf();
+    const deadlineMS = moment(
+      dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
+    ).valueOf();
+    const deadline = deadlineMS - nowMS;
+    console.log(`nowMS: ${nowMS}`);
+    console.log(`deadlineMS: ${deadlineMS}`);
+    console.log(`Deadline: ${deadline}`);
+
+    PushNotification.localNotificationSchedule({
       id: reminderID,
-      subject: title,
-      bigText: messageContent,
-      sendAt: deadline
-    })
-    .then(() => {
-      dispatch({ type: REMINDER_SAVE });
-      Actions.mainScreen({ type: 'reset' });
+      title: title,
+      message: messageContent,
+      date: new Date(Date.now() + deadline)
     });
+    console.log(`reminderID: ${reminderID}`);
+    console.log(`reminderID type: ${typeof reminderID}`);
+    dispatch({ type: REMINDER_SAVE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };
 
@@ -75,15 +86,8 @@ export const reminderDelete = ({ reminderID }) => {
   return (dispatch) => {
     //swallow any errors - we don't care if the reminder can't be
     //deleted... as long as it no longer exists
-    Notification.delete(reminderID).then(
-      (val) => {
-        dispatch({ type: REMINDER_DELETE });
-        Actions.mainScreen({ type: 'reset' });
-      },
-      (reason) => {
-        dispatch({ type: REMINDER_DELETE });
-        Actions.mainScreen({ type: 'reset' });
-      }
-    );
+    PushNotification.cancelLocalNotifications({ id: reminderID });
+    dispatch({ type: REMINDER_DELETE });
+    Actions.mainScreen({ type: 'reset' });
   };
 };

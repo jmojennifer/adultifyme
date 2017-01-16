@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { Platform, ScrollView } from 'react-native';
 import Notification from 'react-native-system-notification';
 import { connect } from 'react-redux';
 import { formUpdate, taskSave, reminderSave } from '../actions';
@@ -25,26 +25,38 @@ class TaskEditScreen extends Component {
       reminderID
     } = this.props;
 
-    this.props.taskSave({
-      title,
-      description,
-      personalMotivation,
-      category,
-      dueDate,
-      timeDue,
-      reminderID,
-      uid: this.props.task.uid
-    });
+    if (Platform.OS === 'android') {
+      this.props.taskSave({
+        title,
+        description,
+        personalMotivation,
+        category,
+        dueDate,
+        timeDue,
+        reminderID,
+        uid: this.props.task.uid
+      });
 
-    this.props.reminderSave({
-      title,
-      description,
-      personalMotivation,
-      category,
-      dueDate,
-      timeDue,
-      reminderID
-    });
+      this.props.reminderSave({
+        title,
+        description,
+        personalMotivation,
+        category,
+        dueDate,
+        timeDue,
+        reminderID
+      });
+    } else {
+      this.props.reminderSave({
+        title,
+        description,
+        personalMotivation,
+        category,
+        dueDate,
+        timeDue,
+        reminderID
+      });
+    }
   }
 
   onButton2Press() {

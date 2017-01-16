@@ -28,17 +28,14 @@ export const recurringReminderCreate = ({
       startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa'
     ).valueOf();
     const adjustedStartDate = startDateMS - nowMS;
-    console.log(`nowMS: ${nowMS}`);
-    console.log(`startDateMS: ${startDateMS}`);
-    console.log(`adjustedStartDate: ${adjustedStartDate}`);
+
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: messageContent,
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel", "Completed"]',
-      tag: 'recurring'
+      actions: '["Cancel Task Occurance", "Completed Task Occurance"]'
     });
     dispatch({ type: RECURRING_REMINDER_CREATE });
     Actions.mainScreen({ type: 'reset' });
@@ -66,9 +63,6 @@ export const recurringReminderSave = ({
       startDateRecurringTime, 'MM-DD-YYYY hh:mm:ssa'
     ).valueOf();
     const adjustedStartDate = startDateMS - nowMS;
-    console.log(`nowMS: ${nowMS}`);
-    console.log(`startDateMS: ${startDateMS}`);
-    console.log(`adjustedStartDate: ${adjustedStartDate}`);
 
     PushNotification.localNotificationSchedule({
       id: reminderID,
@@ -76,8 +70,7 @@ export const recurringReminderSave = ({
       message: messageContent,
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel", "Completed"]',
-      tag: 'recurring'
+      actions: '["Cancel Task Occurance", "Completed Task Occurance"]'
     });
     dispatch({ type: RECURRING_REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });

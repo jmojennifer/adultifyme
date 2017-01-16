@@ -32,21 +32,39 @@ export default class App extends Component {
     });
 
     (function () {
-      PushNotificationAndroid.registerNotificationActions(['Cancel', 'Completed']);
+      PushNotificationAndroid.registerNotificationActions(
+        ['Cancel Task', 'Completed Task', 'Cancel Task Occurance', 'Completed Task Occurance']
+      );
       DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
         console.log('Notification action received: ', action);
         const info = JSON.parse(action.dataJSON);
-        if (info.action === 'Cancel' && action.tag === 'one-off') {
-          const { currentUser } = firebase.auth();
-    
-          firebase.database().ref(`/users/${currentUser.uid}/recurringTasks/${uid}`
+        const { currentUser } = firebase.auth();
+        const userTasks = firebase.database().ref(`/users/${currentUser.uid}/tasks`);
+        const userRecurringTasks = firebase.database().ref(
+          `/users/${currentUser.uid}/recurringTasks`
+        );
 
-        } else if (info.action === 'Accept' && action.tag === 'one-off') {
-
-        } else if (info.action === 'Cancel' && action.tag === 'recurring') {
-
-        } else if (info.action === 'Accept' && action.tag === 'recurring') {
-
+        if (info.action === 'Cancel Task') {
+          let task = null;
+          const taskQuery = userTasks.orderByChild('reminderID').equalTo(info.id);
+          taskQuery.on('child_added', snapshot => {
+            task = snapshot;
+          });
+          firebase.database().ref(`/users/${currentUser.uid}/tasks/${task.key}`)
+          .remove();
+        } else if (info.action === 'Completed Task') {
+          let task = null;
+          const taskQuery = userTasks.orderByChild('reminderID').equalTo(info.id);
+          taskQuery.on('child_added', snapshot => {
+            task = snapshot;
+          });
+          firebase.database().ref(`/users/${currentUser.uid}/tasks/${task.key}`)
+          .remove();
+          task.on('value', snapshot => { console.log(snapshot.val()); });
+        } else if (info.action === 'Cancel Task Occurance') {
+          console.log(info.id);
+        } else if (info.action === 'Completed Task Occurance') {
+          console.log(info.id);
         }
       });
     })();

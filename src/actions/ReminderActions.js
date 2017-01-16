@@ -27,20 +27,14 @@ export const reminderCreate = ({
       dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
     ).valueOf();
     const deadline = deadlineMS - nowMS;
-    console.log(`nowMS: ${nowMS}`);
-    console.log(`deadlineMS: ${deadlineMS}`);
-    console.log(`Deadline: ${deadline}`);
 
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: messageContent,
       date: new Date(Date.now() + deadline),
-      actions: '["Cancel", "Completed"]',
-      tag: 'one-off'
+      actions: '["Cancel Task", "Completed Task"]'
     });
-    console.log(`reminderID: ${reminderID}`);
-    console.log(`reminderID type: ${typeof reminderID}`);
     dispatch({ type: REMINDER_CREATE });
     Actions.mainScreen({ type: 'reset' });
   };
@@ -66,20 +60,14 @@ export const reminderSave = ({
       dueDateTime, 'MM-DD-YYYY hh:mm:ssa'
     ).valueOf();
     const deadline = deadlineMS - nowMS;
-    console.log(`nowMS: ${nowMS}`);
-    console.log(`deadlineMS: ${deadlineMS}`);
-    console.log(`Deadline: ${deadline}`);
 
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: messageContent,
       date: new Date(Date.now() + deadline),
-      actions: '["Cancel", "Completed"]',
-      tag: 'one-off'
+      actions: '["Cancel Task", "Completed Task"]'
     });
-    console.log(`reminderID: ${reminderID}`);
-    console.log(`reminderID type: ${typeof reminderID}`);
     dispatch({ type: REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });
   };

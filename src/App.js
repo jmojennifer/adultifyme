@@ -1,10 +1,12 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import { DeviceEventEmitter } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
+import PushNotificationAndroid from 'react-native-push-notification';
 import RouterComponent from './Router';
 import reducers from './reducers';
 
@@ -28,6 +30,19 @@ export default class App extends Component {
           console.log('NOTIFICATION:', notification);
         }
     });
+
+    (function () {
+      PushNotificationAndroid.registerNotificationActions(['Cancel', 'Completed']);
+      DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
+        console.log('Notification action received: ', action);
+        const info = JSON.parse(action.dataJSON);
+        if (info.action === 'Cancel') {
+          console.log('Cancel was pressed');
+        } else if (info.action === 'Accept') {
+          console.log('Completed was pressed');
+        }
+      });
+    })();
   }
 
   render() {

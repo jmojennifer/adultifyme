@@ -36,7 +36,9 @@ export const recurringReminderCreate = ({
       title: title,
       message: messageContent,
       date: new Date(Date.now() + adjustedStartDate),
-      repeatType: frequency
+      repeatType: frequency,
+      actions: '["Cancel", "Completed"]',
+      tag: 'recurring'
     });
     dispatch({ type: RECURRING_REMINDER_CREATE });
     Actions.mainScreen({ type: 'reset' });
@@ -73,7 +75,9 @@ export const recurringReminderSave = ({
       title: title,
       message: messageContent,
       date: new Date(Date.now() + adjustedStartDate),
-      repeatType: frequency
+      repeatType: frequency,
+      actions: '["Cancel", "Completed"]',
+      tag: 'recurring'
     });
     dispatch({ type: RECURRING_REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });

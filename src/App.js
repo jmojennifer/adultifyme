@@ -36,10 +36,17 @@ export default class App extends Component {
       DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
         console.log('Notification action received: ', action);
         const info = JSON.parse(action.dataJSON);
-        if (info.action === 'Cancel') {
-          console.log('Cancel was pressed');
-        } else if (info.action === 'Accept') {
-          console.log('Completed was pressed');
+        if (info.action === 'Cancel' && action.tag === 'one-off') {
+          const { currentUser } = firebase.auth();
+    
+          firebase.database().ref(`/users/${currentUser.uid}/recurringTasks/${uid}`
+
+        } else if (info.action === 'Accept' && action.tag === 'one-off') {
+
+        } else if (info.action === 'Cancel' && action.tag === 'recurring') {
+
+        } else if (info.action === 'Accept' && action.tag === 'recurring') {
+
         }
       });
     })();

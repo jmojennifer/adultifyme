@@ -36,7 +36,8 @@ export const reminderCreate = ({
       title: title,
       message: messageContent,
       date: new Date(Date.now() + deadline),
-      actions: '["Cancel", "Completed"]'
+      actions: '["Cancel", "Completed"]',
+      tag: 'one-off'
     });
     console.log(`reminderID: ${reminderID}`);
     console.log(`reminderID type: ${typeof reminderID}`);
@@ -74,7 +75,8 @@ export const reminderSave = ({
       title: title,
       message: messageContent,
       date: new Date(Date.now() + deadline),
-      actions: '["Cancel", "Completed"]'
+      actions: '["Cancel", "Completed"]',
+      tag: 'one-off'
     });
     console.log(`reminderID: ${reminderID}`);
     console.log(`reminderID type: ${typeof reminderID}`);

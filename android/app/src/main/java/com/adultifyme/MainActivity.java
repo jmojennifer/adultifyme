@@ -12,4 +12,9 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "adultifyme";
     }
+
+    // Turns off Android Back Button
+    @Override
+    public void onBackPressed() {
+    }
 }

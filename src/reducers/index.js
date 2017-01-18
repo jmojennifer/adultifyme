@@ -6,6 +6,7 @@ import ReminderReducer from './ReminderReducer';
 import RecurringTaskFormReducer from './RecurringTaskFormReducer';
 import RecurringTaskReducer from './RecurringTaskReducer';
 import RecurringReminderReducer from './RecurringReminderReducer';
+import NotificationReducer from './NotificationReducer';
 
 export default combineReducers({
   auth: AuthReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   reminders: ReminderReducer,
   recurringTaskForm: RecurringTaskFormReducer,
   recurringTasks: RecurringTaskReducer,
-  recurringReminders: RecurringReminderReducer
+  recurringReminders: RecurringReminderReducer,
+  notifications: NotificationReducer
 });

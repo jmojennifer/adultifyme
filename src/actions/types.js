@@ -30,3 +30,6 @@ export const RECURRING_TASK_SAVE_SUCCESS = 'recurring_task_save_success';
 export const RECURRING_REMINDER_CREATE = 'recurring_reminder_create';
 export const RECURRING_REMINDER_SAVE = 'recurring_reminder_save';
 export const RECURRING_REMINDER_DELETE = 'recurring_reminder_delete';
+
+// const for tracking number of tasks completed aka stars
+export const STAR_COUNT = 'star_count';

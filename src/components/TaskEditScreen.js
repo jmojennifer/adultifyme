@@ -84,7 +84,7 @@ class TaskEditScreen extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     title, description, personalMotivation, category, dueDate, timeDue, reminderID
   } = state.taskForm;

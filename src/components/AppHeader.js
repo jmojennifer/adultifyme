@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Button } from './common';
 import Logo from './Logo';
@@ -26,6 +27,9 @@ class AppHeader extends Component {
           </View>
           <View>
             <Star />
+          <Text>
+            {this.props.starCount}
+          </Text>
           </View>
           <View>
             <DrawerMenu />
@@ -79,4 +83,9 @@ const styles = {
   }
 };
 
-export default AppHeader;
+const mapStateToProps = (state) => {
+  const { starCount } = state.notifications;
+  return { starCount };
+};
+
+export default connect(mapStateToProps, {})(AppHeader);

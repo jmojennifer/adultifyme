@@ -1,11 +1,18 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import {
+  RECURRING_CREATE_FORM_STATE_RESET,
   RECURRING_FORM_UPDATE,
   RECURRING_TASK_CREATE,
   RECURRING_TASKS_FETCH_SUCCESS,
   RECURRING_TASK_SAVE_SUCCESS
 } from './types';
+
+export const recurringCreateFormStateReset = () => {
+  return (dispatch) => {
+    dispatch({ type: RECURRING_CREATE_FORM_STATE_RESET });
+  };
+};
 
 export const recurringFormUpdate = ({ prop, value }) => {
   return {

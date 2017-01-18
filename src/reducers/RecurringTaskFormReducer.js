@@ -1,5 +1,8 @@
 import {
-  RECURRING_FORM_UPDATE, RECURRING_TASK_CREATE, RECURRING_TASK_SAVE_SUCCESS
+  RECURRING_CREATE_FORM_STATE_RESET,
+  RECURRING_FORM_UPDATE,
+  RECURRING_TASK_CREATE,
+  RECURRING_TASK_SAVE_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -15,6 +18,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case RECURRING_CREATE_FORM_STATE_RESET:
+    return INITIAL_STATE;
     case RECURRING_FORM_UPDATE:
       // action.payload === { prop: 'title', value: 'Take Vitamin C' }
       // [] below is not an array;

@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PushNotification from 'react-native-push-notification';
-import { taskUpdate, taskCreate, reminderCreate } from '../actions';
+import { createFormStateReset, taskCreate, reminderCreate } from '../actions';
 import { Card, CardSection, Button } from './common';
 import TaskForm from './TaskForm';
 
 class TaskCreateScreen extends Component {
+  componentWillMount() {
+    this.props.createFormStateReset();
+  }
+
   onButtonPress() {
     let newId = new Date().getTime();
     newId &= 0xffffffff;
@@ -52,7 +56,7 @@ class TaskCreateScreen extends Component {
       });
     }
   }
-  
+
   onButton2Press() {
     PushNotification.cancelAllLocalNotifications();
   }
@@ -99,4 +103,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-  { taskUpdate, taskCreate, reminderCreate })(TaskCreateScreen);
+  { createFormStateReset, taskCreate, reminderCreate })(TaskCreateScreen);

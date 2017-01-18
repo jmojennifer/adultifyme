@@ -1,5 +1,5 @@
 import {
-  FORM_UPDATE, TASK_CREATE, TASK_SAVE_SUCCESS
+  CREATE_FORM_STATE_RESET, FORM_UPDATE, TASK_CREATE, TASK_SAVE_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -14,6 +14,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case CREATE_FORM_STATE_RESET:
+    return INITIAL_STATE;
     case FORM_UPDATE:
       // action.payload === { prop: 'title', value: 'Take Vitamin C' }
       // [] below is not an array;

@@ -8,6 +8,8 @@ export const LOGIN_USER = 'login_user';
 // const for updating the two kinds of task forms
 export const FORM_UPDATE = 'form_update';
 export const RECURRING_FORM_UPDATE = 'recurring_form_update';
+export const CREATE_FORM_STATE_RESET = 'create_form_state_reset';
+export const RECURRING_CREATE_FORM_STATE_RESET = 'recurring_create_form_state_reset';
 
 //const for task create/fetching/editng tasks
 export const TASK_CREATE = 'task_create';

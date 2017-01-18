@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import PushNotification from 'react-native-push-notification';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { recurringTaskCreate, recurringReminderCreate } from '../actions';
+import {
+  recurringCreateFormStateReset,
+  recurringTaskCreate,
+  recurringReminderCreate
+} from '../actions';
 import { Card, CardSection, Button } from './common';
 import RecurringTaskForm from './RecurringTaskForm';
 
 class RecurringTaskCreateScreen extends Component {
+  componentWillMount() {
+    this.props.recurringCreateFormStateReset();
+  }
+
   onButtonPress() {
     let newId = new Date().getTime();
     newId &= 0xffffffff;
@@ -106,4 +114,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-  { recurringTaskCreate, recurringReminderCreate })(RecurringTaskCreateScreen);
+  { recurringCreateFormStateReset, recurringTaskCreate, recurringReminderCreate })(RecurringTaskCreateScreen);

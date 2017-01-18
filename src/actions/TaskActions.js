@@ -1,11 +1,18 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import {
+  CREATE_FORM_STATE_RESET,
   FORM_UPDATE,
   TASK_CREATE,
   TASKS_FETCH_SUCCESS,
   TASK_SAVE_SUCCESS
 } from './types';
+
+export const createFormStateReset = () => {
+  return (dispatch) => {
+    dispatch({ type: CREATE_FORM_STATE_RESET });
+  };
+};
 
 export const formUpdate = ({ prop, value }) => {
   return {

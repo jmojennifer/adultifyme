@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Scene, Router, ActionConst } from 'react-native-router-flux';
+import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
@@ -10,13 +10,17 @@ import TaskEditScreen from './components/TaskEditScreen';
 import RecurringTaskCreateScreen from './components/RecurringTaskCreateScreen';
 import RecurringTaskEditScreen from './components/RecurringTaskEditScreen';
 import AccountInfoScreen from './components/AccountInfoScreen.js';
-import AppSettingsScreen from './components/AppSettingsScreen.js';
+import AppAboutScreen from './components/AppAboutScreen.js';
 import { logoutUser } from './actions';
 
 class RouterComponent extends Component {
 
   onLogoutPress() {
     this.props.logoutUser();
+  }
+
+  onAboutPress() {
+    Actions.appAboutScreen()
   }
 
   render() {
@@ -44,6 +48,8 @@ class RouterComponent extends Component {
             title="Adultify Me"
             leftTitle="Logout"
             onLeft={this.onLogoutPress.bind(this)}
+            rightTitle="About"
+            onRight={this.onAboutPress.bind(this)}
           />
           <Scene
             key="taskCreateScreen"
@@ -64,11 +70,15 @@ class RouterComponent extends Component {
             component={RecurringTaskEditScreen}
             title="Edit Recurring Task Series"
           />
+          <Scene
+          key="appAboutScreen"
+          component={AppAboutScreen}
+          title="About" />
         </Scene>
 
         <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
 
-        <Scene key="appSettingsScreen" component={AppSettingsScreen} title="App Settings" />
+        <Scene key="appAboutScreen" component={AppAboutScreen} title="About" />
       </Router>
     );
   }

@@ -19,9 +19,14 @@ export const recurringReminderCreate = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motivation: ${personalMotivation}
-    Description: ${description}
-    Category: ${category}`;
+    const messageContent =
+    `💬 ${personalMotivation}
+
+    Description:
+    ${description}
+
+    Category:
+    ${category}`;
     const startDateRecurringTime = `${startDate} ${recurringTime}`;
     const nowMS = moment().valueOf();
     const startDateMS = moment(
@@ -32,10 +37,12 @@ export const recurringReminderCreate = ({
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
-      message: messageContent,
+      message: '',
+      bigText: messageContent,
+      largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel Task Occurance", "Completed Task Occurance"]'
+      actions: '["Cancel Occurance", "Completed Occurance"]'
     });
     dispatch({ type: RECURRING_REMINDER_CREATE });
     Actions.mainScreen({ type: 'reset' });
@@ -54,9 +61,14 @@ export const recurringReminderSave = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motivation: ${personalMotivation}
-    Description: ${description}
-    Category: ${category}`;
+    const messageContent =
+    `💬 ${personalMotivation}
+
+    Description:
+    ${description}
+
+    Category:
+    ${category}`;
     const startDateRecurringTime = `${startDate} ${recurringTime}`;
     const nowMS = moment().valueOf();
     const startDateMS = moment(
@@ -67,10 +79,12 @@ export const recurringReminderSave = ({
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
-      message: messageContent,
+      message: '',
+      bigText: messageContent,
+      largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel Task Occurance", "Completed Task Occurance"]'
+      actions: '["Cancel Occurance", "Completed Occurance"]'
     });
     dispatch({ type: RECURRING_REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });

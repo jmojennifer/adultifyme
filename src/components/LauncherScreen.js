@@ -21,7 +21,7 @@ class LauncherScreen extends Component {
 
     (function () {
       PushNotificationAndroid.registerNotificationActions(
-        ['Cancel Task', 'Completed Task', 'Cancel Task Occurance', 'Completed Task Occurance']
+        ['Cancel Task', 'Completed Task', 'Cancel Occurance', 'Completed Occurance']
       );
       DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
         console.log('Notification action received: ', action);
@@ -46,9 +46,9 @@ class LauncherScreen extends Component {
           firebase.database().ref(`/users/${currentUser.uid}/tasks/${task.key}`)
           .remove();
           appSelf.props.starIncrease();
-        } else if (info.action === 'Cancel Task Occurance') {
+        } else if (info.action === 'Cancel Occurance') {
           console.log('Nothing done');
-        } else if (info.action === 'Completed Task Occurance') {
+        } else if (info.action === 'Completed Occurance') {
           appSelf.props.starIncrease();
         }
       });

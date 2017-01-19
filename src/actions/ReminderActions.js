@@ -18,9 +18,14 @@ export const reminderCreate = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motivation: ${personalMotivation}
-    Description: ${description}
-    Category: ${category}`;
+    const messageContent =
+    `💬 ${personalMotivation}
+
+    Description:
+    ${description}
+
+    Category:
+    ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
     const nowMS = moment().valueOf();
     const deadlineMS = moment(
@@ -31,7 +36,9 @@ export const reminderCreate = ({
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
-      message: messageContent,
+      message: '',
+      bigText: messageContent,
+      largeIcon: 'ic_launcher',
       date: new Date(Date.now() + deadline),
       actions: '["Cancel Task", "Completed Task"]'
     });
@@ -51,9 +58,14 @@ export const reminderSave = ({
 
 }) => {
   return (dispatch) => {
-    const messageContent = `Personal Motivation: ${personalMotivation}
-    Description: ${description}
-    Category: ${category}`;
+    const messageContent =
+    `💬 ${personalMotivation}
+
+    Description:
+    ${description}
+
+    Category:
+    ${category}`;
     const dueDateTime = `${dueDate} ${timeDue}`;
     const nowMS = moment().valueOf();
     const deadlineMS = moment(
@@ -64,7 +76,9 @@ export const reminderSave = ({
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
-      message: messageContent,
+      message: '',
+      bigText: messageContent,
+      largeIcon: 'ic_launcher',
       date: new Date(Date.now() + deadline),
       actions: '["Cancel Task", "Completed Task"]'
     });

@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, ActionConst } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
 import MainScreen from './components/MainScreen.js';
@@ -10,14 +11,28 @@ import RecurringTaskCreateScreen from './components/RecurringTaskCreateScreen';
 import RecurringTaskEditScreen from './components/RecurringTaskEditScreen';
 import AccountInfoScreen from './components/AccountInfoScreen.js';
 import AppSettingsScreen from './components/AppSettingsScreen.js';
+import { logoutUser } from './actions';
 
 class RouterComponent extends Component {
+
+  onLogoutPress() {
+    this.props.logoutUser();
+  }
 
   render() {
     return (
       <Router sceneStyle={{ paddingTop: 65 }}>
-        <Scene key="auth">
-          <Scene key="launcherScreen" component={LauncherScreen} title="Welcome!" initial />
+        <Scene
+          key="auth"
+          type={ActionConst.RESET}
+        >
+          <Scene
+            key="launcherScreen"
+            component={LauncherScreen}
+            title="Welcome!"
+            type={ActionConst.RESET}
+            initial
+          />
         </Scene>
         <Scene key="initialDialogue">
           <Scene key="initialDialogueScreen" component={InitialDialogueScreen} title="Welcome!" />
@@ -27,6 +42,8 @@ class RouterComponent extends Component {
             key="mainScreen"
             component={MainScreen}
             title="Adultify Me"
+            leftTitle="Logout"
+            onLeft={this.onLogoutPress.bind(this)}
           />
           <Scene
             key="taskCreateScreen"
@@ -57,4 +74,4 @@ class RouterComponent extends Component {
   }
 }
 
-export default RouterComponent;
+export default connect(null, { logoutUser })(RouterComponent);

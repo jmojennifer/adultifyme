@@ -47,15 +47,18 @@ class RecurringEditDeleteTaskListItem extends Component {
               {title} ({category}){'\n'}
               Due: {startDate} {recurringTime}{'\n'}
               Frequency:
+              {renderIf(frequency === 'hour',
+                ' Hourly'
+              )}
+
+              {renderIf(frequency === 'day',
+                ' Daily'
+              )}
+
+              {renderIf(frequency === 'week',
+                ' Weekly'
+              )}
             </Text>
-            {renderIf(frequency === 'hour', <Text style={styles.textStyle}>
-            Hourly</Text>)}
-
-            {renderIf(frequency === 'day',
-            <Text style={styles.textStyle}>Daily</Text>)}
-
-            {renderIf(frequency === 'week',
-            <Text style={styles.textStyle}>Weekly</Text>)}
           </View>
           <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { CardSection, Confirm } from './common';
+import { Card, CardSection, Confirm, renderIf } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 import { recurringTaskDelete, recurringReminderDelete } from '../actions';
@@ -40,15 +40,28 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { frequency } = this.props.recurringTask;
 
     return (
-      <CardSection>
-        <View>
-          <View style={styles.taskStyle}>
+      <Card style={styles.customCardStyle} >
+        <CardSection style={styles.taskCardSectionStyle}>
+          <View>
             <Text style={styles.textStyle}>
               {title} ({category}){'\n'}
               Due: {startDate} {recurringTime}{'\n'}
-              Frequency: {frequency}{'\n'}
+              Frequency:
+              {renderIf(frequency === 'hour',
+                ' Hourly'
+              )}
+
+              {renderIf(frequency === 'day',
+                ' Daily'
+              )}
+
+              {renderIf(frequency === 'week',
+                ' Weekly'
+              )}
             </Text>
           </View>
+        </CardSection>
+        <CardSection style={styles.iconCardSectionStyle}>
           <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
@@ -60,27 +73,41 @@ class RecurringEditDeleteTaskListItem extends Component {
           >
             Are you sure you want to delete this?
           </Confirm>
-        </View>
-      </CardSection>
+        </CardSection>
+      </Card>
     );
   }
 }
 
 const styles = {
-  taskStyle: {
+  customCardStyle: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 3
+  },
+  taskCardSectionStyle: {
+    flex: 1,
+    borderBottomWidth: 0,
+    borderColor: '#D5C2AD',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between'
   },
   textStyle: {
     fontSize: 15,
     marginRight: 5,
     flexWrap: 'wrap'
   },
-  iconStyle: {
-    flex: -1,
-    flexDirection: 'row',
+  iconCardSectionStyle: {
+    flex: 3,
     justifyContent: 'flex-end',
+    alignSelf: 'flex-end'
+  },
+  iconStyle: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
+  textCardSectionStyle: {
+    borderBottomWidth: 0,
+    borderColor: '#fff'
   }
 };
 

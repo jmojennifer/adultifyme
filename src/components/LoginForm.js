@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from './common';
@@ -15,7 +15,6 @@ class LoginForm extends Component {
 
   onButtonPress() {
     const { email, password } = this.props;
-
     this.props.loginUser({ email, password });
   }
 
@@ -25,16 +24,20 @@ class LoginForm extends Component {
     }
 
     return (
-      <Button onPress={this.onButtonPress.bind(this)}>
-        Sign In
+      <Button
+        onPress={this.onButtonPress.bind(this)}
+        borderWidth={0}
+      >
+          Sign In
       </Button>
     );
   }
 
   render() {
     return (
+      <View>
       <Card>
-        <CardSection>
+        <CardSection style={styles.loginFormCardSection}>
           <Input
             label="Email"
             placeholder="email@gmail.com"
@@ -43,7 +46,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={styles.loginFormCardSection}>
           <Input
             secureTextEntry
             label="Password"
@@ -57,11 +60,11 @@ class LoginForm extends Component {
           {this.props.error}
         </Text>
 
-        <CardSection>
+        <CardSection style={styles.loginCardSection}>
           {this.renderButton()}
         </CardSection>
 
-        <CardSection>
+        <CardSection style={styles.loginCardSection}>
           <Text style={styles.textStyle}>
             You will be logged in if your account has been created,
             and an account will be created if not.
@@ -69,6 +72,7 @@ class LoginForm extends Component {
           </Text>
         </CardSection>
       </Card>
+      </View>
     );
   }
 }
@@ -76,12 +80,23 @@ class LoginForm extends Component {
 const styles = {
   errorTextStyle: {
     fontSize: 20,
+    fontWeight: 'bold',
     alignSelf: 'center',
-    color: 'red'
+    color: '#A5281A'
   },
   textStyle: {
+    backgroundColor: '#D5C2AD',
     fontSize: 15,
     paddingLeft: 18
+  },
+  loginCardSection: {
+    backgroundColor: '#D5C2AD',
+    borderColor: '#D5C2AD'
+  },
+  loginFormCardSection: {
+    backgroundColor: '#F8F8F8',
+    borderColor: '#F8F8F8',
+    borderRadius: 3
   }
 };
 

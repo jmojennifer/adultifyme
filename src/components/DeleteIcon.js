@@ -15,8 +15,8 @@ const DeleteIcon = ({ onPress }) => {
 
 const styles = {
   deleteStyle: {
-    width: 24,
-    height: 24
+    width: 40,
+    height: 40
   }
 };
 

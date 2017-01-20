@@ -11,7 +11,7 @@ const MainScreen = () => {
     <View>
       <AppHeader />
         <ScrollView>
-          <Card>
+          <Card style={{ backgroundColor: '#D5C2AD', borderWidth: 0 }}>
             <EditDeleteTaskList />
             <RecurringEditDeleteTaskList />
           </Card>
@@ -19,5 +19,6 @@ const MainScreen = () => {
     </View>
   );
 };
+
 
 export default MainScreen;

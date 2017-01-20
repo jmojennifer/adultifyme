@@ -71,14 +71,14 @@ class RecurringTaskCreateScreen extends Component {
   render() {
     return (
       <ScrollView>
-        <Card>
+        <Card style={styles.formCard}>
           <RecurringTaskForm {...this.props} />
-          <CardSection>
+          <CardSection style={styles.buttonCardSection}>
             <Button onPress={this.onButtonPress.bind(this)}>
               Create
             </Button>
           </CardSection>
-          <CardSection>
+          <CardSection style={styles.buttonCardSection}>
             <Button onPress={this.onButton2Press.bind(this)}>
               Delete All Reminders
             </Button>
@@ -88,6 +88,16 @@ class RecurringTaskCreateScreen extends Component {
     );
   }
 }
+
+const styles = {
+  formCard: {
+    borderRadius: 3
+  },
+  buttonCardSection: {
+    backgroundColor: '#F8F8F8',
+    borderColor: '#F8F8F8'
+  }
+};
 
 const mapStateToProps = (state) => {
   const {

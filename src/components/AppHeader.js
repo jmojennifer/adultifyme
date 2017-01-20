@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Button } from './common';
 import Logo from './Logo';
 import Star from './Star';
-import DrawerMenu from './DrawerMenu';
 
 class AppHeader extends Component {
 
@@ -27,16 +26,10 @@ class AppHeader extends Component {
           </View>
           <View>
             <Star />
-          <Text>
-            {this.props.starCount}
-          </Text>
-          </View>
-          <View>
-            <DrawerMenu />
           </View>
         </View>
         <View>
-          <CardSection>
+          <CardSection style={styles.appHeaderCardSectionStyle}>
             <Button onPress={this.taskCreate.bind(this)}>
               Add Single Task
             </Button>
@@ -44,13 +37,6 @@ class AppHeader extends Component {
               Add Recurring Task
             </Button>
           </CardSection>
-        </View>
-        <View style={styles.row2AppHeaderStyle}>
-          <Text
-          style={{ fontSize: 18 }}
-          >
-            Tasks
-          </Text>
         </View>
       </View>
     );
@@ -80,6 +66,10 @@ const styles = {
   },
   buttonStyle: {
     flex: -1,
+  },
+  appHeaderCardSectionStyle: {
+    backgroundColor: '#D5C2AD',
+    borderColor: '#D5C2AD'
   }
 };
 

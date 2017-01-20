@@ -13,7 +13,7 @@ class Star extends Component {
           <View>
             <Image
               style={styles.starStyleTo9}
-              source={require('../images/star_gold_32.png')}
+              source={require('../images/yellow-star.png')}
             />
             <Text
               style={styles.starCounterStyleTo9}
@@ -27,7 +27,7 @@ class Star extends Component {
           <View>
             <Image
               style={styles.starStyleTo99}
-              source={require('../images/star_gold_32.png')}
+              source={require('../images/yellow-star.png')}
             />
             <Text
               style={styles.starCounterStyleTo99}
@@ -44,29 +44,31 @@ class Star extends Component {
 
 const styles = {
   starStyleTo9: {
-    width: 30,
-    height: 30,
-  },
-
-  starStyleTo99: {
     width: 45,
     height: 45,
   },
 
+  starStyleTo99: {
+    width: 60,
+    height: 60,
+  },
+
   starCounterStyleTo9: {
     fontSize: 17,
+    color: '#0A0908',
     fontWeight: 'bold',
     position: 'absolute',
-    marginLeft: 9.75,
-    marginTop: 5
+    marginLeft: 16.5,
+    marginTop: 11
   },
 
   starCounterStyleTo99: {
     fontSize: 17,
+    color: '#0A0908',
     fontWeight: 'bold',
     position: 'absolute',
-    marginLeft: 12,
-    marginTop: 13
+    marginLeft: 19,
+    marginTop: 19
   }
 };
 

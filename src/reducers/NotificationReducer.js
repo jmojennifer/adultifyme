@@ -1,7 +1,7 @@
 import { STAR_COUNT } from '../actions/types';
 
 const INITIAL_STATE = {
-  starCount: 9
+  starCount: 0
 };
 
 export default (state = INITIAL_STATE, action) => {

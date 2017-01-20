@@ -38,16 +38,16 @@ class EditDeleteTaskListItem extends Component {
     const { timeDue } = this.props.task;
 
     return (
-      <Card style={styles.containerStyle}>
-        <CardSection style={{ flex: 1, borderBottomWidth: 0, borderColor: '#fff' }}>
-          <View style={styles.taskStyle}>
+      <Card style={styles.customCardStyle} >
+        <CardSection style={styles.taskCardSectionStyle}>
+          <View>
             <Text style={styles.textStyle}>
               {title} ({category}){'\n'}
               Due: {dueDate} {timeDue}
             </Text>
           </View>
         </CardSection>
-        <CardSection style={{ flex: 3, justifyContent: 'flex-end', alignSelf: 'flex-end' }}>
+        <CardSection style={styles.iconCardSectionStyle}>
           <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
@@ -66,10 +66,14 @@ class EditDeleteTaskListItem extends Component {
 }
 
 const styles = {
-  containerStyle: {
-    backgroundColor: 'black'
+  customCardStyle: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 3
   },
-  taskStyle: {
+  taskCardSectionStyle: {
+    flex: 1,
+    borderBottomWidth: 0,
+    borderColor: '#D5C2AD',
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
@@ -78,18 +82,18 @@ const styles = {
     marginRight: 5,
     flexWrap: 'wrap'
   },
+  iconCardSectionStyle: {
+    flex: 3,
+    justifyContent: 'flex-end',
+    alignSelf: 'flex-end'
+  },
   iconStyle: {
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
   textCardSectionStyle: {
-    flex: 1,
     borderBottomWidth: 0,
     borderColor: '#fff'
-  },
-  iconCardSectionStyle: {
-    flex: 3,
-    justifyContent: 'flex-end',
   }
 };
 

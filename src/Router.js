@@ -20,12 +20,12 @@ class RouterComponent extends Component {
   }
 
   onAboutPress() {
-    Actions.appAboutScreen()
+    Actions.appAboutScreen();
   }
 
   render() {
     return (
-      <Router sceneStyle={{ paddingTop: 65 }}>
+      <Router sceneStyle={{ paddingTop: 65, backgroundColor: '#D5C2AD' }}>
         <Scene
           key="auth"
           type={ActionConst.RESET}
@@ -33,13 +33,17 @@ class RouterComponent extends Component {
           <Scene
             key="launcherScreen"
             component={LauncherScreen}
-            title="Welcome!"
+            title="Adultify Me"
             type={ActionConst.RESET}
             initial
           />
         </Scene>
         <Scene key="initialDialogue">
-          <Scene key="initialDialogueScreen" component={InitialDialogueScreen} title="Welcome!" />
+          <Scene
+            key="initialDialogueScreen"
+            component={InitialDialogueScreen}
+            title="Adultify Me"
+          />
         </Scene>
         <Scene key="main">
           <Scene
@@ -48,37 +52,43 @@ class RouterComponent extends Component {
             title="Adultify Me"
             leftTitle="Logout"
             onLeft={this.onLogoutPress.bind(this)}
+            leftButtonTextStyle={{ color: '#5E503F' }}
             rightTitle="About"
             onRight={this.onAboutPress.bind(this)}
+            rightButtonTextStyle={{ color: '#5E503F' }}
           />
           <Scene
             key="taskCreateScreen"
             component={TaskCreateScreen}
             title="New Task"
+            backButtonImage={require('./images/back_button.png')}
           />
           <Scene
             key="taskEditScreen"
             component={TaskEditScreen}
             title="Edit Task"
+            backButtonImage={require('./images/back_button.png')}
           />
           <Scene
             key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
             title="New Recurring Task Series"
+            backButtonImage={require('./images/back_button.png')}
           />
           <Scene
             key="recurringTaskEditScreen"
             component={RecurringTaskEditScreen}
             title="Edit Recurring Task Series"
+            backButtonImage={require('./images/back_button.png')}
           />
           <Scene
-          key="appAboutScreen"
-          component={AppAboutScreen}
-          title="About" />
+            key="appAboutScreen"
+            component={AppAboutScreen}
+            title="About"
+            backButtonImage={require('./images/back_button.png')}
+          />
         </Scene>
 
         <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
-
-        <Scene key="appAboutScreen" component={AppAboutScreen} title="About" />
       </Router>
     );
   }

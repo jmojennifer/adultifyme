@@ -8,7 +8,7 @@ class RecurringTaskForm extends Component {
   render() {
     return (
       <View>
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Input
           label="Title"
           placeholder="i.e. Take Vitamin C"
@@ -18,7 +18,7 @@ class RecurringTaskForm extends Component {
         />
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Input
           label="Description"
           placeholder="Take 2 pills each evening with a full glass of water"
@@ -29,7 +29,7 @@ class RecurringTaskForm extends Component {
         />
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Input
           label="Personal Motivation"
           placeholder="i.e. Let's not get sick!"
@@ -40,7 +40,7 @@ class RecurringTaskForm extends Component {
         />
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Category</Text>
         <Picker
           style={styles.pickerStyle}
@@ -60,7 +60,7 @@ class RecurringTaskForm extends Component {
         </Picker>
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Recurring Once Every: </Text>
         <Picker
           style={styles.pickerStyle}
@@ -76,7 +76,7 @@ class RecurringTaskForm extends Component {
         </Picker>
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Input
           label="Recurrence Start Date"
           placeholder="i.e. 1/27/2017"
@@ -85,7 +85,7 @@ class RecurringTaskForm extends Component {
         />
       </CardSection>
 
-      <CardSection>
+      <CardSection style={styles.formCardSection}>
         <Input
           label="Recurring Time"
           placeholder="i.e. 1:14PM"
@@ -109,6 +109,10 @@ const styles = {
   pickerStyle: {
     flex: 1,
     marginHorizontal: 25
+  },
+  formCardSection: {
+    backgroundColor: '#F8F8F8',
+    borderColor: '#F8F8F8'
   }
 };
 

@@ -57,9 +57,9 @@ class LauncherScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.initialDialogueCardSection}>
         <View>
-          <Text style={styles.textStyle}>Adultify Me </Text>
+          <Text style={styles.textStyle}>Login</Text>
         </View>
         <LoginForm />
       </View>
@@ -70,7 +70,12 @@ class LauncherScreen extends Component {
 const styles = {
   textStyle: {
     fontSize: 18,
+    fontWeight: 'bold',
     alignSelf: 'center'
+  },
+  initialDialogueCardSection: {
+    backgroundColor: '#D5C2AD',
+    borderColor: '#D5C2AD'
   }
 };
 

@@ -24,7 +24,7 @@ class InitialDialogueScreen extends Component {
             {'Let\'s try to make it a bit easier'}
           </Text>
             </View>
-          <CardSection>
+          <CardSection style={styles.initialDialogueCardSection}>
           <Button onPress={this.onButtonPress.bind(this)}>
             Next
           </Button>
@@ -44,6 +44,10 @@ const styles = {
   textStyle: {
     justifyContent: 'flex-start',
     fontSize: 18
+  },
+  initialDialogueCardSection: {
+    backgroundColor: '#D5C2AD',
+    borderColor: '#D5C2AD'
   }
 };
 

@@ -66,14 +66,14 @@ class TaskEditScreen extends Component {
   render() {
     return (
       <ScrollView>
-        <Card>
+        <Card style={styles.formCard}>
           <TaskForm {...this.props} />
-            <CardSection>
+            <CardSection style={styles.buttonCardSection}>
               <Button onPress={this.onButtonPress.bind(this)}>
                 Save Changes
               </Button>
             </CardSection>
-            <CardSection>
+            <CardSection style={styles.buttonCardSection}>
               <Button onPress={this.onButton2Press.bind(this)}>
                 Delete All Reminders
               </Button>
@@ -83,6 +83,16 @@ class TaskEditScreen extends Component {
     );
   }
 }
+
+const styles = {
+  formCard: {
+    borderRadius: 3
+  },
+  buttonCardSection: {
+    backgroundColor: '#F8F8F8',
+    borderColor: '#F8F8F8'
+  }
+};
 
 const mapStateToProps = state => {
   const {

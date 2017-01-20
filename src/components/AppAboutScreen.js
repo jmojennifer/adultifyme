@@ -4,24 +4,41 @@ import { Text, View, Linking } from 'react-native';
 
 const AppAboutScreen = () => {
   return (
-    <View style={{ alignItems: 'center' }}>
-        <Text>
+    <View style={styles.containerStyle}>
+        <Text
+          style={styles.textStyle}
+        >
           Icons provided by icon8
         </Text>
         <Text
-          style={{ color: 'blue' }}
+          style={styles.linkStyle}
           onPress={() => Linking.openURL('https://icons8.com/web-app/7942/Edit')}
         >
           Edit icon
         </Text>
         <Text
-          style={{ color: 'blue' }}
+          style={styles.linkStyle}
           onPress={() => Linking.openURL('https://icons8.com/web-app/5571/Delete')}
         >
           Delete icon
         </Text>
     </View>
   );
+};
+
+const styles = {
+  containerStyle: {
+    alignItems: 'center'
+  },
+  textStyle: {
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  linkStyle: {
+    color: '#22333B',
+    fontWeight: 'bold',
+    fontSize: 18
+  }
 };
 
 export default AppAboutScreen;

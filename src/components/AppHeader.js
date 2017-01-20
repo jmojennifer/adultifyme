@@ -29,7 +29,7 @@ class AppHeader extends Component {
           </View>
         </View>
         <View>
-          <CardSection>
+          <CardSection style={styles.appHeaderCardSectionStyle}>
             <Button onPress={this.taskCreate.bind(this)}>
               Add Single Task
             </Button>
@@ -66,6 +66,10 @@ const styles = {
   },
   buttonStyle: {
     flex: -1,
+  },
+  appHeaderCardSectionStyle: {
+    backgroundColor: '#D5C2AD',
+    borderColor: '#D5C2AD'
   }
 };
 

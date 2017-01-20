@@ -40,9 +40,9 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { frequency } = this.props.recurringTask;
 
     return (
-      <Card style={{ backgroundColor: '#F8F8F8' }}>
-        <CardSection>
-          <View style={styles.taskStyle}>
+      <Card style={styles.customCardStyle} >
+        <CardSection style={styles.taskCardSectionStyle}>
+          <View>
             <Text style={styles.textStyle}>
               {title} ({category}){'\n'}
               Due: {startDate} {recurringTime}{'\n'}
@@ -61,7 +61,7 @@ class RecurringEditDeleteTaskListItem extends Component {
             </Text>
           </View>
         </CardSection>
-        <CardSection>
+        <CardSection style={styles.iconCardSectionStyle}>
           <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
@@ -80,20 +80,34 @@ class RecurringEditDeleteTaskListItem extends Component {
 }
 
 const styles = {
-  taskStyle: {
+  customCardStyle: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 3
+  },
+  taskCardSectionStyle: {
+    flex: 1,
+    borderBottomWidth: 0,
+    borderColor: '#D5C2AD',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between'
   },
   textStyle: {
     fontSize: 15,
     marginRight: 5,
     flexWrap: 'wrap'
   },
-  iconStyle: {
-    flex: -1,
-    flexDirection: 'row',
+  iconCardSectionStyle: {
+    flex: 3,
     justifyContent: 'flex-end',
+    alignSelf: 'flex-end'
+  },
+  iconStyle: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
+  textCardSectionStyle: {
+    borderBottomWidth: 0,
+    borderColor: '#fff'
   }
 };
 

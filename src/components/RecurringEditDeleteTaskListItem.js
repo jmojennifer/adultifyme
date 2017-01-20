@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { CardSection, Confirm, renderIf } from './common';
+import { Card, CardSection, Confirm, renderIf } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 import { recurringTaskDelete, recurringReminderDelete } from '../actions';
@@ -40,8 +40,8 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { frequency } = this.props.recurringTask;
 
     return (
-      <CardSection>
-        <View>
+      <Card style={{ backgroundColor: '#F8F8F8' }}>
+        <CardSection>
           <View style={styles.taskStyle}>
             <Text style={styles.textStyle}>
               {title} ({category}){'\n'}
@@ -60,6 +60,8 @@ class RecurringEditDeleteTaskListItem extends Component {
               )}
             </Text>
           </View>
+        </CardSection>
+        <CardSection>
           <View style={styles.iconStyle}>
             <EditIcon onPress={this.onEditIconPress.bind(this)} />
             <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
@@ -71,8 +73,8 @@ class RecurringEditDeleteTaskListItem extends Component {
           >
             Are you sure you want to delete this?
           </Confirm>
-        </View>
-      </CardSection>
+        </CardSection>
+      </Card>
     );
   }
 }

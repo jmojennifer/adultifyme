@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView } from 'react-native';
+import { View, Text, ListView } from 'react-native';
 import _ from 'lodash';
 import { recurringTasksFetch } from '../actions';
 import RecurringEditDeleteTaskListItem from './RecurringEditDeleteTaskListItem';
@@ -38,14 +38,32 @@ class RecurringEditDeleteTaskList extends Component {
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View>
+        <Text
+          style={styles.headerStyle}
+        >
+          Recurring Tasks
+        </Text>
+        <ListView
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
     );
   }
 }
+
+const styles = {
+  headerStyle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 5,
+    marginTop: 5,
+    alignSelf: 'center'
+  }
+};
+
 
 const mapStateToProps = state => {
   const recurringTasks = _.map(state.recurringTasks, (val, uid) => {

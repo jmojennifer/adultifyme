@@ -45,13 +45,6 @@ class AppHeader extends Component {
             </Button>
           </CardSection>
         </View>
-        <View style={styles.row2AppHeaderStyle}>
-          <Text
-          style={{ fontSize: 18 }}
-          >
-            Tasks
-          </Text>
-        </View>
       </View>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { CardSection, Confirm } from './common';
+import { Card, CardSection, Confirm } from './common';
 import EditIcon from './EditIcon';
 import DeleteIcon from './DeleteIcon';
 import { taskDelete, reminderDelete } from '../actions';
@@ -38,17 +38,20 @@ class EditDeleteTaskListItem extends Component {
     const { timeDue } = this.props.task;
 
     return (
-      <CardSection>
-        <View style={styles.taskStyle}>
-          <Text style={styles.textStyle}>
-            {title} ({category}){'\n'}
-            Due: {dueDate} {timeDue}
-          </Text>
-        </View>
-        <View style={styles.iconStyle}>
-          <EditIcon onPress={this.onEditIconPress.bind(this)} />
-          <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
-        </View>
+      <Card style={styles.containerStyle}>
+        <CardSection style={{ flex: 1, borderBottomWidth: 0, borderColor: '#fff' }}>
+          <View style={styles.taskStyle}>
+            <Text style={styles.textStyle}>
+              {title} ({category}){'\n'}
+              Due: {dueDate} {timeDue}
+            </Text>
+          </View>
+        </CardSection>
+        <CardSection style={{ flex: 3, justifyContent: 'flex-end', alignSelf: 'flex-end' }}>
+          <View style={styles.iconStyle}>
+            <EditIcon onPress={this.onEditIconPress.bind(this)} />
+            <DeleteIcon onPress={this.onDeleteIconPress.bind(this)} />
+          </View>
           <Confirm
             visible={this.state.showModal}
             onAccept={this.onAccept.bind(this)}
@@ -56,12 +59,16 @@ class EditDeleteTaskListItem extends Component {
           >
             Are you sure you want to delete this?
           </Confirm>
-      </CardSection>
+        </CardSection>
+      </Card>
     );
   }
 }
 
 const styles = {
+  containerStyle: {
+    backgroundColor: 'black'
+  },
   taskStyle: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -74,6 +81,15 @@ const styles = {
   iconStyle: {
     flexDirection: 'row',
     justifyContent: 'flex-end'
+  },
+  textCardSectionStyle: {
+    flex: 1,
+    borderBottomWidth: 0,
+    borderColor: '#fff'
+  },
+  iconCardSectionStyle: {
+    flex: 3,
+    justifyContent: 'flex-end',
   }
 };
 

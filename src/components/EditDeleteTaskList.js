@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView } from 'react-native';
+import { View, Text, ListView } from 'react-native';
 import _ from 'lodash';
 import { tasksFetch } from '../actions';
 import EditDeleteTaskListItem from './EditDeleteTaskListItem';
@@ -38,14 +38,31 @@ class EditDeleteTaskList extends Component {
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View>
+        <Text
+          style={styles.headerStyle}
+        >
+          Tasks
+        </Text>
+        <ListView
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
     );
   }
 }
+
+const styles = {
+  headerStyle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 5,
+    marginTop: 5,
+    alignSelf: 'center'
+  }
+};
 
 const mapStateToProps = state => {
   const tasks = _.map(state.tasks, (val, uid) => {

@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Button } from './common';
 import Logo from './Logo';
 import Star from './Star';
-import DrawerMenu from './DrawerMenu';
 
 class AppHeader extends Component {
 
@@ -27,12 +26,6 @@ class AppHeader extends Component {
           </View>
           <View>
             <Star />
-          <Text>
-            {this.props.starCount}
-          </Text>
-          </View>
-          <View>
-            <DrawerMenu />
           </View>
         </View>
         <View>

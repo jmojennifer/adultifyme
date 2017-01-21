@@ -81,7 +81,7 @@ class RecurringEditDeleteTaskListItem extends Component {
 
 const styles = {
   customCardStyle: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: 'white',
     borderRadius: 3
   },
   taskCardSectionStyle: {

@@ -87,6 +87,7 @@ const styles = {
   textStyle: {
     backgroundColor: '#D5C2AD',
     fontSize: 15,
+    fontWeight: 'bold',
     paddingLeft: 18
   },
   loginCardSection: {

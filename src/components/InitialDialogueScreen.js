@@ -43,7 +43,8 @@ const styles = {
   },
   textStyle: {
     justifyContent: 'flex-start',
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   initialDialogueCardSection: {
     backgroundColor: '#D5C2AD',

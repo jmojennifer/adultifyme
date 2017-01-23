@@ -33,4 +33,8 @@ export const RECURRING_REMINDER_SAVE = 'recurring_reminder_save';
 export const RECURRING_REMINDER_DELETE = 'recurring_reminder_delete';
 
 // const for tracking number of tasks completed aka stars
-export const STAR_COUNT = 'star_count';
+export const STAR_COUNT_INCREASE = 'star_count_increase';
+export const STAR_COUNT_FETCH_SUCCESS = 'star_count_fetch_success';
+
+// const for set up of starCount
+export const INITIAL_STAR_COUNT_SET_UP = 'initial_star_count_set_up';

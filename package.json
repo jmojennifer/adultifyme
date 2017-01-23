@@ -29,5 +29,17 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "description": "My capstone project is to build the Android app I wish I'd had during the first months of my Ada experience: a to-do app that incorporates one's personal motivations in focusing on tasks across various aspects of life. (Even when spending a lot of time in a single area, such as coding all day!)",
+  "main": "defaultindex.android.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmojennifer/adultifyme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmojennifer/adultifyme/issues"
+  },
+  "homepage": "https://github.com/jmojennifer/adultifyme#readme"
 }

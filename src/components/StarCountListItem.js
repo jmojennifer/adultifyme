@@ -1,32 +1,11 @@
-/*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
-import { connect } from 'react-redux';
-import { starCountFetch } from '../actions';
+import { Text, View, Image } from 'react-native';
 import { renderIf } from './common';
 
-class Star extends Component {
-  componentWillMount() {
-    this.props.starCountFetch();
-
-    this.createDataSource(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.props.starCountFetch();
-    // nextProps are the next set of props this component will be rendered with
-    // this.props is still the old set of props
-
-    this.createDataSource(nextProps);
-  }
-
-  createDataSource({ thisStarCount }) {
-    this.props.starCount = thisStarCount;
-  }
-
-
+class StarCountListItem extends Component {
   render() {
-    const { starCount } = this.props;
+    const { starCount } = this.props.starCount;
+    console.log('starCount Prop', this.props.starCount);
     return (
       <View>
         {renderIf(starCount < 10 && starCount >= 0,
@@ -87,9 +66,4 @@ const styles = {
   }
 };
 
-const mapStateToProps = (state) => {
-  const thisStarCount = state.starCounts;
-  return thisStarCount;
-};
-
-export default connect(mapStateToProps, { starCountFetch })(Star);
+export default StarCountListItem;

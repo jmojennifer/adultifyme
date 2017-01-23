@@ -42,7 +42,7 @@ export const recurringReminderCreate = ({
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel Occurance", "Completed Occurance"]'
+      actions: '["Cancel Occurence", "Completed Occurence"]'
     });
     dispatch({ type: RECURRING_REMINDER_CREATE });
     Actions.mainScreen({ type: 'reset' });
@@ -84,7 +84,7 @@ export const recurringReminderSave = ({
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel Occurance", "Completed Occurance"]'
+      actions: '["Cancel Occurence", "Completed Occurence"]'
     });
     dispatch({ type: RECURRING_REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });

@@ -28,13 +28,11 @@ class RouterComponent extends Component {
       <Router sceneStyle={{ paddingTop: 65, backgroundColor: '#D5C2AD' }}>
         <Scene
           key="auth"
-          type={ActionConst.RESET}
         >
           <Scene
             key="launcherScreen"
             component={LauncherScreen}
             title="Adultify Me"
-            type={ActionConst.RESET}
             initial
           />
         </Scene>
@@ -50,9 +48,6 @@ class RouterComponent extends Component {
             key="mainScreen"
             component={MainScreen}
             title="Adultify Me"
-            leftTitle="Logout"
-            onLeft={this.onLogoutPress.bind(this)}
-            leftButtonTextStyle={{ color: '#5E503F' }}
             rightTitle="About"
             onRight={this.onAboutPress.bind(this)}
             rightButtonTextStyle={{ color: '#5E503F' }}

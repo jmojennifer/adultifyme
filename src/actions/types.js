@@ -4,7 +4,6 @@ export const PASSWORD_CHANGED = 'password_changed';
 export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER = 'login_user';
-export const LOGOUT_USER = 'logout_user';
 
 // const for updating the two kinds of task forms
 export const FORM_UPDATE = 'form_update';
@@ -32,9 +31,8 @@ export const RECURRING_REMINDER_CREATE = 'recurring_reminder_create';
 export const RECURRING_REMINDER_SAVE = 'recurring_reminder_save';
 export const RECURRING_REMINDER_DELETE = 'recurring_reminder_delete';
 
-// const for tracking number of tasks completed aka stars
-export const STAR_COUNT_INCREASE = 'star_count_increase';
+// const for fetching starCount from firebase
 export const STAR_COUNT_FETCH_SUCCESS = 'star_count_fetch_success';
 
-// const for set up of starCount
+// const for set up of starCount in firebase
 export const INITIAL_STAR_COUNT_SET_UP = 'initial_star_count_set_up';

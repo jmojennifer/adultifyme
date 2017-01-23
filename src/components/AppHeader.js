@@ -74,7 +74,7 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { starCount } = state.notifications;
+  const { starCount } = state.starCounts;
   return { starCount };
 };
 

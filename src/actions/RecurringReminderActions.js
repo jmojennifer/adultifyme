@@ -1,4 +1,5 @@
 import PushNotification from 'react-native-push-notification';
+import firebase from 'firebase';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {
@@ -34,11 +35,14 @@ export const recurringReminderCreate = ({
     ).valueOf();
     const adjustedStartDate = startDateMS - nowMS;
 
+    const loggedInUserID = firebase.auth().currentUser.uid;
+
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: '',
       bigText: messageContent,
+      group: loggedInUserID,
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
@@ -76,11 +80,14 @@ export const recurringReminderSave = ({
     ).valueOf();
     const adjustedStartDate = startDateMS - nowMS;
 
+    const loggedInUserID = firebase.auth().currentUser.uid;
+
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: '',
       bigText: messageContent,
+      group: loggedInUserID,
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,

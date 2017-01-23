@@ -1,4 +1,5 @@
 import moment from 'moment';
+import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import PushNotification from 'react-native-push-notification';
 import {
@@ -33,11 +34,14 @@ export const reminderCreate = ({
     ).valueOf();
     const deadline = deadlineMS - nowMS;
 
+    const loggedInUserID = firebase.auth().currentUser.uid;
+
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: '',
       bigText: messageContent,
+      group: loggedInUserID,
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + deadline),
       actions: '["Cancel Task", "Completed Task"]'
@@ -73,11 +77,14 @@ export const reminderSave = ({
     ).valueOf();
     const deadline = deadlineMS - nowMS;
 
+    const loggedInUserID = firebase.auth().currentUser.uid;
+
     PushNotification.localNotificationSchedule({
       id: reminderID,
       title: title,
       message: '',
       bigText: messageContent,
+      group: loggedInUserID,
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + deadline),
       actions: '["Cancel Task", "Completed Task"]'

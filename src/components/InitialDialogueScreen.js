@@ -1,10 +1,87 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { DeviceEventEmitter, View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import PushNotification from 'react-native-push-notification';
+import PushNotificationAndroid from 'react-native-push-notification';
+import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Button } from './common';
+import { starCountFetch } from '../actions';
+
 
 class InitialDialogueScreen extends Component {
+
+  componentWillMount() {
+    const appSelf = this;
+
+    PushNotification.configure({
+        // (required) Called when a remote or local notification is opened or received
+        onNotification: (notification) => {
+          console.log('NOTIFICATION:', notification);
+        }
+    });
+
+    (function () {
+     PushNotificationAndroid.registerNotificationActions(
+       ['Cancel Task', 'Completed Task', 'Cancel Occurence', 'Completed Occurence']
+     );
+     DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
+       console.log('Notification action received: ', action);
+       const info = JSON.parse(action.dataJSON);
+       const reminderUser = info.group;
+       const userTasks = firebase.database().ref(`/users/${reminderUser}/tasks`);
+
+        if (info.action === 'Cancel Task') {
+          let task;
+          const taskQuery = userTasks.orderByChild('reminderID').equalTo(info.id);
+          taskQuery.on('child_added', snapshot => {
+            task = snapshot;
+          });
+          console.log(typeof task);
+          if (task !== undefined) {
+            firebase.database().ref(`/users/${reminderUser}/tasks/${task.key}`).remove();
+          }
+        } else if (info.action === 'Completed Task') {
+          let task;
+          const taskQuery = userTasks.orderByChild('reminderID').equalTo(info.id);
+          taskQuery.on('child_added', snapshot => {
+            task = snapshot;
+          });
+          if (task !== undefined) {
+            firebase.database().ref(`/users/${reminderUser}/tasks/${task.key}`).remove();
+
+            const userRef = firebase.database().ref(`/users/${reminderUser}/userProperties`);
+            let star;
+            userRef.on('child_added', snapshot => {
+              star = snapshot;
+              console.log(snapshot.val());
+            });
+            star = star.val() + 1;
+            firebase.database().ref(`/users/${reminderUser}/userProperties`).set(
+              { starCount: star }
+            );
+
+            appSelf.props.starCountFetch();
+          }
+       } else if (info.action === 'Cancel Occurence') {
+         console.log('Nothing done');
+       } else if (info.action === 'Completed Occurence') {
+         const userRef = firebase.database().ref(`/users/${reminderUser}/userProperties`);
+         let star;
+         userRef.on('child_added', snapshot => {
+           star = snapshot;
+           console.log(snapshot.val());
+         });
+         star = star.val() + 1;
+         firebase.database().ref(`/users/${reminderUser}/userProperties`).set(
+           { starCount: star }
+         );
+         appSelf.props.starCountFetch();
+       }
+     });
+   })();
+ }
 
   onButtonPress() {
     Actions.main();
@@ -52,4 +129,4 @@ const styles = {
   }
 };
 
-export default InitialDialogueScreen;
+export default connect(null, { starCountFetch })(InitialDialogueScreen);

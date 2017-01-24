@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Image
       style={styles.logoStyle}
-      source={require('../images/PlaceholderLogo.jpg')}
+      source={require('../images/AdultifyMeTransparentLogo50x50.png')}
     />
   );
 };

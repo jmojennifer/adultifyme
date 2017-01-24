@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { formUpdate } from '../actions';
-import { CardSection, Input, MinDatePickerAndroidClass } from './common';
+import MinDatePickerAndroidClass from './MinDatePickerAndroidClass';
+import { CardSection, Input } from './common';
 
 class TaskForm extends Component {
   render() {
@@ -74,9 +75,18 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Due Date</Text>
         <MinDatePickerAndroidClass
-          style={styles.dateTimePickerStyle}
+          formUpdate={this.props.formUpdate}
         />
       </CardSection>
+      {/*<CardSection style={styles.formCardSection}>
+        <Text style={styles.pickerTextStyle}>Due Date</Text>
+        <MinDatePickerAndroid
+          style={styles.dateTimePickerStyle}
+          label="Date (today or later)"
+          value={this.props.dueDate}
+          onPickChange={selection => this.props.formUpdate({ prop: 'dueDate', value: selection })}
+        />
+      </CardSection>*/}
       </View>
     );
   }

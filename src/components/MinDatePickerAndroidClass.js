@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   DatePickerAndroid,
   Text,
@@ -6,26 +7,18 @@ import {
   View
 } from 'react-native';
 
-
 class MinDatePickerAndroidClass extends Component {
-  state = {
-    minText: 'Date',
-  };
-
-  showPicker = async (stateKey, options) => {
+  showPicker = async (options) => {
     try {
-      const newState = {};
       const { action, year, month, day } = await DatePickerAndroid.open(options);
       if (action === DatePickerAndroid.dismissedAction) {
-        newState[stateKey + 'Text'] = 'dismissed';
+        return 'No date selected';
       } else {
         const date = new Date(year, month, day);
-        newState[stateKey + 'Text'] = date.toLocaleDateString();
-        newState[stateKey + 'Date'] = date;
+        this.props.formUpdate({ prop: 'dueDate', value: date.toLocaleDateString() });
       }
-      this.setState(newState);
     } catch ({ code, message }) {
-      console.warn(`Error in example '${stateKey}': `, message);
+      console.warn('Error in example', message);
     }
   };
 
@@ -34,14 +27,12 @@ class MinDatePickerAndroidClass extends Component {
       <View style={styles.containerStyle}>
         <TouchableWithoutFeedback
           style={styles.touchableFeedback}
-          onPress={this.showPicker.bind(this, 'min', {
-            date: this.state.minDate,
-            minDate: new Date(),
+          onPress={this.showPicker.bind(this, { date: this.props.Date, minDate: new Date(),
           })}
         >
           <View>
             <Text style={styles.textStyle}>
-              {this.state.minText}
+              {this.props.dueDate}
             </Text>
           </View>
         </TouchableWithoutFeedback>
@@ -72,4 +63,10 @@ const styles = {
   }
 };
 
-export { MinDatePickerAndroidClass };
+const mapStateToProps = (state, ownProps) => {
+  const { dueDate } = state.taskForm;
+  const { formUpdate } = ownProps;
+  return { dueDate, ownProps };
+};
+
+export default connect(mapStateToProps, { })(MinDatePickerAndroidClass);

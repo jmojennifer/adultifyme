@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 const MinDatePickerAndroid = ({ label, value, onPickChange }) => {
-  const showPicker = async (stateKey, options) => {
+  const showPicker = async (options) => {
     try {
       const { action, year, month, day } = await DatePickerAndroid.open(options);
       if (action === DatePickerAndroid.dismissedAction) {
@@ -18,7 +18,7 @@ const MinDatePickerAndroid = ({ label, value, onPickChange }) => {
         return date;
       }
     } catch ({ code, message }) {
-      console.warn(`Error in example '${stateKey}': `, message);
+      console.warn('Error in example: ', message);
     }
   };
 
@@ -27,7 +27,7 @@ const MinDatePickerAndroid = ({ label, value, onPickChange }) => {
       <Text style={styles.labelStyle}>{label}</Text>
         <TouchableWithoutFeedback>
           <View
-            onPress={showPicker.bind(this, 'min', {
+            onPress={showPicker.bind({
               date: value,
               minDate: new Date(),
             })}

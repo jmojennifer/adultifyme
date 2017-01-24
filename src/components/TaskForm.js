@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { formUpdate } from '../actions';
-import { CardSection, Input } from './common';
+import { CardSection, Input, MinDatePickerAndroidClass } from './common';
 
 class TaskForm extends Component {
   render() {
@@ -39,7 +39,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Category</Text>
         <Picker
-          style={styles.pickerStyle}
+          style={styles.categoryPickerStyle}
           selectedValue={this.props.category}
           onValueChange={selection => this.props.formUpdate({ prop: 'category', value: selection })}
         >
@@ -71,6 +71,12 @@ class TaskForm extends Component {
           onChangeText={text => this.props.formUpdate({ prop: 'timeDue', value: text })}
         />
       </CardSection>
+      <CardSection style={styles.formCardSection}>
+        <Text style={styles.pickerTextStyle}>Due Date</Text>
+        <MinDatePickerAndroidClass
+          style={styles.dateTimePickerStyle}
+        />
+      </CardSection>
       </View>
     );
   }
@@ -82,7 +88,11 @@ const styles = {
     marginLeft: 20,
     marginTop: 10
   },
-  pickerStyle: {
+  categoryPickerStyle: {
+    flex: 1,
+    marginHorizontal: 25
+  },
+  dateTimePickerStyle: {
     flex: 1,
     marginHorizontal: 25
   },
@@ -90,6 +100,7 @@ const styles = {
     backgroundColor: '#F8F8F8',
     borderColor: '#F8F8F8'
   }
+
 };
 
 const mapStateToProps = (state) => {

@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
-import { connect } from 'react-redux';
 import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
 import MainScreen from './components/MainScreen.js';
@@ -9,16 +8,9 @@ import TaskCreateScreen from './components/TaskCreateScreen';
 import TaskEditScreen from './components/TaskEditScreen';
 import RecurringTaskCreateScreen from './components/RecurringTaskCreateScreen';
 import RecurringTaskEditScreen from './components/RecurringTaskEditScreen';
-import AccountInfoScreen from './components/AccountInfoScreen.js';
 import AppAboutScreen from './components/AppAboutScreen.js';
-import { logoutUser } from './actions';
 
 class RouterComponent extends Component {
-
-  onLogoutPress() {
-    this.props.logoutUser();
-  }
-
   onAboutPress() {
     Actions.appAboutScreen();
   }
@@ -82,11 +74,9 @@ class RouterComponent extends Component {
             backButtonImage={require('./images/back_button.png')}
           />
         </Scene>
-
-        <Scene key="accountInfoScreen" component={AccountInfoScreen} title="Account Info" />
       </Router>
     );
   }
 }
 
-export default connect(null, { logoutUser })(RouterComponent);
+export default RouterComponent;

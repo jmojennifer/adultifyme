@@ -6,4 +6,3 @@ export * from './Header';
 export * from './Input';
 export * from './Spinner';
 export * from './renderIf';
-export * from './MinDatePickerAndroid';

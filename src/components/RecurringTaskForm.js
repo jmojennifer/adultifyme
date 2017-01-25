@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { recurringFormUpdate } from '../actions';
+import MinDatePickerAndroid from './MinDatePickerAndroid';
+import HourMinuteTimePickerAndroid from './HourMinuteTimePickerAndroid';
 import { CardSection, Input } from './common';
 
 class RecurringTaskForm extends Component {
@@ -21,7 +23,7 @@ class RecurringTaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Input
           label="Description"
-          placeholder="Take 2 pills each evening with a full glass of water"
+          placeholder="i.e. Take 2 pills each evening."
           value={this.props.description}
           onChangeText={
             text => this.props.recurringFormUpdate({ prop: 'description', value: text })
@@ -77,22 +79,20 @@ class RecurringTaskForm extends Component {
       </CardSection>
 
       <CardSection style={styles.formCardSection}>
-        <Input
-          label="Recurrence Start Date"
-          placeholder="i.e. 1/27/2017"
-          value={this.props.startDate}
-          onChangeText={text => this.props.recurringFormUpdate({ prop: 'startDate', value: text })}
+        <Text style={styles.pickerTextStyle}>Recurrence Start Date</Text>
+        <MinDatePickerAndroid
+          formUpdate={this.props.recurringFormUpdate}
+          datePickerDate={this.props.startDate}
+          datePickerDateField="startDate"
         />
       </CardSection>
 
       <CardSection style={styles.formCardSection}>
-        <Input
-          label="Recurring Time"
-          placeholder="i.e. 1:14PM"
-          value={this.props.recurringTime}
-          onChangeText={
-            text => this.props.recurringFormUpdate({ prop: 'recurringTime', value: text })
-          }
+        <Text style={styles.pickerTextStyle}>Recurring Time</Text>
+        <HourMinuteTimePickerAndroid
+          formUpdate={this.props.recurringFormUpdate}
+          timePickerTime={this.props.recurringTime}
+          timePickerField="recurringTime"
         />
       </CardSection>
       </View>

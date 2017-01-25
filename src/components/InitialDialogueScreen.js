@@ -24,7 +24,7 @@ class InitialDialogueScreen extends Component {
 
     (function () {
      PushNotificationAndroid.registerNotificationActions(
-       ['Cancel Task', 'Completed Task', 'Cancel Occurence', 'Completed Occurence']
+       ['Cancel Task', 'Completed Task', 'Cancel Occ', 'Completed Occ']
      );
      DeviceEventEmitter.addListener('notificationActionReceived', (action) => {
        console.log('Notification action received: ', action);
@@ -64,9 +64,9 @@ class InitialDialogueScreen extends Component {
 
             appSelf.props.starCountFetch();
           }
-       } else if (info.action === 'Cancel Occurence') {
+       } else if (info.action === 'Cancel Occ') {
          console.log('Nothing done');
-       } else if (info.action === 'Completed Occurence') {
+       } else if (info.action === 'Completed Occ') {
          const userRef = firebase.database().ref(`/users/${reminderUser}/userProperties`);
          let star;
          userRef.on('child_added', snapshot => {

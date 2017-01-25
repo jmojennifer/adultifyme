@@ -32,7 +32,8 @@ const styles = {
   },
   textStyle: {
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    paddingBottom: 5
   },
   linkStyle: {
     color: '#22333B',

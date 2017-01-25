@@ -90,7 +90,8 @@ const styles = {
     backgroundColor: '#D5C2AD',
     fontSize: 15,
     fontWeight: 'bold',
-    paddingLeft: 18
+    paddingLeft: 18,
+    paddingBottom: 5
   },
   loginCardSection: {
     backgroundColor: '#D5C2AD',

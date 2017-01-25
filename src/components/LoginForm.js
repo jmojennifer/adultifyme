@@ -82,7 +82,9 @@ const styles = {
     fontSize: 20,
     fontWeight: 'bold',
     alignSelf: 'center',
-    color: '#A5281A'
+    color: '#A5281A',
+    marginTop: 8,
+    marginBottom: 3
   },
   textStyle: {
     backgroundColor: '#D5C2AD',

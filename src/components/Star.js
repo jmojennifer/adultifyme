@@ -29,7 +29,6 @@ class Star extends Component {
     const { starCount } = this.props;
     return (
       <View>
-
       {renderIf(starCount === 1,
         <View>
           <Image
@@ -54,6 +53,18 @@ class Star extends Component {
           </View>)
         }
 
+        {renderIf(starCount < 20 && starCount > 9 && starCount !== 11,
+          <View>
+            <Image
+              style={styles.starStyleTo99}
+              source={require('../images/yellow-star.png')}
+            />
+            <Text style={styles.starCounterStyle10To19}>
+              {starCount}
+            </Text>
+          </View>)
+        }
+
         {renderIf(starCount === 11,
           <View>
             <Image
@@ -66,13 +77,13 @@ class Star extends Component {
           </View>)
         }
 
-        {renderIf(starCount < 100 && starCount > 9 && starCount !== 11,
+        {renderIf(starCount < 100 && starCount > 19,
           <View>
           <Image
             style={styles.starStyleTo99}
             source={require('../images/yellow-star.png')}
           />
-          <Text style={styles.starCounterStyleTo99}>
+          <Text style={styles.starCounterStyle21To99}>
             {starCount}
           </Text>
           </View>)
@@ -101,12 +112,12 @@ const styles = {
     marginTop: 6
   },
 
-  starCounterStyleTo99: {
+  starCounterStyle10To19: {
     fontSize: 20,
     fontFamily: 'GloriaHallelujah',
     color: '#0A0908',
     position: 'absolute',
-    marginLeft: 20,
+    marginLeft: 22,
     marginTop: 12
   },
 
@@ -116,6 +127,15 @@ const styles = {
     color: '#0A0908',
     position: 'absolute',
     marginLeft: 24,
+    marginTop: 12
+  },
+
+  starCounterStyle21To99: {
+    fontSize: 20,
+    fontFamily: 'GloriaHallelujah',
+    color: '#0A0908',
+    position: 'absolute',
+    marginLeft: 18,
     marginTop: 12
   },
 

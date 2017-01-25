@@ -29,7 +29,20 @@ class Star extends Component {
     const { starCount } = this.props;
     return (
       <View>
-        {renderIf(starCount < 10 && starCount >= 0,
+
+      {renderIf(starCount === 1,
+        <View>
+          <Image
+            style={styles.starStyleTo9}
+            source={require('../images/yellow-star.png')}
+          />
+          <Text style={styles.starCounterStyleAt1}>
+            {starCount}
+          </Text>
+        </View>)
+      }
+
+        {renderIf(starCount < 10 && starCount >= 0 && starCount !== 1,
           <View>
             <Image
               style={styles.starStyleTo9}
@@ -41,7 +54,19 @@ class Star extends Component {
           </View>)
         }
 
-        {renderIf(starCount < 100 && starCount > 9,
+        {renderIf(starCount === 11,
+          <View>
+            <Image
+              style={styles.starStyleTo99}
+              source={require('../images/yellow-star.png')}
+            />
+            <Text style={styles.starCounterStyleAt11}>
+              {starCount}
+            </Text>
+          </View>)
+        }
+
+        {renderIf(starCount < 100 && starCount > 9 && starCount !== 11,
           <View>
           <Image
             style={styles.starStyleTo99}
@@ -60,20 +85,38 @@ class Star extends Component {
 const styles = {
   starCounterStyleTo9: {
     fontSize: 17,
+    fontFamily: 'GloriaHallelujah',
     color: '#0A0908',
-    fontWeight: 'bold',
     position: 'absolute',
     marginLeft: 16.5,
-    marginTop: 11
+    marginTop: 6
+  },
+
+  starCounterStyleAt1: {
+    fontSize: 17,
+    fontFamily: 'GloriaHallelujah',
+    color: '#0A0908',
+    position: 'absolute',
+    marginLeft: 19,
+    marginTop: 6
   },
 
   starCounterStyleTo99: {
-    fontSize: 17,
+    fontSize: 20,
+    fontFamily: 'GloriaHallelujah',
     color: '#0A0908',
-    fontWeight: 'bold',
     position: 'absolute',
-    marginLeft: 19,
-    marginTop: 19
+    marginLeft: 20,
+    marginTop: 12
+  },
+
+  starCounterStyleAt11: {
+    fontSize: 20,
+    fontFamily: 'GloriaHallelujah',
+    color: '#0A0908',
+    position: 'absolute',
+    marginLeft: 24,
+    marginTop: 12
   },
 
   starStyleTo9: {

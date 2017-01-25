@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Platform, ScrollView } from 'react-native';
-import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux';
 import { formUpdate, taskSave, reminderSave } from '../actions';
 import { Card, CardSection, Button } from './common';
@@ -59,10 +58,6 @@ class TaskEditScreen extends Component {
     }
   }
 
-  onButton2Press() {
-    PushNotification.cancelAllLocalNotifications();
-  }
-
   render() {
     return (
       <ScrollView>
@@ -73,12 +68,7 @@ class TaskEditScreen extends Component {
                 Save Changes
               </Button>
             </CardSection>
-            <CardSection style={styles.buttonCardSection}>
-              <Button onPress={this.onButton2Press.bind(this)}>
-                Delete All Reminders
-              </Button>
-            </CardSection>
-      </Card>
+        </Card>
     </ScrollView>
     );
   }

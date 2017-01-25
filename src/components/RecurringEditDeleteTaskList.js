@@ -1,8 +1,3 @@
-// I would have prefered to have a conditional in TaskList.js
-// that selected which TaskListItem to render based on what page
-// the TaskList component was used. Difficulty passing props led
-// me to this initial non-DRY solution; refactoring to be more DRY if time.
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, ListView } from 'react-native';

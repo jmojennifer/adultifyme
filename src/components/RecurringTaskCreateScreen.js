@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PushNotification from 'react-native-push-notification';
 import { Platform, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import {
@@ -64,10 +63,6 @@ class RecurringTaskCreateScreen extends Component {
     }
   }
 
-  onButton2Press() {
-    PushNotification.cancelAllLocalNotifications();
-  }
-
   render() {
     return (
       <ScrollView>
@@ -76,11 +71,6 @@ class RecurringTaskCreateScreen extends Component {
           <CardSection style={styles.buttonCardSection}>
             <Button onPress={this.onButtonPress.bind(this)}>
               Create
-            </Button>
-          </CardSection>
-          <CardSection style={styles.buttonCardSection}>
-            <Button onPress={this.onButton2Press.bind(this)}>
-              Delete All Reminders
             </Button>
           </CardSection>
         </Card>
@@ -124,4 +114,8 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-  { recurringCreateFormStateReset, recurringTaskCreate, recurringReminderCreate })(RecurringTaskCreateScreen);
+  {
+    recurringCreateFormStateReset,
+    recurringTaskCreate,
+    recurringReminderCreate
+  })(RecurringTaskCreateScreen);

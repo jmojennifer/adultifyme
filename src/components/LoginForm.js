@@ -36,8 +36,8 @@ class LoginForm extends Component {
   render() {
     return (
       <View>
-      <Card>
-        <CardSection style={styles.loginFormCardSection}>
+      <Card style={styles.customCardStyle}>
+        <CardSection style={styles.loginFormCardSection1}>
           <Input
             label="Email"
             placeholder="email@gmail.com"
@@ -46,7 +46,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <CardSection style={styles.loginFormCardSection}>
+        <CardSection style={styles.loginFormCardSection2}>
           <Input
             secureTextEntry
             label="Password"
@@ -78,6 +78,11 @@ class LoginForm extends Component {
 }
 
 const styles = {
+  customCardStyle: {
+    backgroundColor: '#D5C2AD',
+    borderWidth: 0,
+    elevation: 0
+  },
   errorTextStyle: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -95,12 +100,19 @@ const styles = {
   },
   loginCardSection: {
     backgroundColor: '#D5C2AD',
-    borderColor: '#D5C2AD'
+    borderColor: '#D5C2AD',
   },
-  loginFormCardSection: {
+  loginFormCardSection1: {
     backgroundColor: '#F8F8F8',
     borderColor: '#F8F8F8',
-    borderRadius: 3
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 3
+  },
+  loginFormCardSection2: {
+    backgroundColor: '#F8F8F8',
+    borderColor: '#F8F8F8',
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3
   }
 };
 

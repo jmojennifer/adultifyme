@@ -64,7 +64,6 @@ const styles = {
   }
 };
 
-
 const mapStateToProps = state => {
   const recurringTasks = _.map(state.recurringTasks, (val, uid) => {
     return { ...val, uid }; // sample result:

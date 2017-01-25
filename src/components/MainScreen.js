@@ -17,8 +17,8 @@ class MainScreen extends Component {
     return (
       <View>
         <AppHeader />
-          <ScrollView>
-            <Card style={{ backgroundColor: '#D5C2AD', borderWidth: 0 }}>
+          <ScrollView style={styles.customScrollViewStyle}>
+            <Card style={styles.customCardStyle}>
               <EditDeleteTaskList />
               <RecurringEditDeleteTaskList />
             </Card>
@@ -27,6 +27,18 @@ class MainScreen extends Component {
     );
   }
 }
+
+const styles = {
+  customScrollViewStyle: {
+    borderWidth: 0,
+    shadowColor: '#D5C2AD'
+  },
+  customCardStyle: {
+    borderWidth: 0,
+    elevation: 0
+  },
+};
+
 const mapStateToProps = (state) => {
   const thisStarCount = state.starCounts;
   return thisStarCount;

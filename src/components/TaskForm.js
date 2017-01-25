@@ -59,6 +59,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Due Date</Text>
         <MinDatePickerAndroid
+          style={styles.datePickerStyle}
           formUpdate={this.props.formUpdate}
           datePickerDate={this.props.dueDate}
           datePickerDateField="dueDate"
@@ -68,6 +69,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Time Due</Text>
         <HourMinuteTimePickerAndroid
+          style={styles.timePickerStyle}
           formUpdate={this.props.formUpdate}
           timePickerTime={this.props.timeDue}
           timePickerField="timeDue"
@@ -87,6 +89,20 @@ const styles = {
   categoryPickerStyle: {
     flex: 1,
     marginHorizontal: 25
+  },
+  datePickerStyle: {
+    color: '#000',
+    paddingLeft: 30,
+    paddingTop: 12,
+    fontSize: 15,
+    flex: 2
+  },
+  timePickerStyle: {
+    color: '#000',
+    paddingLeft: 27,
+    paddingTop: 12,
+    fontSize: 15,
+    flex: 2
   },
   formCardSection: {
     backgroundColor: '#F8F8F8',

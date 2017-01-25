@@ -32,7 +32,7 @@ class MinDatePickerAndroid extends Component {
           })}
         >
           <View>
-            <Text style={styles.textStyle}>
+            <Text style={this.props.style}>
               {this.props.datePickerDate}
             </Text>
           </View>
@@ -47,13 +47,6 @@ const styles = {
     fontSize: 18,
     paddingLeft: 20,
     flex: 1
-  },
-  textStyle: {
-    color: '#000',
-    paddingLeft: 32,
-    paddingTop: 10,
-    fontSize: 18,
-    flex: 2
   },
   containerStyle: {
     height: 40,

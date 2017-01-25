@@ -65,7 +65,7 @@ class RecurringTaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Recurring Once Every: </Text>
         <Picker
-          style={styles.pickerStyle}
+          style={styles.categoryPickerStyle}
           selectedValue={this.props.frequency}
           onValueChange={
             selection => this.props.recurringFormUpdate({ prop: 'frequency', value: selection })
@@ -81,6 +81,7 @@ class RecurringTaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Recurrence Start Date</Text>
         <MinDatePickerAndroid
+          style={styles.datePickerStyle}
           formUpdate={this.props.recurringFormUpdate}
           datePickerDate={this.props.startDate}
           datePickerDateField="startDate"
@@ -90,6 +91,7 @@ class RecurringTaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Recurring Time</Text>
         <HourMinuteTimePickerAndroid
+          style={styles.timePickerStyle}
           formUpdate={this.props.recurringFormUpdate}
           timePickerTime={this.props.recurringTime}
           timePickerField="recurringTime"
@@ -106,9 +108,23 @@ const styles = {
     marginLeft: 20,
     marginTop: 10
   },
-  pickerStyle: {
+  categoryPickerStyle: {
     flex: 1,
     marginHorizontal: 25
+  },
+  datePickerStyle: {
+    color: '#000',
+    paddingLeft: 35.25,
+    paddingTop: 12,
+    fontSize: 15,
+    flex: 2
+  },
+  timePickerStyle: {
+    color: '#000',
+    paddingLeft: 90,
+    paddingTop: 12,
+    fontSize: 15,
+    flex: 2
   },
   formCardSection: {
     backgroundColor: '#F8F8F8',

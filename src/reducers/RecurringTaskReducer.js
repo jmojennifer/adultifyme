@@ -1,6 +1,4 @@
-import {
-  RECURRING_TASKS_FETCH_SUCCESS
-} from '../actions/types';
+import { RECURRING_TASKS_FETCH_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {};
 

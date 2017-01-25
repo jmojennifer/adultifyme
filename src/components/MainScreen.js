@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';

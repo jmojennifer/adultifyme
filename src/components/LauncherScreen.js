@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import LoginForm from './LoginForm';

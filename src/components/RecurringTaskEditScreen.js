@@ -1,5 +1,5 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { recurringFormUpdate, recurringTaskSave, recurringReminderSave } from '../actions';

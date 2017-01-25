@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 

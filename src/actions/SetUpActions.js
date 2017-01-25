@@ -1,7 +1,5 @@
 import firebase from 'firebase';
-import {
-  INITIAL_STAR_COUNT_SET_UP
-} from './types';
+import { INITIAL_STAR_COUNT_SET_UP } from './types';
 
 export const starCountCreate = () => {
   return (dispatch) => {

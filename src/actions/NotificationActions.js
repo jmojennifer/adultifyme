@@ -1,7 +1,5 @@
 import firebase from 'firebase';
-import {
-  STAR_COUNT_FETCH_SUCCESS
-} from './types';
+import { STAR_COUNT_FETCH_SUCCESS } from './types';
 
 export const starCountFetch = () => {
   const { currentUser } = firebase.auth();

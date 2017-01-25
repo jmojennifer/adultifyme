@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { DeviceEventEmitter, View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
@@ -38,7 +37,7 @@ class InitialDialogueScreen extends Component {
           taskQuery.on('child_added', snapshot => {
             task = snapshot;
           });
-          
+
           if (task !== undefined) {
             firebase.database().ref(`/users/${reminderUser}/tasks/${task.key}`).remove();
           }

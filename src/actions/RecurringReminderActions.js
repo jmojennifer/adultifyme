@@ -1,5 +1,5 @@
-import PushNotification from 'react-native-push-notification';
 import firebase from 'firebase';
+import PushNotification from 'react-native-push-notification';
 import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import {

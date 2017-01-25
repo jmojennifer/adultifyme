@@ -11,8 +11,8 @@ const INITIAL_STATE = {
   personalMotivation: '',
   category: '',
   frequency: '',
-  startDate: '',
-  recurringTime: '',
+  startDate: 'Tap To Select',
+  recurringTime: 'Tap To Select',
   reminderID: ''
 };
 

@@ -88,10 +88,6 @@ const styles = {
     flex: 1,
     marginHorizontal: 25
   },
-  dateTimePickerStyle: {
-    flex: 1,
-    marginHorizontal: 25
-  },
   formCardSection: {
     backgroundColor: '#F8F8F8',
     borderColor: '#F8F8F8'

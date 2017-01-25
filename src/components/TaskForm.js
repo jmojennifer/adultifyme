@@ -13,7 +13,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Input
           label="Title"
-          placeholder="i.e. Take Vitamin C"
+          placeholder="i.e. Dentist Appointment"
           value={this.props.title}
           onChangeText={text => this.props.formUpdate({ prop: 'title', value: text })
           }
@@ -23,7 +23,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Input
           label="Description"
-          placeholder="i.e. Take 2 pills each evening."
+          placeholder="i.e. Routine Cleaning"
           value={this.props.description}
           onChangeText={text => this.props.formUpdate({ prop: 'description', value: text })}
         />
@@ -32,7 +32,7 @@ class TaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Input
           label="Personal Motivation"
-          placeholder="i.e. Let's not get sick!"
+          placeholder="i.e. Teeth don't grow back!"
           value={this.props.personalMotivation}
           onChangeText={text => this.props.formUpdate({ prop: 'personalMotivation', value: text })}
         />

@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Scene, Router, ActionConst, Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import LauncherScreen from './components/LauncherScreen.js';
 import InitialDialogueScreen from './components/InitialDialogueScreen.js';
@@ -66,13 +66,13 @@ class RouterComponent extends Component {
           />
           <Scene
             key="recurringTaskCreateScreen" component={RecurringTaskCreateScreen}
-            title="New Recurring Task Series"
+            title="New Recurring Task"
             backButtonImage={require('./images/back_button.png')}
           />
           <Scene
             key="recurringTaskEditScreen"
             component={RecurringTaskEditScreen}
-            title="Edit Recurring Task Series"
+            title="Edit Recurring Task"
             backButtonImage={require('./images/back_button.png')}
           />
           <Scene

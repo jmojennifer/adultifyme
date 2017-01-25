@@ -39,7 +39,7 @@ class RecurringTaskCreateScreen extends Component {
       description,
       personalMotivation,
       category: category || 'Finance',
-      frequency: frequency || 'minute',
+      frequency: frequency || 'hour',
       startDate,
       recurringTime,
       reminderID: newId
@@ -55,7 +55,7 @@ class RecurringTaskCreateScreen extends Component {
         description,
         personalMotivation,
         category: category || 'Finance',
-        frequency: frequency || 'minute',
+        frequency: frequency || 'hour',
         startDate,
         recurringTime,
         reminderID: newId

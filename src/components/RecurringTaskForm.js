@@ -71,7 +71,6 @@ class RecurringTaskForm extends Component {
             selection => this.props.recurringFormUpdate({ prop: 'frequency', value: selection })
           }
         >
-          <Picker.Item label="Minute" value='minute' />
           <Picker.Item label="Hour" value='hour' />
           <Picker.Item label="Day" value='day' />
           <Picker.Item label="Week" value='week' />

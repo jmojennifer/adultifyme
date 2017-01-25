@@ -14,7 +14,9 @@ class MinDatePickerAndroid extends Component {
         return 'No date selected';
       } else {
         const date = new Date(year, month, day);
-        this.props.formUpdate({ prop: this.props.datePickerDateField, value: date.toLocaleDateString() });
+        this.props.formUpdate({
+          prop: this.props.datePickerDateField,
+          value: date.toLocaleDateString() });
       }
     } catch ({ code, message }) {
       console.warn('Error in example', message);
@@ -48,10 +50,9 @@ const styles = {
   },
   textStyle: {
     color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
+    paddingLeft: 32,
+    paddingTop: 10,
     fontSize: 18,
-    lineHeight: 23,
     flex: 2
   },
   containerStyle: {

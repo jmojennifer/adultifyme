@@ -21,7 +21,10 @@ class HourMinuteTimePickerAndroid extends Component {
     try {
       const { action, minute, hour } = await TimePickerAndroid.open(options);
       if (action === TimePickerAndroid.timeSetAction) {
-        this.props.formUpdate({ prop: this.props.timePickerField, value: this.formatTime(hour, minute) });
+        this.props.formUpdate({
+          prop: this.props.timePickerField,
+          value: this.formatTime(hour, minute)
+        });
       } else if (action === TimePickerAndroid.dismissedAction) {
         return 'No Time Selected';
       }
@@ -56,10 +59,9 @@ const styles = {
   },
   textStyle: {
     color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
+    paddingLeft: 29,
+    paddingTop: 10,
     fontSize: 18,
-    lineHeight: 23,
     flex: 2
   },
   containerStyle: {

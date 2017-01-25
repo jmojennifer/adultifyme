@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { DeviceEventEmitter, View, Text } from 'react-native';
+import { DeviceEventEmitter, View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 import PushNotification from 'react-native-push-notification';
 import PushNotificationAndroid from 'react-native-push-notification';
@@ -94,6 +94,12 @@ class InitialDialogueScreen extends Component {
           <Text style={styles.textStyle}>
             Hi!
           </Text>
+        </View>
+        <View style={styles.spacingStyle}>
+          <Image
+            style={styles.IDSImageStyle}
+            source={require('../images/IDSImage.png')}
+          />
           <Text style={styles.textStyle}>
             Adulting is hard. I get it.
           </Text>
@@ -121,11 +127,16 @@ const styles = {
   textStyle: {
     justifyContent: 'flex-start',
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingBottom: 5
   },
   initialDialogueCardSection: {
     backgroundColor: '#D5C2AD',
     borderColor: '#D5C2AD'
+  },
+  IDSImageStyle: {
+    width: 100,
+    height: 100
   }
 };
 

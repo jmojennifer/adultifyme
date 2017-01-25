@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { formUpdate } from '../actions';
-import MinDatePickerAndroidClass from './MinDatePickerAndroidClass';
+import MinDatePickerAndroid from './MinDatePickerAndroid';
+import HourMinuteTimePickerAndroid from './HourMinuteTimePickerAndroid';
 import { CardSection, Input } from './common';
 
 class TaskForm extends Component {
@@ -56,37 +57,22 @@ class TaskForm extends Component {
       </CardSection>
 
       <CardSection style={styles.formCardSection}>
-        <Input
-          label="Due Date"
-          placeholder="i.e. 1/27/2017"
-          value={this.props.dueDate}
-          onChangeText={text => this.props.formUpdate({ prop: 'dueDate', value: text })}
+        <Text style={styles.pickerTextStyle}>Due Date</Text>
+        <MinDatePickerAndroid
+          formUpdate={this.props.formUpdate}
+          datePickerDate={this.props.dueDate}
+          datePickerDateField="dueDate"
         />
       </CardSection>
 
       <CardSection style={styles.formCardSection}>
-        <Input
-          label="Time Due"
-          placeholder="i.e. 1:14PM"
-          value={this.props.timeDue}
-          onChangeText={text => this.props.formUpdate({ prop: 'timeDue', value: text })}
-        />
-      </CardSection>
-      <CardSection style={styles.formCardSection}>
-        <Text style={styles.pickerTextStyle}>Due Date</Text>
-        <MinDatePickerAndroidClass
+        <Text style={styles.pickerTextStyle}>Time Due</Text>
+        <HourMinuteTimePickerAndroid
           formUpdate={this.props.formUpdate}
+          timePickerTime={this.props.timeDue}
+          timePickerField="timeDue"
         />
       </CardSection>
-      {/*<CardSection style={styles.formCardSection}>
-        <Text style={styles.pickerTextStyle}>Due Date</Text>
-        <MinDatePickerAndroid
-          style={styles.dateTimePickerStyle}
-          label="Date (today or later)"
-          value={this.props.dueDate}
-          onPickChange={selection => this.props.formUpdate({ prop: 'dueDate', value: selection })}
-        />
-      </CardSection>*/}
       </View>
     );
   }
@@ -114,9 +100,9 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  const { title, description, personalMotivation, category, dueDate, timeDue } = state.taskForm;
+  const { title, description, personalMotivation, category, dueDate, timeDue, hourDue, minuteDue } = state.taskForm;
 
-  return { title, description, personalMotivation, category, dueDate, timeDue };
+  return { title, description, personalMotivation, category, dueDate, timeDue, hourDue, minuteDue };
 };
 
 export default connect(mapStateToProps, { formUpdate })(TaskForm);

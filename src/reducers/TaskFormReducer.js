@@ -7,8 +7,8 @@ const INITIAL_STATE = {
   description: '',
   personalMotivation: '',
   category: '',
-  dueDate: '',
-  timeDue: '',
+  dueDate: 'Date',
+  timeDue: 'Time',
   reminderID: ''
 };
 

@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {
-  DatePickerAndroid,
+  TimePickerAndroid,
   Text,
   TouchableWithoutFeedback,
   View
 } from 'react-native';
 
-class MinDatePickerAndroidClass extends Component {
+class HourMinuteTimePickerAndroid extends Component {
+  formatTime(hour, minute) {
+    let formattedHour = hour;
+    let amPM = 'AM';
+    if (hour > 12) {
+      formattedHour = hour - 12;
+      amPM = 'PM';
+    }
+    return `${formattedHour}:${(minute < 10 ? `0${minute}` : minute)} ${amPM}`;
+  }
+
   showPicker = async (options) => {
     try {
-      const { action, year, month, day } = await DatePickerAndroid.open(options);
-      if (action === DatePickerAndroid.dismissedAction) {
-        return 'No date selected';
-      } else {
-        const date = new Date(year, month, day);
-        this.props.formUpdate({ prop: 'dueDate', value: date.toLocaleDateString() });
+      const { action, minute, hour } = await TimePickerAndroid.open(options);
+      if (action === TimePickerAndroid.timeSetAction) {
+        this.props.formUpdate({ prop: this.props.timePickerField, value: this.formatTime(hour, minute) });
+      } else if (action === TimePickerAndroid.dismissedAction) {
+        return 'No Time Selected';
       }
     } catch ({ code, message }) {
       console.warn('Error in example', message);
@@ -27,12 +35,11 @@ class MinDatePickerAndroidClass extends Component {
       <View style={styles.containerStyle}>
         <TouchableWithoutFeedback
           style={styles.touchableFeedback}
-          onPress={this.showPicker.bind(this, { date: this.props.Date, minDate: new Date(),
-          })}
+          onPress={this.showPicker.bind(this, { })}
         >
           <View>
             <Text style={styles.textStyle}>
-              {this.props.dueDate}
+              {this.props.timePickerTime}
             </Text>
           </View>
         </TouchableWithoutFeedback>
@@ -63,10 +70,4 @@ const styles = {
   }
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const { dueDate } = state.taskForm;
-  const { formUpdate } = ownProps;
-  return { dueDate, ownProps };
-};
-
-export default connect(mapStateToProps, { })(MinDatePickerAndroidClass);
+export default HourMinuteTimePickerAndroid;

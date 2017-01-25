@@ -38,7 +38,7 @@ class InitialDialogueScreen extends Component {
           taskQuery.on('child_added', snapshot => {
             task = snapshot;
           });
-          console.log(typeof task);
+          
           if (task !== undefined) {
             firebase.database().ref(`/users/${reminderUser}/tasks/${task.key}`).remove();
           }

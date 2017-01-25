@@ -91,7 +91,7 @@ export const recurringReminderSave = ({
       largeIcon: 'ic_launcher',
       date: new Date(Date.now() + adjustedStartDate),
       repeatType: frequency,
-      actions: '["Cancel Occurence", "Completed Occurence"]'
+      actions: '["Cancel Occ", "Completed Occ"]'
     });
     dispatch({ type: RECURRING_REMINDER_SAVE });
     Actions.mainScreen({ type: 'reset' });

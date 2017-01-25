@@ -92,13 +92,13 @@ class InitialDialogueScreen extends Component {
       <View>
         <View style={styles.spacingStyle}>
           <Text style={styles.textStyle}>
-              Hi!
+            Hi!
           </Text>
           <Text style={styles.textStyle}>
             Adulting is hard. I get it.
           </Text>
           <Text style={styles.textStyle}>
-            {'Let\'s try to make it a bit easier'}
+            Let's try to make it a bit easier.
           </Text>
             </View>
           <CardSection style={styles.initialDialogueCardSection}>

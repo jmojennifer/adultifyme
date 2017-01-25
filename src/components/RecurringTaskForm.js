@@ -45,7 +45,7 @@ class RecurringTaskForm extends Component {
       <CardSection style={styles.formCardSection}>
         <Text style={styles.pickerTextStyle}>Category</Text>
         <Picker
-          style={styles.pickerStyle}
+          style={styles.categoryPickerStyle}
           selectedValue={this.props.category}
           onValueChange={
             selection => this.props.recurringFormUpdate({ prop: 'category', value: selection })

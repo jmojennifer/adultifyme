@@ -8,7 +8,7 @@ const AppAboutScreen = () => {
         <Text
           style={styles.textStyle}
         >
-          Icons provided by icon8
+          Task icons provided by icon8
         </Text>
         <Text
           style={styles.linkStyle}

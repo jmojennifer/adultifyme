@@ -45,8 +45,7 @@ class RecurringEditDeleteTaskListItem extends Component {
           <View>
             <Text style={styles.textStyle}>
               {title} ({category}){'\n'}
-              Due: {startDate}
-              {recurringTime}{'\n'}
+              Starting: {startDate} {recurringTime}{'\n'}
               Frequency:
               {renderIf(frequency === 'hour',
                 ' Hourly'

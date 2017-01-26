@@ -67919,12 +67919,11 @@ key+'\' from the \'react-native\' package. Perhaps you meant to access \'React.'
 
 module.exports=throwOnWrongReactAPI;
 }, 398, null, "throwOnWrongReactAPI");
-__d(/* adultifyme/src/App.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(/* adultifyme/src/App.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactRedux=require(400 /* react-redux */);
 var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
 var _Router=require(442 /* ./Router */);var _Router2=babelHelpers.interopRequireDefault(_Router);
-var _store=require(542 /* ./store */);var _store2=babelHelpers.interopRequireDefault(_store);var
+var _store=require(540 /* ./store */);var _store2=babelHelpers.interopRequireDefault(_store);var
 
 App=function(_Component){babelHelpers.inherits(App,_Component);function App(){babelHelpers.classCallCheck(this,App);return babelHelpers.possibleConstructorReturn(this,(App.__proto__||Object.getPrototypeOf(App)).apply(this,arguments));}babelHelpers.createClass(App,[{key:'componentWillMount',value:function componentWillMount()
 {
@@ -70600,27 +70599,18 @@ x.RUNNING="running";x.PAUSED="paused";x.SUCCESS="success";x.CANCELED="canceled";
 }).call(global);
 module.exports=firebase.storage;
 }, 441, null, "firebase/storage.js");
-__d(/* adultifyme/src/Router.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(/* adultifyme/src/Router.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
-var _reactRedux=require(400 /* react-redux */);
 var _LauncherScreen=require(490 /* ./components/LauncherScreen.js */);var _LauncherScreen2=babelHelpers.interopRequireDefault(_LauncherScreen);
-var _InitialDialogueScreen=require(514 /* ./components/InitialDialogueScreen.js */);var _InitialDialogueScreen2=babelHelpers.interopRequireDefault(_InitialDialogueScreen);
-var _MainScreen=require(516 /* ./components/MainScreen.js */);var _MainScreen2=babelHelpers.interopRequireDefault(_MainScreen);
-var _TaskCreateScreen=require(531 /* ./components/TaskCreateScreen */);var _TaskCreateScreen2=babelHelpers.interopRequireDefault(_TaskCreateScreen);
-var _TaskEditScreen=require(535 /* ./components/TaskEditScreen */);var _TaskEditScreen2=babelHelpers.interopRequireDefault(_TaskEditScreen);
-var _RecurringTaskCreateScreen=require(536 /* ./components/RecurringTaskCreateScreen */);var _RecurringTaskCreateScreen2=babelHelpers.interopRequireDefault(_RecurringTaskCreateScreen);
-var _RecurringTaskEditScreen=require(538 /* ./components/RecurringTaskEditScreen */);var _RecurringTaskEditScreen2=babelHelpers.interopRequireDefault(_RecurringTaskEditScreen);
-var _AccountInfoScreen=require(539 /* ./components/AccountInfoScreen.js */);var _AccountInfoScreen2=babelHelpers.interopRequireDefault(_AccountInfoScreen);
-var _AppAboutScreen=require(540 /* ./components/AppAboutScreen.js */);var _AppAboutScreen2=babelHelpers.interopRequireDefault(_AppAboutScreen);
-var _actions=require(492 /* ./actions */);var
+var _InitialDialogueScreen=require(513 /* ./components/InitialDialogueScreen.js */);var _InitialDialogueScreen2=babelHelpers.interopRequireDefault(_InitialDialogueScreen);
+var _MainScreen=require(515 /* ./components/MainScreen.js */);var _MainScreen2=babelHelpers.interopRequireDefault(_MainScreen);
+var _TaskCreateScreen=require(530 /* ./components/TaskCreateScreen */);var _TaskCreateScreen2=babelHelpers.interopRequireDefault(_TaskCreateScreen);
+var _TaskEditScreen=require(534 /* ./components/TaskEditScreen */);var _TaskEditScreen2=babelHelpers.interopRequireDefault(_TaskEditScreen);
+var _RecurringTaskCreateScreen=require(535 /* ./components/RecurringTaskCreateScreen */);var _RecurringTaskCreateScreen2=babelHelpers.interopRequireDefault(_RecurringTaskCreateScreen);
+var _RecurringTaskEditScreen=require(537 /* ./components/RecurringTaskEditScreen */);var _RecurringTaskEditScreen2=babelHelpers.interopRequireDefault(_RecurringTaskEditScreen);
+var _AppAboutScreen=require(538 /* ./components/AppAboutScreen.js */);var _AppAboutScreen2=babelHelpers.interopRequireDefault(_AppAboutScreen);var
 
-RouterComponent=function(_Component){babelHelpers.inherits(RouterComponent,_Component);function RouterComponent(){babelHelpers.classCallCheck(this,RouterComponent);return babelHelpers.possibleConstructorReturn(this,(RouterComponent.__proto__||Object.getPrototypeOf(RouterComponent)).apply(this,arguments));}babelHelpers.createClass(RouterComponent,[{key:'onLogoutPress',value:function onLogoutPress()
-
-{
-this.props.logoutUser();
-}},{key:'onAboutPress',value:function onAboutPress()
-
+RouterComponent=function(_Component){babelHelpers.inherits(RouterComponent,_Component);function RouterComponent(){babelHelpers.classCallCheck(this,RouterComponent);return babelHelpers.possibleConstructorReturn(this,(RouterComponent.__proto__||Object.getPrototypeOf(RouterComponent)).apply(this,arguments));}babelHelpers.createClass(RouterComponent,[{key:'onAboutPress',value:function onAboutPress()
 {
 _reactNativeRouterFlux.Actions.appAboutScreen();
 }},{key:'render',value:function render()
@@ -70658,40 +70648,38 @@ _react2.default.createElement(_reactNativeRouterFlux.Scene,{
 key:'taskCreateScreen',
 component:_TaskCreateScreen2.default,
 title:'New Task',
-backButtonImage:require(541 /* ./images/back_button.png */)}),
+backButtonImage:require(539 /* ./images/back_button.png */)}),
 
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{
 key:'taskEditScreen',
 component:_TaskEditScreen2.default,
 title:'Edit Task',
-backButtonImage:require(541 /* ./images/back_button.png */)}),
+backButtonImage:require(539 /* ./images/back_button.png */)}),
 
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{
 key:'recurringTaskCreateScreen',component:_RecurringTaskCreateScreen2.default,
-title:'New Recurring Task Series',
-backButtonImage:require(541 /* ./images/back_button.png */)}),
+title:'New Recurring Task',
+backButtonImage:require(539 /* ./images/back_button.png */)}),
 
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{
 key:'recurringTaskEditScreen',
 component:_RecurringTaskEditScreen2.default,
-title:'Edit Recurring Task Series',
-backButtonImage:require(541 /* ./images/back_button.png */)}),
+title:'Edit Recurring Task',
+backButtonImage:require(539 /* ./images/back_button.png */)}),
 
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{
 key:'appAboutScreen',
 component:_AppAboutScreen2.default,
 title:'About',
-backButtonImage:require(541 /* ./images/back_button.png */)})),
+backButtonImage:require(539 /* ./images/back_button.png */)}))));
 
 
-
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'accountInfoScreen',component:_AccountInfoScreen2.default,title:'Account Info'})));
 
 
 }}]);return RouterComponent;}(_react.Component);exports.default=
 
 
-(0,_reactRedux.connect)(null,{logoutUser:_actions.logoutUser})(RouterComponent);
+RouterComponent;
 }, 442, null, "adultifyme/src/Router.js");
 __d(/* react-native-router-flux/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Util=exports.getInitialState=exports.TabbedView=exports.TabBar=exports.Switch=exports.Scene=exports.Router=exports.Reducer=exports.NavBar=exports.Modal=exports.DefaultRenderer=exports.ActionConst=exports.Actions=undefined;var _Actions=require(444 /* ./src/Actions */);var _Actions2=babelHelpers.interopRequireDefault(_Actions);
 var _ActionConst=require(447 /* ./src/ActionConst */);var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);
@@ -76272,8 +76260,7 @@ selector:_react.PropTypes.func,
 statem:_react.PropTypes.any,
 unmountScenes:_react.PropTypes.bool};
 }, 489, null, "react-native-router-flux/src/Switch.js");
-__d(/* adultifyme/src/components/LauncherScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(/* adultifyme/src/components/LauncherScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _LoginForm=require(491 /* ./LoginForm */);var _LoginForm2=babelHelpers.interopRequireDefault(_LoginForm);var
 
@@ -76343,8 +76330,8 @@ borderWidth:0},'Sign In'));
 {
 return(
 _react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_common.Card,null,
-_react2.default.createElement(_common.CardSection,{style:styles.loginFormCardSection},
+_react2.default.createElement(_common.Card,{style:styles.customCardStyle},
+_react2.default.createElement(_common.CardSection,{style:styles.loginFormCardSection1},
 _react2.default.createElement(_common.Input,{
 label:'Email',
 placeholder:'email@gmail.com',
@@ -76353,7 +76340,7 @@ value:this.props.email})),
 
 
 
-_react2.default.createElement(_common.CardSection,{style:styles.loginFormCardSection},
+_react2.default.createElement(_common.CardSection,{style:styles.loginFormCardSection2},
 _react2.default.createElement(_common.Input,{
 secureTextEntry:true,
 label:'Password',
@@ -76385,6 +76372,11 @@ _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},'You wi
 
 
 var styles={
+customCardStyle:{
+backgroundColor:'#D5C2AD',
+borderWidth:0,
+elevation:0},
+
 errorTextStyle:{
 fontSize:20,
 fontWeight:'bold',
@@ -76404,10 +76396,17 @@ loginCardSection:{
 backgroundColor:'#D5C2AD',
 borderColor:'#D5C2AD'},
 
-loginFormCardSection:{
+loginFormCardSection1:{
 backgroundColor:'#F8F8F8',
 borderColor:'#F8F8F8',
-borderRadius:3}};
+borderTopLeftRadius:3,
+borderTopRightRadius:3},
+
+loginFormCardSection2:{
+backgroundColor:'#F8F8F8',
+borderColor:'#F8F8F8',
+borderBottomLeftRadius:3,
+borderBottomRightRadius:3}};
 
 
 
@@ -76613,8 +76612,8 @@ _reactNativeRouterFlux.Actions.mainScreen({type:'reset'});
 };
 };
 }, 495, null, "adultifyme/src/actions/TaskActions.js");
-__d(/* adultifyme/src/actions/ReminderActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.reminderDelete=exports.reminderSave=exports.reminderCreate=undefined;var _moment=require(497 /* moment */);var _moment2=babelHelpers.interopRequireDefault(_moment);
-var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
+__d(/* adultifyme/src/actions/ReminderActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.reminderDelete=exports.reminderSave=exports.reminderCreate=undefined;var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
+var _moment=require(497 /* moment */);var _moment2=babelHelpers.interopRequireDefault(_moment);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
 var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _types=require(494 /* ./types */);
@@ -81543,8 +81542,8 @@ _reactNativeRouterFlux.Actions.mainScreen({type:'reset'});
 };
 };
 }, 500, null, "adultifyme/src/actions/RecurringTaskActions.js");
-__d(/* adultifyme/src/actions/RecurringReminderActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.recurringReminderDelete=exports.recurringReminderSave=exports.recurringReminderCreate=undefined;var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
-var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
+__d(/* adultifyme/src/actions/RecurringReminderActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.recurringReminderDelete=exports.recurringReminderSave=exports.recurringReminderCreate=undefined;var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
+var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _moment=require(497 /* moment */);var _moment2=babelHelpers.interopRequireDefault(_moment);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
 var _types=require(494 /* ./types */);
@@ -81591,7 +81590,7 @@ group:loggedInUserID,
 largeIcon:'ic_launcher',
 date:new Date(Date.now()+adjustedStartDate),
 repeatType:frequency,
-actions:'["Cancel Occurence", "Completed Occurence"]'});
+actions:'["Cancel Occ", "Completed Occ"]'});
 
 dispatch({type:_types.RECURRING_REMINDER_CREATE});
 _reactNativeRouterFlux.Actions.mainScreen({type:'reset'});
@@ -81636,7 +81635,7 @@ group:loggedInUserID,
 largeIcon:'ic_launcher',
 date:new Date(Date.now()+adjustedStartDate),
 repeatType:frequency,
-actions:'["Cancel Occurence", "Completed Occurence"]'});
+actions:'["Cancel Occ", "Completed Occ"]'});
 
 dispatch({type:_types.RECURRING_REMINDER_SAVE});
 _reactNativeRouterFlux.Actions.mainScreen({type:'reset'});
@@ -81654,8 +81653,6 @@ _reactNativeRouterFlux.Actions.mainScreen({type:'reset'});
 __d(/* adultifyme/src/actions/NotificationActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.starCountFetch=undefined;var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
 var _types=require(494 /* ./types */);
 
-
-
 var starCountFetch=exports.starCountFetch=function starCountFetch(){var _firebase$auth=
 _firebase2.default.auth(),currentUser=_firebase$auth.currentUser;
 
@@ -81669,8 +81666,6 @@ dispatch({type:_types.STAR_COUNT_FETCH_SUCCESS,payload:snapshot.val()});
 }, 502, null, "adultifyme/src/actions/NotificationActions.js");
 __d(/* adultifyme/src/actions/SetUpActions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.starCountCreate=undefined;var _firebase=require(437 /* firebase */);var _firebase2=babelHelpers.interopRequireDefault(_firebase);
 var _types=require(494 /* ./types */);
-
-
 
 var starCountCreate=exports.starCountCreate=function starCountCreate(){
 return function(dispatch){
@@ -81693,8 +81688,7 @@ Object.keys(_Confirm).forEach(function(key){if(key==="default"||key==="__esModul
 Object.keys(_Header).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Header[key];}});});var _Input=require(510 /* ./Input */);
 Object.keys(_Input).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Input[key];}});});var _Spinner=require(511 /* ./Spinner */);
 Object.keys(_Spinner).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Spinner[key];}});});var _renderIf=require(512 /* ./renderIf */);
-Object.keys(_renderIf).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _renderIf[key];}});});var _MinDatePickerAndroid=require(513 /* ./MinDatePickerAndroid */);
-Object.keys(_MinDatePickerAndroid).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _MinDatePickerAndroid[key];}});});
+Object.keys(_renderIf).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _renderIf[key];}});});
 }, 504, null, "adultifyme/src/components/common/index.js");
 __d(/* adultifyme/src/components/common/Button.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
@@ -81953,72 +81947,7 @@ return null;
 }exports.
 renderIf=renderIf;
 }, 512, null, "adultifyme/src/components/common/renderIf.js");
-__d(/* adultifyme/src/components/common/MinDatePickerAndroid.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.MinDatePickerAndroid=undefined;var _this=this;var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNative=require(12 /* react-native */);
-
-
-
-
-
-
-var MinDatePickerAndroid=function MinDatePickerAndroid(_ref){var label=_ref.label,value=_ref.value,onPickChange=_ref.onPickChange;
-var showPicker=function showPicker(options){var _ref2,action,year,month,day,date,code,message;return regeneratorRuntime.async(function showPicker$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(
-
-_reactNative.DatePickerAndroid.open(options));case 3:_ref2=_context.sent;action=_ref2.action;year=_ref2.year;month=_ref2.month;day=_ref2.day;if(!(
-action===_reactNative.DatePickerAndroid.dismissedAction)){_context.next=12;break;}return _context.abrupt('return',
-'dismissed');case 12:
-
-date=new Date(year,month,day);
-date=date.toLocaleDateString();return _context.abrupt('return',
-date);case 15:_context.next=22;break;case 17:_context.prev=17;_context.t0=_context['catch'](0);
-
-code=_context.t0.code;message=_context.t0.message;
-console.warn('Error in example: ',message);case 22:case'end':return _context.stop();}}},null,_this,[[0,17]]);};
-
-
-
-return(
-_react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
-_react2.default.createElement(_reactNative.Text,{style:styles.labelStyle},label),
-_react2.default.createElement(_reactNative.TouchableWithoutFeedback,null,
-_react2.default.createElement(_reactNative.View,{
-onPress:showPicker.bind({
-date:value,
-minDate:new Date()}),
-
-onPickChange:onPickChange}))));
-
-
-
-
-};
-
-var styles={
-labelStyle:{
-fontSize:18,
-paddingLeft:20,
-flex:1},
-
-textStyle:{
-color:'#000',
-paddingRight:5,
-paddingLeft:5,
-fontSize:18,
-lineHeight:23,
-flex:2},
-
-containerStyle:{
-height:40,
-flex:1,
-flexDirection:'row',
-alignItems:'center'}};exports.
-
-
-
-MinDatePickerAndroid=MinDatePickerAndroid;
-}, 513, null, "adultifyme/src/components/common/MinDatePickerAndroid.js");
-__d(/* adultifyme/src/components/InitialDialogueScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+__d(/* adultifyme/src/components/InitialDialogueScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
@@ -82043,7 +81972,7 @@ console.log('NOTIFICATION:',notification);
 
 (function(){
 _reactNativePushNotification2.default.registerNotificationActions(
-['Cancel Task','Completed Task','Cancel Occurence','Completed Occurence']);
+['Cancel Task','Completed Task','Cancel Occ','Completed Occ']);
 
 _reactNative.DeviceEventEmitter.addListener('notificationActionReceived',function(action){
 console.log('Notification action received: ',action);
@@ -82057,7 +81986,7 @@ var taskQuery=userTasks.orderByChild('reminderID').equalTo(info.id);
 taskQuery.on('child_added',function(snapshot){
 task=snapshot;
 });
-console.log(typeof task);
+
 if(task!==undefined){
 _firebase2.default.database().ref('/users/'+reminderUser+'/tasks/'+task.key).remove();
 }
@@ -82083,9 +82012,9 @@ _firebase2.default.database().ref('/users/'+reminderUser+'/userProperties').set(
 
 appSelf.props.starCountFetch();
 }
-}else if(info.action==='Cancel Occurence'){
+}else if(info.action==='Cancel Occ'){
 console.log('Nothing done');
-}else if(info.action==='Completed Occurence'){
+}else if(info.action==='Completed Occ'){
 var _userRef=_firebase2.default.database().ref('/users/'+reminderUser+'/userProperties');
 var _star=void 0;
 _userRef.on('child_added',function(snapshot){
@@ -82117,7 +82046,7 @@ _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},'Hi!'))
 _react2.default.createElement(_reactNative.View,{style:styles.spacingStyle},
 _react2.default.createElement(_reactNative.Image,{
 style:styles.IDSImageStyle,
-source:require(515 /* ../images/IDSImage.png */)}),
+source:require(514 /* ../images/IDSImage.png */)}),
 
 _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},'Adulting is hard. I get it.'),
 
@@ -82160,16 +82089,15 @@ height:100}};exports.default=
 
 
 (0,_reactRedux.connect)(null,{starCountFetch:_actions.starCountFetch})(InitialDialogueScreen);
-}, 514, null, "adultifyme/src/components/InitialDialogueScreen.js");
+}, 513, null, "adultifyme/src/components/InitialDialogueScreen.js");
 __d(/* adultifyme/src/images/IDSImage.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":400,"height":400,"scales":[1],"hash":"94623377eb6ee788cb6186627028eab1","name":"IDSImage","type":"png"});
-}, 515, null, "adultifyme/src/images/IDSImage.png");
-__d(/* adultifyme/src/components/MainScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 514, null, "adultifyme/src/images/IDSImage.png");
+__d(/* adultifyme/src/components/MainScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
-var _AppHeader=require(517 /* ./AppHeader */);var _AppHeader2=babelHelpers.interopRequireDefault(_AppHeader);
-var _EditDeleteTaskList=require(522 /* ./EditDeleteTaskList */);var _EditDeleteTaskList2=babelHelpers.interopRequireDefault(_EditDeleteTaskList);
-var _RecurringEditDeleteTaskList=require(529 /* ./RecurringEditDeleteTaskList */);var _RecurringEditDeleteTaskList2=babelHelpers.interopRequireDefault(_RecurringEditDeleteTaskList);
+var _AppHeader=require(516 /* ./AppHeader */);var _AppHeader2=babelHelpers.interopRequireDefault(_AppHeader);
+var _EditDeleteTaskList=require(521 /* ./EditDeleteTaskList */);var _EditDeleteTaskList2=babelHelpers.interopRequireDefault(_EditDeleteTaskList);
+var _RecurringEditDeleteTaskList=require(528 /* ./RecurringEditDeleteTaskList */);var _RecurringEditDeleteTaskList2=babelHelpers.interopRequireDefault(_RecurringEditDeleteTaskList);
 var _common=require(504 /* ./common */);
 var _actions=require(492 /* ../actions */);var
 
@@ -82182,8 +82110,8 @@ this.props.starCountCreate();
 return(
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_AppHeader2.default,null),
-_react2.default.createElement(_reactNative.ScrollView,null,
-_react2.default.createElement(_common.Card,{style:{backgroundColor:'#D5C2AD',borderWidth:0}},
+_react2.default.createElement(_reactNative.ScrollView,{style:styles.customScrollViewStyle},
+_react2.default.createElement(_common.Card,{style:styles.customCardStyle},
 _react2.default.createElement(_EditDeleteTaskList2.default,null),
 _react2.default.createElement(_RecurringEditDeleteTaskList2.default,null)))));
 
@@ -82192,21 +82120,32 @@ _react2.default.createElement(_RecurringEditDeleteTaskList2.default,null)))));
 
 }}]);return MainScreen;}(_react.Component);
 
+
+var styles={
+customScrollViewStyle:{
+borderWidth:0,
+shadowColor:'#D5C2AD'},
+
+customCardStyle:{
+borderWidth:0,
+elevation:0}};
+
+
+
 var mapStateToProps=function mapStateToProps(state){
 var thisStarCount=state.starCounts;
 return thisStarCount;
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{starCountCreate:_actions.starCountCreate})(MainScreen);
-}, 516, null, "adultifyme/src/components/MainScreen.js");
-__d(/* adultifyme/src/components/AppHeader.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 515, null, "adultifyme/src/components/MainScreen.js");
+__d(/* adultifyme/src/components/AppHeader.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
 var _common=require(504 /* ./common */);
-var _Logo=require(518 /* ./Logo */);var _Logo2=babelHelpers.interopRequireDefault(_Logo);
-var _Star=require(520 /* ./Star */);var _Star2=babelHelpers.interopRequireDefault(_Star);var
+var _Logo=require(517 /* ./Logo */);var _Logo2=babelHelpers.interopRequireDefault(_Logo);
+var _Star=require(519 /* ./Star */);var _Star2=babelHelpers.interopRequireDefault(_Star);var
 
 AppHeader=function(_Component){babelHelpers.inherits(AppHeader,_Component);function AppHeader(){babelHelpers.classCallCheck(this,AppHeader);return babelHelpers.possibleConstructorReturn(this,(AppHeader.__proto__||Object.getPrototypeOf(AppHeader)).apply(this,arguments));}babelHelpers.createClass(AppHeader,[{key:'taskCreate',value:function taskCreate()
 
@@ -82280,16 +82219,15 @@ return{starCount:starCount};
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{})(AppHeader);
-}, 517, null, "adultifyme/src/components/AppHeader.js");
-__d(/* adultifyme/src/components/Logo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 516, null, "adultifyme/src/components/AppHeader.js");
+__d(/* adultifyme/src/components/Logo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 
 var Logo=function Logo(){
 return(
 _react2.default.createElement(_reactNative.Image,{
 style:styles.logoStyle,
-source:require(519 /* ../images/AdultifyMeTransparentLogo50x50.png */)}));
+source:require(518 /* ../images/AdultifyMeTransparentLogo50x50.png */)}));
 
 
 };
@@ -82303,11 +82241,10 @@ marginLeft:10}};exports.default=
 
 
 Logo;
-}, 518, null, "adultifyme/src/components/Logo.js");
+}, 517, null, "adultifyme/src/components/Logo.js");
 __d(/* adultifyme/src/images/AdultifyMeTransparentLogo50x50.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":50,"height":50,"scales":[1],"hash":"b6b984d106722aeca9540cd5284a8dd1","name":"AdultifyMeTransparentLogo50x50","type":"png"});
-}, 519, null, "adultifyme/src/images/AdultifyMeTransparentLogo50x50.png");
-__d(/* adultifyme/src/components/Star.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 518, null, "adultifyme/src/images/AdultifyMeTransparentLogo50x50.png");
+__d(/* adultifyme/src/components/Star.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
@@ -82337,12 +82274,11 @@ this.props.starCount=thisStarCount;
 starCount=this.props.starCount;
 return(
 _react2.default.createElement(_reactNative.View,null,
-
 (0,_common.renderIf)(starCount===1,
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Image,{
 style:styles.starStyleTo9,
-source:require(521 /* ../images/yellow-star.png */)}),
+source:require(520 /* ../images/yellow-star.png */)}),
 
 _react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyleAt1},
 starCount))),
@@ -82354,9 +82290,21 @@ starCount))),
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Image,{
 style:styles.starStyleTo9,
-source:require(521 /* ../images/yellow-star.png */)}),
+source:require(520 /* ../images/yellow-star.png */)}),
 
 _react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyleTo9},
+starCount))),
+
+
+
+
+(0,_common.renderIf)(starCount<20&&starCount>9&&starCount!==11,
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Image,{
+style:styles.starStyleTo99,
+source:require(520 /* ../images/yellow-star.png */)}),
+
+_react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyle10To19},
 starCount))),
 
 
@@ -82366,7 +82314,7 @@ starCount))),
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Image,{
 style:styles.starStyleTo99,
-source:require(521 /* ../images/yellow-star.png */)}),
+source:require(520 /* ../images/yellow-star.png */)}),
 
 _react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyleAt11},
 starCount))),
@@ -82374,13 +82322,13 @@ starCount))),
 
 
 
-(0,_common.renderIf)(starCount<100&&starCount>9&&starCount!==11,
+(0,_common.renderIf)(starCount<100&&starCount>19,
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Image,{
 style:styles.starStyleTo99,
-source:require(521 /* ../images/yellow-star.png */)}),
+source:require(520 /* ../images/yellow-star.png */)}),
 
-_react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyleTo99},
+_react2.default.createElement(_reactNative.Text,{style:styles.starCounterStyle21To99},
 starCount)))));
 
 
@@ -82409,12 +82357,12 @@ marginLeft:19,
 marginTop:6},
 
 
-starCounterStyleTo99:{
+starCounterStyle10To19:{
 fontSize:20,
 fontFamily:'GloriaHallelujah',
 color:'#0A0908',
 position:'absolute',
-marginLeft:20,
+marginLeft:22,
 marginTop:12},
 
 
@@ -82424,6 +82372,15 @@ fontFamily:'GloriaHallelujah',
 color:'#0A0908',
 position:'absolute',
 marginLeft:24,
+marginTop:12},
+
+
+starCounterStyle21To99:{
+fontSize:20,
+fontFamily:'GloriaHallelujah',
+color:'#0A0908',
+position:'absolute',
+marginLeft:18,
 marginTop:12},
 
 
@@ -82444,15 +82401,15 @@ return thisStarCount;
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{starCountFetch:_actions.starCountFetch})(Star);
-}, 520, null, "adultifyme/src/components/Star.js");
+}, 519, null, "adultifyme/src/components/Star.js");
 __d(/* adultifyme/src/images/yellow-star.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":256,"height":256,"scales":[1],"hash":"349e69259fa56be0ecb3ed2b3228f5d7","name":"yellow-star","type":"png"});
-}, 521, null, "adultifyme/src/images/yellow-star.png");
+}, 520, null, "adultifyme/src/images/yellow-star.png");
 __d(/* adultifyme/src/components/EditDeleteTaskList.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNative=require(12 /* react-native */);
-var _lodash=require(523 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
+var _lodash=require(522 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
 var _actions=require(492 /* ../actions */);
-var _EditDeleteTaskListItem=require(524 /* ./EditDeleteTaskListItem */);var _EditDeleteTaskListItem2=babelHelpers.interopRequireDefault(_EditDeleteTaskListItem);var
+var _EditDeleteTaskListItem=require(523 /* ./EditDeleteTaskListItem */);var _EditDeleteTaskListItem2=babelHelpers.interopRequireDefault(_EditDeleteTaskListItem);var
 
 EditDeleteTaskList=function(_Component){babelHelpers.inherits(EditDeleteTaskList,_Component);function EditDeleteTaskList(){babelHelpers.classCallCheck(this,EditDeleteTaskList);return babelHelpers.possibleConstructorReturn(this,(EditDeleteTaskList.__proto__||Object.getPrototypeOf(EditDeleteTaskList)).apply(this,arguments));}babelHelpers.createClass(EditDeleteTaskList,[{key:'componentWillMount',value:function componentWillMount()
 {
@@ -82521,7 +82478,7 @@ return{tasks:tasks};
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{tasksFetch:_actions.tasksFetch})(EditDeleteTaskList);
-}, 522, null, "adultifyme/src/components/EditDeleteTaskList.js");
+}, 521, null, "adultifyme/src/components/EditDeleteTaskList.js");
 __d(/* lodash/lodash.js */function(global, require, module, exports) {/**
  * @license
  * Lodash <https://lodash.com/>
@@ -99606,14 +99563,14 @@ freeExports._=_;
 root._=_;
 }
 }).call(this);
-}, 523, null, "lodash/lodash.js");
+}, 522, null, "lodash/lodash.js");
 __d(/* adultifyme/src/components/EditDeleteTaskListItem.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNative=require(12 /* react-native */);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
 var _common=require(504 /* ./common */);
-var _EditIcon=require(525 /* ./EditIcon */);var _EditIcon2=babelHelpers.interopRequireDefault(_EditIcon);
-var _DeleteIcon=require(527 /* ./DeleteIcon */);var _DeleteIcon2=babelHelpers.interopRequireDefault(_DeleteIcon);
+var _EditIcon=require(524 /* ./EditIcon */);var _EditIcon2=babelHelpers.interopRequireDefault(_EditIcon);
+var _DeleteIcon=require(526 /* ./DeleteIcon */);var _DeleteIcon2=babelHelpers.interopRequireDefault(_DeleteIcon);
 var _actions=require(492 /* ../actions */);var
 
 EditDeleteTaskListItem=function(_Component){babelHelpers.inherits(EditDeleteTaskListItem,_Component);function EditDeleteTaskListItem(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,EditDeleteTaskListItem);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=EditDeleteTaskListItem.__proto__||Object.getPrototypeOf(EditDeleteTaskListItem)).call.apply(_ref,[this].concat(args))),_this),_this.
@@ -99644,7 +99601,8 @@ this.setState({showModal:false});
 title=this.props.task.title;var
 category=this.props.task.category;var
 dueDate=this.props.task.dueDate;var
-timeDue=this.props.task.timeDue;
+timeDue=this.props.task.timeDue;var
+personalMotivation=this.props.task.personalMotivation;
 
 return(
 _react2.default.createElement(_common.Card,{style:styles.customCardStyle},
@@ -99652,7 +99610,8 @@ _react2.default.createElement(_common.CardSection,{style:styles.taskCardSectionS
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},
 title,' (',category,')','\n','Due: ',
-dueDate,' ',timeDue))),
+dueDate,' ',timeDue,'\n','\n','\uD83D\uDCAC ',
+personalMotivation))),
 
 
 
@@ -99707,9 +99666,8 @@ borderColor:'#fff'}};exports.default=
 
 
 (0,_reactRedux.connect)(null,{taskDelete:_actions.taskDelete,reminderDelete:_actions.reminderDelete})(EditDeleteTaskListItem);
-}, 524, null, "adultifyme/src/components/EditDeleteTaskListItem.js");
-__d(/* adultifyme/src/components/EditIcon.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 523, null, "adultifyme/src/components/EditDeleteTaskListItem.js");
+__d(/* adultifyme/src/components/EditIcon.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 
 var EditIcon=function EditIcon(_ref){var onPress=_ref.onPress;
@@ -99717,7 +99675,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress},
 _react2.default.createElement(_reactNative.Image,{
 style:styles.editStyle,
-source:require(526 /* ../images/Edit.png */)})));
+source:require(525 /* ../images/Edit.png */)})));
 
 
 
@@ -99731,11 +99689,10 @@ height:40}};exports.default=
 
 
 EditIcon;
-}, 525, null, "adultifyme/src/components/EditIcon.js");
+}, 524, null, "adultifyme/src/components/EditIcon.js");
 __d(/* adultifyme/src/images/Edit.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":24,"height":24,"scales":[1],"hash":"acd3f6fac1d70e3c51865e2934dac907","name":"Edit","type":"png"});
-}, 526, null, "adultifyme/src/images/Edit.png");
-__d(/* adultifyme/src/components/DeleteIcon.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 525, null, "adultifyme/src/images/Edit.png");
+__d(/* adultifyme/src/components/DeleteIcon.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 
 var DeleteIcon=function DeleteIcon(_ref){var onPress=_ref.onPress;
@@ -99743,7 +99700,7 @@ return(
 _react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress},
 _react2.default.createElement(_reactNative.Image,{
 style:styles.deleteStyle,
-source:require(528 /* ../images/Delete.png */)})));
+source:require(527 /* ../images/Delete.png */)})));
 
 
 
@@ -99757,20 +99714,15 @@ height:40}};exports.default=
 
 
 DeleteIcon;
-}, 527, null, "adultifyme/src/components/DeleteIcon.js");
+}, 526, null, "adultifyme/src/components/DeleteIcon.js");
 __d(/* adultifyme/src/images/Delete.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":24,"height":24,"scales":[1],"hash":"55da1db9f34c1f0b9402171233199738","name":"Delete","type":"png"});
-}, 528, null, "adultifyme/src/images/Delete.png");
-__d(/* adultifyme/src/components/RecurringEditDeleteTaskList.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-
-
-
-
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 527, null, "adultifyme/src/images/Delete.png");
+__d(/* adultifyme/src/components/RecurringEditDeleteTaskList.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNative=require(12 /* react-native */);
-var _lodash=require(523 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
+var _lodash=require(522 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
 var _actions=require(492 /* ../actions */);
-var _RecurringEditDeleteTaskListItem=require(530 /* ./RecurringEditDeleteTaskListItem */);var _RecurringEditDeleteTaskListItem2=babelHelpers.interopRequireDefault(_RecurringEditDeleteTaskListItem);var
+var _RecurringEditDeleteTaskListItem=require(529 /* ./RecurringEditDeleteTaskListItem */);var _RecurringEditDeleteTaskListItem2=babelHelpers.interopRequireDefault(_RecurringEditDeleteTaskListItem);var
 
 RecurringEditDeleteTaskList=function(_Component){babelHelpers.inherits(RecurringEditDeleteTaskList,_Component);function RecurringEditDeleteTaskList(){babelHelpers.classCallCheck(this,RecurringEditDeleteTaskList);return babelHelpers.possibleConstructorReturn(this,(RecurringEditDeleteTaskList.__proto__||Object.getPrototypeOf(RecurringEditDeleteTaskList)).apply(this,arguments));}babelHelpers.createClass(RecurringEditDeleteTaskList,[{key:'componentWillMount',value:function componentWillMount()
 {
@@ -99826,7 +99778,6 @@ alignSelf:'center'}};
 
 
 
-
 var mapStateToProps=function mapStateToProps(state){
 var recurringTasks=_lodash2.default.map(state.recurringTasks,function(val,uid){
 return babelHelpers.extends({},val,{uid:uid});
@@ -99840,15 +99791,14 @@ return{recurringTasks:recurringTasks};
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{recurringTasksFetch:_actions.recurringTasksFetch})(RecurringEditDeleteTaskList);
-}, 529, null, "adultifyme/src/components/RecurringEditDeleteTaskList.js");
-__d(/* adultifyme/src/components/RecurringEditDeleteTaskListItem.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 528, null, "adultifyme/src/components/RecurringEditDeleteTaskList.js");
+__d(/* adultifyme/src/components/RecurringEditDeleteTaskListItem.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactRedux=require(400 /* react-redux */);
 var _reactNative=require(12 /* react-native */);
 var _reactNativeRouterFlux=require(443 /* react-native-router-flux */);
 var _common=require(504 /* ./common */);
-var _EditIcon=require(525 /* ./EditIcon */);var _EditIcon2=babelHelpers.interopRequireDefault(_EditIcon);
-var _DeleteIcon=require(527 /* ./DeleteIcon */);var _DeleteIcon2=babelHelpers.interopRequireDefault(_DeleteIcon);
+var _EditIcon=require(524 /* ./EditIcon */);var _EditIcon2=babelHelpers.interopRequireDefault(_EditIcon);
+var _DeleteIcon=require(526 /* ./DeleteIcon */);var _DeleteIcon2=babelHelpers.interopRequireDefault(_DeleteIcon);
 var _actions=require(492 /* ../actions */);var
 
 RecurringEditDeleteTaskListItem=function(_Component){babelHelpers.inherits(RecurringEditDeleteTaskListItem,_Component);function RecurringEditDeleteTaskListItem(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,RecurringEditDeleteTaskListItem);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=RecurringEditDeleteTaskListItem.__proto__||Object.getPrototypeOf(RecurringEditDeleteTaskListItem)).call.apply(_ref,[this].concat(args))),_this),_this.
@@ -99880,7 +99830,8 @@ title=this.props.recurringTask.title;var
 category=this.props.recurringTask.category;var
 startDate=this.props.recurringTask.startDate;var
 recurringTime=this.props.recurringTask.recurringTime;var
-frequency=this.props.recurringTask.frequency;
+frequency=this.props.recurringTask.frequency;var
+personalMotivation=this.props.recurringTask.personalMotivation;
 
 return(
 _react2.default.createElement(_common.Card,{style:styles.customCardStyle},
@@ -99888,7 +99839,8 @@ _react2.default.createElement(_common.CardSection,{style:styles.taskCardSectionS
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},
 title,' (',category,')','\n','Due: ',
-startDate,' ',recurringTime,'\n','Frequency:',
+startDate,
+recurringTime,'\n','Frequency:',
 
 (0,_common.renderIf)(frequency==='hour',
 ' Hourly'),
@@ -99899,8 +99851,11 @@ startDate,' ',recurringTime,'\n','Frequency:',
 
 
 (0,_common.renderIf)(frequency==='week',
-' Weekly')))),
+' Weekly'),
 
+'\n',
+'\n','\uD83D\uDCAC ',
+personalMotivation))),
 
 
 
@@ -99956,14 +99911,13 @@ borderColor:'#fff'}};exports.default=
 
 (0,_reactRedux.connect)(null,{
 recurringTaskDelete:_actions.recurringTaskDelete,recurringReminderDelete:_actions.recurringReminderDelete})(RecurringEditDeleteTaskListItem);
-}, 530, null, "adultifyme/src/components/RecurringEditDeleteTaskListItem.js");
+}, 529, null, "adultifyme/src/components/RecurringEditDeleteTaskListItem.js");
 __d(/* adultifyme/src/components/TaskCreateScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
-var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _actions=require(492 /* ../actions */);
 var _common=require(504 /* ./common */);
-var _TaskForm=require(532 /* ./TaskForm */);var _TaskForm2=babelHelpers.interopRequireDefault(_TaskForm);var
+var _TaskForm=require(531 /* ./TaskForm */);var _TaskForm2=babelHelpers.interopRequireDefault(_TaskForm);var
 
 TaskCreateScreen=function(_Component){babelHelpers.inherits(TaskCreateScreen,_Component);function TaskCreateScreen(){babelHelpers.classCallCheck(this,TaskCreateScreen);return babelHelpers.possibleConstructorReturn(this,(TaskCreateScreen.__proto__||Object.getPrototypeOf(TaskCreateScreen)).apply(this,arguments));}babelHelpers.createClass(TaskCreateScreen,[{key:'componentWillMount',value:function componentWillMount()
 {
@@ -100001,10 +99955,6 @@ reminderID:newId});
 
 if(_reactNative.Platform.OS==='android'){
 this.props.reminderCreate({
-
-
-
-
 title:title,
 description:description,
 personalMotivation:personalMotivation,
@@ -100014,10 +99964,6 @@ timeDue:timeDue,
 reminderID:newId});
 
 }
-}},{key:'onButton2Press',value:function onButton2Press()
-
-{
-_reactNativePushNotification2.default.cancelAllLocalNotifications();
 }},{key:'render',value:function render()
 
 {
@@ -100026,12 +99972,7 @@ _react2.default.createElement(_reactNative.ScrollView,null,
 _react2.default.createElement(_common.Card,{style:styles.formCard},
 _react2.default.createElement(_TaskForm2.default,this.props),
 _react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Create')),
-
-
-
-_react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButton2Press.bind(this)},'Delete All Reminders')))));
+_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Create')))));
 
 
 
@@ -100073,13 +100014,13 @@ reminderID:reminderID};
 
 (0,_reactRedux.connect)(mapStateToProps,
 {createFormStateReset:_actions.createFormStateReset,taskCreate:_actions.taskCreate,reminderCreate:_actions.reminderCreate})(TaskCreateScreen);
-}, 531, null, "adultifyme/src/components/TaskCreateScreen.js");
+}, 530, null, "adultifyme/src/components/TaskCreateScreen.js");
 __d(/* adultifyme/src/components/TaskForm.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
-var _MinDatePickerAndroid=require(533 /* ./MinDatePickerAndroid */);var _MinDatePickerAndroid2=babelHelpers.interopRequireDefault(_MinDatePickerAndroid);
-var _HourMinuteTimePickerAndroid=require(534 /* ./HourMinuteTimePickerAndroid */);var _HourMinuteTimePickerAndroid2=babelHelpers.interopRequireDefault(_HourMinuteTimePickerAndroid);
+var _MinDatePickerAndroid=require(532 /* ./MinDatePickerAndroid */);var _MinDatePickerAndroid2=babelHelpers.interopRequireDefault(_MinDatePickerAndroid);
+var _HourMinuteTimePickerAndroid=require(533 /* ./HourMinuteTimePickerAndroid */);var _HourMinuteTimePickerAndroid2=babelHelpers.interopRequireDefault(_HourMinuteTimePickerAndroid);
 var _common=require(504 /* ./common */);var
 
 TaskForm=function(_Component){babelHelpers.inherits(TaskForm,_Component);function TaskForm(){babelHelpers.classCallCheck(this,TaskForm);return babelHelpers.possibleConstructorReturn(this,(TaskForm.__proto__||Object.getPrototypeOf(TaskForm)).apply(this,arguments));}babelHelpers.createClass(TaskForm,[{key:'render',value:function render()
@@ -100089,7 +100030,7 @@ _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_common.CardSection,{style:styles.formCardSection},
 _react2.default.createElement(_common.Input,{
 label:'Title',
-placeholder:'i.e. Take Vitamin C',
+placeholder:'i.e. Dentist Appointment',
 value:this.props.title,
 onChangeText:function onChangeText(text){return _this2.props.formUpdate({prop:'title',value:text});}})),
 
@@ -100099,7 +100040,7 @@ onChangeText:function onChangeText(text){return _this2.props.formUpdate({prop:'t
 _react2.default.createElement(_common.CardSection,{style:styles.formCardSection},
 _react2.default.createElement(_common.Input,{
 label:'Description',
-placeholder:'i.e. Take 2 pills each evening.',
+placeholder:'i.e. Routine Cleaning',
 value:this.props.description,
 onChangeText:function onChangeText(text){return _this2.props.formUpdate({prop:'description',value:text});}})),
 
@@ -100108,7 +100049,7 @@ onChangeText:function onChangeText(text){return _this2.props.formUpdate({prop:'d
 _react2.default.createElement(_common.CardSection,{style:styles.formCardSection},
 _react2.default.createElement(_common.Input,{
 label:'Personal Motivation',
-placeholder:'i.e. Let\'s not get sick!',
+placeholder:'i.e. Teeth don\'t grow back!',
 value:this.props.personalMotivation,
 onChangeText:function onChangeText(text){return _this2.props.formUpdate({prop:'personalMotivation',value:text});}})),
 
@@ -100194,7 +100135,7 @@ return{title:title,description:description,personalMotivation:personalMotivation
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{formUpdate:_actions.formUpdate})(TaskForm);
-}, 532, null, "adultifyme/src/components/TaskForm.js");
+}, 531, null, "adultifyme/src/components/TaskForm.js");
 __d(/* adultifyme/src/components/MinDatePickerAndroid.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);var
 
@@ -100254,7 +100195,7 @@ alignItems:'center'}};exports.default=
 
 
 MinDatePickerAndroid;
-}, 533, null, "adultifyme/src/components/MinDatePickerAndroid.js");
+}, 532, null, "adultifyme/src/components/MinDatePickerAndroid.js");
 __d(/* adultifyme/src/components/HourMinuteTimePickerAndroid.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);var
 
@@ -100264,6 +100205,8 @@ var _reactNative=require(12 /* react-native */);var
 
 
 HourMinuteTimePickerAndroid=function(_Component){babelHelpers.inherits(HourMinuteTimePickerAndroid,_Component);function HourMinuteTimePickerAndroid(){var _ref,_this2=this;var _temp,_this,_ret;babelHelpers.classCallCheck(this,HourMinuteTimePickerAndroid);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=HourMinuteTimePickerAndroid.__proto__||Object.getPrototypeOf(HourMinuteTimePickerAndroid)).call.apply(_ref,[this].concat(args))),_this),_this.
+
+
 
 
 
@@ -100286,7 +100229,7 @@ action===_reactNative.TimePickerAndroid.dismissedAction)){_context.next=13;break
 'No Time Selected');case 13:_context.next=20;break;case 15:_context.prev=15;_context.t0=_context['catch'](0);
 
 code=_context.t0.code;message=_context.t0.message;
-console.warn('Error in example',message);case 20:case'end':return _context.stop();}}},null,_this2,[[0,15]]);},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(HourMinuteTimePickerAndroid,[{key:'formatTime',value:function formatTime(hour,minute){var formattedHour=hour;var amPM='AM';if(hour>12){formattedHour=hour-12;amPM='PM';}return formattedHour+':'+(minute<10?'0'+minute:minute)+' '+amPM;}},{key:'render',value:function render()
+console.warn('Error in example',message);case 20:case'end':return _context.stop();}}},null,_this2,[[0,15]]);},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(HourMinuteTimePickerAndroid,[{key:'formatTime',value:function formatTime(hour,minute){var formattedHour=hour;var amPM='AM';if(hour>12){formattedHour=hour-12;amPM='PM';}else if(hour===0){formattedHour=12;}return formattedHour+':'+(minute<10?'0'+minute:minute)+' '+amPM;}},{key:'render',value:function render()
 
 
 
@@ -100323,15 +100266,14 @@ alignItems:'center'}};exports.default=
 
 
 HourMinuteTimePickerAndroid;
-}, 534, null, "adultifyme/src/components/HourMinuteTimePickerAndroid.js");
-__d(/* adultifyme/src/components/TaskEditScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _lodash=require(523 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 533, null, "adultifyme/src/components/HourMinuteTimePickerAndroid.js");
+__d(/* adultifyme/src/components/TaskEditScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _lodash=require(522 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
 var _reactNative=require(12 /* react-native */);
-var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
 var _common=require(504 /* ./common */);
-var _TaskForm=require(532 /* ./TaskForm */);var _TaskForm2=babelHelpers.interopRequireDefault(_TaskForm);var
+var _TaskForm=require(531 /* ./TaskForm */);var _TaskForm2=babelHelpers.interopRequireDefault(_TaskForm);var
 
 TaskEditScreen=function(_Component){babelHelpers.inherits(TaskEditScreen,_Component);function TaskEditScreen(){babelHelpers.classCallCheck(this,TaskEditScreen);return babelHelpers.possibleConstructorReturn(this,(TaskEditScreen.__proto__||Object.getPrototypeOf(TaskEditScreen)).apply(this,arguments));}babelHelpers.createClass(TaskEditScreen,[{key:'componentWillMount',value:function componentWillMount()
 {var _this2=this;
@@ -100383,10 +100325,6 @@ timeDue:timeDue,
 reminderID:reminderID});
 
 }
-}},{key:'onButton2Press',value:function onButton2Press()
-
-{
-_reactNativePushNotification2.default.cancelAllLocalNotifications();
 }},{key:'render',value:function render()
 
 {
@@ -100395,12 +100333,7 @@ _react2.default.createElement(_reactNative.ScrollView,null,
 _react2.default.createElement(_common.Card,{style:styles.formCard},
 _react2.default.createElement(_TaskForm2.default,this.props),
 _react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Save Changes')),
-
-
-
-_react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButton2Press.bind(this)},'Delete All Reminders')))));
+_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Save Changes')))));
 
 
 
@@ -100431,9 +100364,8 @@ return{title:title,description:description,personalMotivation:personalMotivation
 (0,_reactRedux.connect)(mapStateToProps,{
 formUpdate:_actions.formUpdate,taskSave:_actions.taskSave,reminderSave:_actions.reminderSave})(
 TaskEditScreen);
-}, 535, null, "adultifyme/src/components/TaskEditScreen.js");
+}, 534, null, "adultifyme/src/components/TaskEditScreen.js");
 __d(/* adultifyme/src/components/RecurringTaskCreateScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
@@ -100442,7 +100374,7 @@ var _actions=require(492 /* ../actions */);
 
 
 var _common=require(504 /* ./common */);
-var _RecurringTaskForm=require(537 /* ./RecurringTaskForm */);var _RecurringTaskForm2=babelHelpers.interopRequireDefault(_RecurringTaskForm);var
+var _RecurringTaskForm=require(536 /* ./RecurringTaskForm */);var _RecurringTaskForm2=babelHelpers.interopRequireDefault(_RecurringTaskForm);var
 
 RecurringTaskCreateScreen=function(_Component){babelHelpers.inherits(RecurringTaskCreateScreen,_Component);function RecurringTaskCreateScreen(){babelHelpers.classCallCheck(this,RecurringTaskCreateScreen);return babelHelpers.possibleConstructorReturn(this,(RecurringTaskCreateScreen.__proto__||Object.getPrototypeOf(RecurringTaskCreateScreen)).apply(this,arguments));}babelHelpers.createClass(RecurringTaskCreateScreen,[{key:'componentWillMount',value:function componentWillMount()
 {
@@ -100474,7 +100406,7 @@ title:title,
 description:description,
 personalMotivation:personalMotivation,
 category:category||'Finance',
-frequency:frequency||'minute',
+frequency:frequency||'hour',
 startDate:startDate,
 recurringTime:recurringTime,
 reminderID:newId});
@@ -100490,16 +100422,12 @@ title:title,
 description:description,
 personalMotivation:personalMotivation,
 category:category||'Finance',
-frequency:frequency||'minute',
+frequency:frequency||'hour',
 startDate:startDate,
 recurringTime:recurringTime,
 reminderID:newId});
 
 }
-}},{key:'onButton2Press',value:function onButton2Press()
-
-{
-_reactNativePushNotification2.default.cancelAllLocalNotifications();
 }},{key:'render',value:function render()
 
 {
@@ -100508,12 +100436,7 @@ _react2.default.createElement(_reactNative.ScrollView,null,
 _react2.default.createElement(_common.Card,{style:styles.formCard},
 _react2.default.createElement(_RecurringTaskForm2.default,this.props),
 _react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Create')),
-
-
-
-_react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButton2Press.bind(this)},'Delete All Reminders')))));
+_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Create')))));
 
 
 
@@ -100558,14 +100481,18 @@ reminderID:reminderID};
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,
-{recurringCreateFormStateReset:_actions.recurringCreateFormStateReset,recurringTaskCreate:_actions.recurringTaskCreate,recurringReminderCreate:_actions.recurringReminderCreate})(RecurringTaskCreateScreen);
-}, 536, null, "adultifyme/src/components/RecurringTaskCreateScreen.js");
+{
+recurringCreateFormStateReset:_actions.recurringCreateFormStateReset,
+recurringTaskCreate:_actions.recurringTaskCreate,
+recurringReminderCreate:_actions.recurringReminderCreate})(
+RecurringTaskCreateScreen);
+}, 535, null, "adultifyme/src/components/RecurringTaskCreateScreen.js");
 __d(/* adultifyme/src/components/RecurringTaskForm.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
-var _MinDatePickerAndroid=require(533 /* ./MinDatePickerAndroid */);var _MinDatePickerAndroid2=babelHelpers.interopRequireDefault(_MinDatePickerAndroid);
-var _HourMinuteTimePickerAndroid=require(534 /* ./HourMinuteTimePickerAndroid */);var _HourMinuteTimePickerAndroid2=babelHelpers.interopRequireDefault(_HourMinuteTimePickerAndroid);
+var _MinDatePickerAndroid=require(532 /* ./MinDatePickerAndroid */);var _MinDatePickerAndroid2=babelHelpers.interopRequireDefault(_MinDatePickerAndroid);
+var _HourMinuteTimePickerAndroid=require(533 /* ./HourMinuteTimePickerAndroid */);var _HourMinuteTimePickerAndroid2=babelHelpers.interopRequireDefault(_HourMinuteTimePickerAndroid);
 var _common=require(504 /* ./common */);var
 
 RecurringTaskForm=function(_Component){babelHelpers.inherits(RecurringTaskForm,_Component);function RecurringTaskForm(){babelHelpers.classCallCheck(this,RecurringTaskForm);return babelHelpers.possibleConstructorReturn(this,(RecurringTaskForm.__proto__||Object.getPrototypeOf(RecurringTaskForm)).apply(this,arguments));}babelHelpers.createClass(RecurringTaskForm,[{key:'render',value:function render()
@@ -100607,7 +100534,7 @@ function onChangeText(text){return _this2.props.recurringFormUpdate({prop:'perso
 _react2.default.createElement(_common.CardSection,{style:styles.formCardSection},
 _react2.default.createElement(_reactNative.Text,{style:styles.pickerTextStyle},'Category'),
 _react2.default.createElement(_reactNative.Picker,{
-style:styles.pickerStyle,
+style:styles.categoryPickerStyle,
 selectedValue:this.props.category,
 onValueChange:
 function onValueChange(selection){return _this2.props.recurringFormUpdate({prop:'category',value:selection});}},
@@ -100633,7 +100560,6 @@ onValueChange:
 function onValueChange(selection){return _this2.props.recurringFormUpdate({prop:'frequency',value:selection});}},
 
 
-_react2.default.createElement(_reactNative.Picker.Item,{label:'Minute',value:'minute'}),
 _react2.default.createElement(_reactNative.Picker.Item,{label:'Hour',value:'hour'}),
 _react2.default.createElement(_reactNative.Picker.Item,{label:'Day',value:'day'}),
 _react2.default.createElement(_reactNative.Picker.Item,{label:'Week',value:'week'}))),
@@ -100705,15 +100631,14 @@ title:title,description:description,personalMotivation:personalMotivation,catego
 };exports.default=
 
 (0,_reactRedux.connect)(mapStateToProps,{recurringFormUpdate:_actions.recurringFormUpdate})(RecurringTaskForm);
-}, 537, null, "adultifyme/src/components/RecurringTaskForm.js");
-__d(/* adultifyme/src/components/RecurringTaskEditScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _lodash=require(523 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 536, null, "adultifyme/src/components/RecurringTaskForm.js");
+__d(/* adultifyme/src/components/RecurringTaskEditScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+var _lodash=require(522 /* lodash */);var _lodash2=babelHelpers.interopRequireDefault(_lodash);
 var _reactNative=require(12 /* react-native */);
-var _reactNativePushNotification=require(498 /* react-native-push-notification */);var _reactNativePushNotification2=babelHelpers.interopRequireDefault(_reactNativePushNotification);
 var _reactRedux=require(400 /* react-redux */);
 var _actions=require(492 /* ../actions */);
 var _common=require(504 /* ./common */);
-var _RecurringTaskForm=require(537 /* ./RecurringTaskForm */);var _RecurringTaskForm2=babelHelpers.interopRequireDefault(_RecurringTaskForm);var
+var _RecurringTaskForm=require(536 /* ./RecurringTaskForm */);var _RecurringTaskForm2=babelHelpers.interopRequireDefault(_RecurringTaskForm);var
 
 RecurringTaskEditScreen=function(_Component){babelHelpers.inherits(RecurringTaskEditScreen,_Component);function RecurringTaskEditScreen(){babelHelpers.classCallCheck(this,RecurringTaskEditScreen);return babelHelpers.possibleConstructorReturn(this,(RecurringTaskEditScreen.__proto__||Object.getPrototypeOf(RecurringTaskEditScreen)).apply(this,arguments));}babelHelpers.createClass(RecurringTaskEditScreen,[{key:'componentWillMount',value:function componentWillMount()
 {var _this2=this;
@@ -100756,10 +100681,6 @@ startDate:startDate,
 recurringTime:recurringTime,
 reminderID:reminderID});
 
-}},{key:'onButton2Press',value:function onButton2Press()
-
-{
-_reactNativePushNotification2.default.cancelAllLocalNotifications();
 }},{key:'render',value:function render()
 
 {
@@ -100768,12 +100689,7 @@ _react2.default.createElement(_reactNative.ScrollView,null,
 _react2.default.createElement(_common.Card,{style:styles.formCard},
 _react2.default.createElement(_RecurringTaskForm2.default,this.props),
 _react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Save Changes')),
-
-
-
-_react2.default.createElement(_common.CardSection,{style:styles.buttonCardSection},
-_react2.default.createElement(_common.Button,{onPress:this.onButton2Press.bind(this)},'Delete All Reminders')))));
+_react2.default.createElement(_common.Button,{onPress:this.onButtonPress.bind(this)},'Save Changes')))));
 
 
 
@@ -100820,28 +100736,39 @@ reminderID:reminderID};
 (0,_reactRedux.connect)(mapStateToProps,{
 recurringFormUpdate:_actions.recurringFormUpdate,recurringTaskSave:_actions.recurringTaskSave,recurringReminderSave:_actions.recurringReminderSave})(
 RecurringTaskEditScreen);
-}, 538, null, "adultifyme/src/components/RecurringTaskEditScreen.js");
-__d(/* adultifyme/src/components/AccountInfoScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNative=require(12 /* react-native */);
-
-var AccountInfoScreen=function AccountInfoScreen(){
-return(
-_react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Account Info will live here')));
-
-
-};exports.default=
-
-AccountInfoScreen;
-}, 539, null, "adultifyme/src/components/AccountInfoScreen.js");
-__d(/* adultifyme/src/components/AppAboutScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
+}, 537, null, "adultifyme/src/components/RecurringTaskEditScreen.js");
+__d(/* adultifyme/src/components/AppAboutScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(279 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(12 /* react-native */);
 
 var AppAboutScreen=function AppAboutScreen(){
 return(
 _react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
+_react2.default.createElement(_reactNative.Text,{style:styles.headerStyle},'App'),
+
+
+_react2.default.createElement(_reactNative.Text,{
+style:styles.textStyle},'Created as Jennifer Owens\u2019 Ada Developers Academy solo capstone project, this app is the culmination of 5 months of classroom instruction and 1 month of development time. It is intended to showcase skills learned via self-study, use of new languages and concepts, and follow-through by completing an independently planned product using sound project management principles.'),
+
+
+
+_react2.default.createElement(_reactNative.Text,{
+style:styles.linkStyle,
+onPress:function onPress(){return _reactNative.Linking.openURL('http://adadevelopersacademy.org/');}},'Ada Developers Academy website'),
+
+
+
+_react2.default.createElement(_reactNative.Text,{
+style:styles.linkStyle,
+onPress:function onPress(){return _reactNative.Linking.openURL('https://github.com/jmojennifer/adultifyme');}},'Github repo'),
+
+
+
+_react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
+_react2.default.createElement(_reactNative.Text,{
+style:styles.headerStyle},'Credits'),
+
+
+
 _react2.default.createElement(_reactNative.Text,{
 style:styles.textStyle},'Task icons provided by icon8'),
 
@@ -100855,7 +100782,8 @@ onPress:function onPress(){return _reactNative.Linking.openURL('https://icons8.c
 
 _react2.default.createElement(_reactNative.Text,{
 style:styles.linkStyle,
-onPress:function onPress(){return _reactNative.Linking.openURL('https://icons8.com/web-app/5571/Delete');}},'Delete icon')));
+onPress:function onPress(){return _reactNative.Linking.openURL('https://icons8.com/web-app/5571/Delete');}},'Delete icon'))));
+
 
 
 
@@ -100867,26 +100795,36 @@ var styles={
 containerStyle:{
 alignItems:'center'},
 
-textStyle:{
+
+headerStyle:{
 fontWeight:'bold',
 fontSize:18,
 paddingBottom:5},
 
+textStyle:{
+fontWeight:'bold',
+fontSize:15,
+textAlign:'center',
+paddingBottom:10,
+paddingLeft:30,
+paddingRight:30},
+
 linkStyle:{
 color:'#22333B',
 fontWeight:'bold',
-fontSize:18}};exports.default=
+textAlign:'justify',
+fontSize:15,
+paddingBottom:10}};exports.default=
 
 
 
 AppAboutScreen;
-}, 540, null, "adultifyme/src/components/AppAboutScreen.js");
+}, 538, null, "adultifyme/src/components/AppAboutScreen.js");
 __d(/* adultifyme/src/images/back_button.png */function(global, require, module, exports) {module.exports = require(171 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"httpServerLocation":"/assets/src/images","width":256,"height":256,"scales":[1],"hash":"ad4b3fa2bac7f029a136f706fe34181a","name":"back_button","type":"png"});
-}, 541, null, "adultifyme/src/images/back_button.png");
-__d(/* adultifyme/src/store.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _redux=require(411 /* redux */);
-var _reduxThunk=require(543 /* redux-thunk */);var _reduxThunk2=babelHelpers.interopRequireDefault(_reduxThunk);
-var _reducers=require(544 /* ./reducers */);var _reducers2=babelHelpers.interopRequireDefault(_reducers);
+}, 539, null, "adultifyme/src/images/back_button.png");
+__d(/* adultifyme/src/store.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(411 /* redux */);
+var _reduxThunk=require(541 /* redux-thunk */);var _reduxThunk2=babelHelpers.interopRequireDefault(_reduxThunk);
+var _reducers=require(542 /* ./reducers */);var _reducers2=babelHelpers.interopRequireDefault(_reducers);
 
 var store=(0,_redux.createStore)(_reducers2.default,{},(0,_redux.compose)(
 (0,_redux.applyMiddleware)(_reduxThunk2.default)));exports.default=
@@ -100894,7 +100832,7 @@ var store=(0,_redux.createStore)(_reducers2.default,{},(0,_redux.compose)(
 
 
 store;
-}, 542, null, "adultifyme/src/store.js");
+}, 540, null, "adultifyme/src/store.js");
 __d(/* redux-thunk/lib/index.js */function(global, require, module, exports) {'use strict';
 
 exports.__esModule=true;
@@ -100918,16 +100856,16 @@ var thunk=createThunkMiddleware();
 thunk.withExtraArgument=createThunkMiddleware;
 
 exports['default']=thunk;
-}, 543, null, "redux-thunk/lib/index.js");
+}, 541, null, "redux-thunk/lib/index.js");
 __d(/* adultifyme/src/reducers/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(411 /* redux */);
-var _AuthReducer=require(545 /* ./AuthReducer */);var _AuthReducer2=babelHelpers.interopRequireDefault(_AuthReducer);
-var _TaskFormReducer=require(546 /* ./TaskFormReducer */);var _TaskFormReducer2=babelHelpers.interopRequireDefault(_TaskFormReducer);
-var _TaskReducer=require(547 /* ./TaskReducer */);var _TaskReducer2=babelHelpers.interopRequireDefault(_TaskReducer);
-var _ReminderReducer=require(548 /* ./ReminderReducer */);var _ReminderReducer2=babelHelpers.interopRequireDefault(_ReminderReducer);
-var _RecurringTaskFormReducer=require(549 /* ./RecurringTaskFormReducer */);var _RecurringTaskFormReducer2=babelHelpers.interopRequireDefault(_RecurringTaskFormReducer);
-var _RecurringTaskReducer=require(550 /* ./RecurringTaskReducer */);var _RecurringTaskReducer2=babelHelpers.interopRequireDefault(_RecurringTaskReducer);
-var _RecurringReminderReducer=require(551 /* ./RecurringReminderReducer */);var _RecurringReminderReducer2=babelHelpers.interopRequireDefault(_RecurringReminderReducer);
-var _StarCountReducer=require(552 /* ./StarCountReducer */);var _StarCountReducer2=babelHelpers.interopRequireDefault(_StarCountReducer);exports.default=
+var _AuthReducer=require(543 /* ./AuthReducer */);var _AuthReducer2=babelHelpers.interopRequireDefault(_AuthReducer);
+var _TaskFormReducer=require(544 /* ./TaskFormReducer */);var _TaskFormReducer2=babelHelpers.interopRequireDefault(_TaskFormReducer);
+var _TaskReducer=require(545 /* ./TaskReducer */);var _TaskReducer2=babelHelpers.interopRequireDefault(_TaskReducer);
+var _ReminderReducer=require(546 /* ./ReminderReducer */);var _ReminderReducer2=babelHelpers.interopRequireDefault(_ReminderReducer);
+var _RecurringTaskFormReducer=require(547 /* ./RecurringTaskFormReducer */);var _RecurringTaskFormReducer2=babelHelpers.interopRequireDefault(_RecurringTaskFormReducer);
+var _RecurringTaskReducer=require(548 /* ./RecurringTaskReducer */);var _RecurringTaskReducer2=babelHelpers.interopRequireDefault(_RecurringTaskReducer);
+var _RecurringReminderReducer=require(549 /* ./RecurringReminderReducer */);var _RecurringReminderReducer2=babelHelpers.interopRequireDefault(_RecurringReminderReducer);
+var _StarCountReducer=require(550 /* ./StarCountReducer */);var _StarCountReducer2=babelHelpers.interopRequireDefault(_StarCountReducer);exports.default=
 
 (0,_redux.combineReducers)({
 auth:_AuthReducer2.default,
@@ -100938,7 +100876,7 @@ recurringTaskForm:_RecurringTaskFormReducer2.default,
 recurringTasks:_RecurringTaskReducer2.default,
 recurringReminders:_RecurringReminderReducer2.default,
 starCounts:_StarCountReducer2.default});
-}, 544, null, "adultifyme/src/reducers/index.js");
+}, 542, null, "adultifyme/src/reducers/index.js");
 __d(/* adultifyme/src/reducers/AuthReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
 
 
@@ -100971,8 +100909,11 @@ default:
 return state;}
 
 };
-}, 545, null, "adultifyme/src/reducers/AuthReducer.js");
+}, 543, null, "adultifyme/src/reducers/AuthReducer.js");
 __d(/* adultifyme/src/reducers/TaskFormReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
+
+
+
 
 
 
@@ -101003,10 +100944,8 @@ default:
 return state;}
 
 };
-}, 546, null, "adultifyme/src/reducers/TaskFormReducer.js");
+}, 544, null, "adultifyme/src/reducers/TaskFormReducer.js");
 __d(/* adultifyme/src/reducers/TaskReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
-
-
 
 var INITIAL_STATE={};exports.default=
 
@@ -101018,7 +100957,7 @@ default:
 return state;}
 
 };
-}, 547, null, "adultifyme/src/reducers/TaskReducer.js");
+}, 545, null, "adultifyme/src/reducers/TaskReducer.js");
 __d(/* adultifyme/src/reducers/ReminderReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
 
 
@@ -101039,7 +100978,7 @@ default:
 return state;}
 
 };
-}, 548, null, "adultifyme/src/reducers/ReminderReducer.js");
+}, 546, null, "adultifyme/src/reducers/ReminderReducer.js");
 __d(/* adultifyme/src/reducers/RecurringTaskFormReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
 
 
@@ -101075,10 +101014,8 @@ default:
 return state;}
 
 };
-}, 549, null, "adultifyme/src/reducers/RecurringTaskFormReducer.js");
+}, 547, null, "adultifyme/src/reducers/RecurringTaskFormReducer.js");
 __d(/* adultifyme/src/reducers/RecurringTaskReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
-
-
 
 var INITIAL_STATE={};exports.default=
 
@@ -101090,7 +101027,7 @@ default:
 return state;}
 
 };
-}, 550, null, "adultifyme/src/reducers/RecurringTaskReducer.js");
+}, 548, null, "adultifyme/src/reducers/RecurringTaskReducer.js");
 __d(/* adultifyme/src/reducers/RecurringReminderReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
 
 
@@ -101111,7 +101048,7 @@ default:
 return state;}
 
 };
-}, 551, null, "adultifyme/src/reducers/RecurringReminderReducer.js");
+}, 549, null, "adultifyme/src/reducers/RecurringReminderReducer.js");
 __d(/* adultifyme/src/reducers/StarCountReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _types=require(494 /* ../actions/types */);
 
 var INITIAL_STATE={};exports.default=
@@ -101126,7 +101063,7 @@ default:
 return state;}
 
 };
-}, 552, null, "adultifyme/src/reducers/StarCountReducer.js");
+}, 550, null, "adultifyme/src/reducers/StarCountReducer.js");
 ;require(191);
 ;require(0);
 //# sourceMappingURL=/index.android.map?platform=android

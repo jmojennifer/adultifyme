@@ -38,13 +38,14 @@ class RecurringEditDeleteTaskListItem extends Component {
     const { recurringTime } = this.props.recurringTask;
     const { frequency } = this.props.recurringTask;
     const { personalMotivation } = this.props.recurringTask;
+    const { description } = this.props.recurringTask;
 
     return (
       <Card style={styles.customCardStyle} >
         <CardSection style={styles.taskCardSectionStyle}>
           <View>
             <Text style={styles.textStyle}>
-              {title} ({category}){'\n'}
+              {title} ({category}){'\n'}{'\n'}
               Starting: {startDate} {recurringTime}{'\n'}
               Frequency:
               {renderIf(frequency === 'hour',
@@ -60,7 +61,8 @@ class RecurringEditDeleteTaskListItem extends Component {
               )}
               {'\n'}
               {'\n'}
-              💬 {personalMotivation}
+              💬 {personalMotivation}{'\n'}{'\n'}
+              Description: {description}
             </Text>
           </View>
         </CardSection>

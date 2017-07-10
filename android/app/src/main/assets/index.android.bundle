@@ -99602,7 +99602,8 @@ title=this.props.task.title;var
 category=this.props.task.category;var
 dueDate=this.props.task.dueDate;var
 timeDue=this.props.task.timeDue;var
-personalMotivation=this.props.task.personalMotivation;
+personalMotivation=this.props.task.personalMotivation;var
+description=this.props.task.description;
 
 return(
 _react2.default.createElement(_common.Card,{style:styles.customCardStyle},
@@ -99611,7 +99612,8 @@ _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},
 title,' (',category,')','\n','Due: ',
 dueDate,' ',timeDue,'\n','\n','\uD83D\uDCAC ',
-personalMotivation))),
+personalMotivation,'\n','\n','Description: ',
+description))),
 
 
 
@@ -99831,14 +99833,15 @@ category=this.props.recurringTask.category;var
 startDate=this.props.recurringTask.startDate;var
 recurringTime=this.props.recurringTask.recurringTime;var
 frequency=this.props.recurringTask.frequency;var
-personalMotivation=this.props.recurringTask.personalMotivation;
+personalMotivation=this.props.recurringTask.personalMotivation;var
+description=this.props.recurringTask.description;
 
 return(
 _react2.default.createElement(_common.Card,{style:styles.customCardStyle},
 _react2.default.createElement(_common.CardSection,{style:styles.taskCardSectionStyle},
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Text,{style:styles.textStyle},
-title,' (',category,')','\n','Starting: ',
+title,' (',category,')','\n','\n','Starting: ',
 startDate,' ',recurringTime,'\n','Frequency:',
 
 (0,_common.renderIf)(frequency==='hour',
@@ -99854,7 +99857,8 @@ startDate,' ',recurringTime,'\n','Frequency:',
 
 '\n',
 '\n','\uD83D\uDCAC ',
-personalMotivation))),
+personalMotivation,'\n','\n','Description: ',
+description))),
 
 
 

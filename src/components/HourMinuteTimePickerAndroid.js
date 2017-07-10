@@ -15,6 +15,8 @@ class HourMinuteTimePickerAndroid extends Component {
       amPM = 'PM';
     } else if (hour === 0) {
       formattedHour = 12;
+    } else {
+      amPM = 'PM';
     }
     return `${formattedHour}:${(minute < 10 ? `0${minute}` : minute)} ${amPM}`;
   }

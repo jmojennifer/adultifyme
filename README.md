@@ -6,7 +6,7 @@ Here's my [Capstone Product Plan](https://gist.github.com/jmojennifer/3495ec4c4d
 
 And here's my React Native MVP in action!
 
-![Slideshow of screens from the Adultify Me app](https://s3-us-west-2.amazonaws.com/jmojennifer/Capstone.gif "Adultify Me")
+<img src="https://s3-us-west-2.amazonaws.com/jmojennifer/Capstone.gif" alt="Slideshow of screens from the Adultify Me app" width="245" height="418">
 
 I was able to accomplish:
 * Authentication and data storage via Google Firebase

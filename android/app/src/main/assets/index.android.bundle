@@ -100216,6 +100216,8 @@ HourMinuteTimePickerAndroid=function(_Component){babelHelpers.inherits(HourMinut
 
 
 
+
+
 showPicker=function _callee(options){var _ref2,action,minute,hour,code,message;return regeneratorRuntime.async(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;_context.next=3;return regeneratorRuntime.awrap(
 
 _reactNative.TimePickerAndroid.open(options));case 3:_ref2=_context.sent;action=_ref2.action;minute=_ref2.minute;hour=_ref2.hour;if(!(
@@ -100228,7 +100230,7 @@ action===_reactNative.TimePickerAndroid.dismissedAction)){_context.next=13;break
 'No Time Selected');case 13:_context.next=20;break;case 15:_context.prev=15;_context.t0=_context['catch'](0);
 
 code=_context.t0.code;message=_context.t0.message;
-console.warn('Error in example',message);case 20:case'end':return _context.stop();}}},null,_this2,[[0,15]]);},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(HourMinuteTimePickerAndroid,[{key:'formatTime',value:function formatTime(hour,minute){var formattedHour=hour;var amPM='AM';if(hour>12){formattedHour=hour-12;amPM='PM';}else if(hour===0){formattedHour=12;}return formattedHour+':'+(minute<10?'0'+minute:minute)+' '+amPM;}},{key:'render',value:function render()
+console.warn('Error in example',message);case 20:case'end':return _context.stop();}}},null,_this2,[[0,15]]);},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(HourMinuteTimePickerAndroid,[{key:'formatTime',value:function formatTime(hour,minute){var formattedHour=hour;var amPM='AM';if(hour>12){formattedHour=hour-12;amPM='PM';}else if(hour===0){formattedHour=12;}else{amPM='PM';}return formattedHour+':'+(minute<10?'0'+minute:minute)+' '+amPM;}},{key:'render',value:function render()
 
 
 

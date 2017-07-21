@@ -9,15 +9,21 @@ import {
 class HourMinuteTimePickerAndroid extends Component {
   formatTime(hour, minute) {
     let formattedHour = hour;
-    let amPM = 'AM';
-    if (hour > 12) {
+    let amPM;
+
+    if (hour === 0) {
+      amPM = 'AM';
+      formattedHour = 12;
+    } else if (hour > 0 && hour < 12) {
+      amPM = 'AM';
+      formattedHour = hour;
+    } else if (hour === 12) {
+      amPM = 'PM';
+    } else if (hour > 12) {
       formattedHour = hour - 12;
       amPM = 'PM';
-    } else if (hour === 0) {
-      formattedHour = 12;
-    } else {
-      amPM = 'PM';
     }
+
     return `${formattedHour}:${(minute < 10 ? `0${minute}` : minute)} ${amPM}`;
   }
 
